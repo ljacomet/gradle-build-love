@@ -1,0 +1,38 @@
+
+// Default mixins and settings -----------------
+@import "_mixins";
+@import "_settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see _settings.scss)
+$mainFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+$mainColor: black;
+$headingFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+$headingColor: black;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: white;
+$linkColor: #1ba8cb;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+$heading1Size: 3em;
+$heading2Size: 2em;
+$heading3Size: 1.5em;
+$heading4Size: 1em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+// Theme template ------------------------------
+@import "_theme";
+// ---------------------------------------------

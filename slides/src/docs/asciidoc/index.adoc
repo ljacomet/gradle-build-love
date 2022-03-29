@@ -1,0 +1,7 @@
+= Donnez de l'amour à votre build, il vous le rendra !
+Louis Jacomet & Paul Merlin
+2022-04-20
+
+include::chapters/_1_intro.adoc[]
+
+include::chapters/_2_who.adoc[]
