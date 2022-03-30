@@ -1,6 +1,7 @@
 import org.asciidoctor.gradle.jvm.slides.RevealJSOptions
 
 plugins {
+    base
     id("org.asciidoctor.jvm.gems") version "3.3.0"
     id("org.asciidoctor.jvm.revealjs") version "3.3.0"
     id("com.github.salomonbrys.gradle.sass") version "1.2.0"
@@ -75,7 +76,7 @@ tasks {
             )
         )
     }
-    register("asciidoctor") {
+    assemble {
         dependsOn(asciidoctorRevealJs)
     }
 }
