@@ -124,7 +124,12 @@ tasks {
         inputs.dir(workingDir)
         outputs.dir(workingDir.resolve(outDirPath))
     }
+    val zipHtml by registering(Zip::class) {
+        archiveBaseName.set("slides")
+        from(asciidoctorRevealJs.map { it.outputDir })
+        into("slides")
+    }
     assemble {
-        dependsOn(asciidoctorRevealJs, exportPdf)
+        dependsOn(asciidoctorRevealJs, zipHtml, exportPdf)
     }
 }

@@ -17,6 +17,18 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
 
-    - name: Build slides
+    - name: Build Slides
       run: xvfb-run ./slides/gradlew -p slides build
+
+    - name: Upload Slides Archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: slides.zip
+        path: slides/build/distributions/slides.zip
+
+    - name: Upload Slides PDF
+      uses: actions/upload-artifact@v3
+      with:
+        name: slides.pdf
+        path: slides/build/pdf/slides.pdf
 
