@@ -1,14 +1,29 @@
+import io.freefair.gradle.plugins.sass.SassCompile
 import org.asciidoctor.gradle.jvm.slides.RevealJSOptions
+import sass.embedded_protocol.EmbeddedSass
 
 plugins {
-    base
-    id("org.asciidoctor.jvm.gems") version "3.3.0"
-    id("org.asciidoctor.jvm.revealjs") version "3.3.0"
-    id("com.github.salomonbrys.gradle.sass") version "1.2.0"
+    `java-base`
+    id("org.asciidoctor.jvm.revealjs") version "3.3.2"
+    id("io.freefair.sass-base") version "6.4.1"
+}
+
+val requiredJavaVersion = JavaVersion.VERSION_11
+val wrongJavaVersionMessage = "This build must be run with a JavaFX enabled JDK version $requiredJavaVersion."
+try {
+    Class.forName("javafx.application.Application")
+    if (JavaVersion.current() != requiredJavaVersion) throw Exception(wrongJavaVersionMessage)
+} catch (ignore: Exception) {
+    throw Exception(wrongJavaVersionMessage)
 }
 
 repositories {
     mavenCentral()
+    jcenter {
+        content {
+            includeModule("me.champeau.deck2pdf", "deck2pdf")
+        }
+    }
     withGroovyBuilder {
         "ruby" {
             "gems"()
@@ -17,6 +32,7 @@ repositories {
 }
 
 asciidoctorj {
+    setVersion("2.5.3")
     fatalWarnings(missingIncludes())
     modules {
         diagram.use()
@@ -32,10 +48,26 @@ revealjs {
     }
 }
 
+sass {
+    omitSourceMapUrl.set(true)
+    sourceMapContents.set(false)
+    sourceMapEmbed.set(false)
+    sourceMapEnabled.set(false)
+    outputStyle.set(EmbeddedSass.OutputStyle.EXPANDED)
+}
+
+val pdfConfiguration: Configuration by configurations.creating
+dependencies {
+    pdfConfiguration("me.champeau.deck2pdf:deck2pdf:0.3.0")
+}
+
 tasks {
-    sassCompile {
-        source = layout.projectDirectory.dir("src/style").asFileTree
-        outputDir = layout.buildDirectory.dir("style").get().asFile
+    withType<Copy>().configureEach {
+        duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.WARN
+    }
+    val sassCompile by registering(SassCompile::class) {
+        source(layout.projectDirectory.dir("src/style"))
+        destinationDir.set(layout.buildDirectory.dir("style"))
     }
     asciidoctorRevealJs {
         dependsOn(sassCompile)
@@ -46,9 +78,12 @@ tasks {
                 include("**")
                 into("images")
             }
+            from(sassCompile.map { it.destinationDir }) {
+                into("style")
+            }
         }
+        theme = "simple"
         revealjsOptions {
-            setCustomThemeLocation(sassCompile.map { it.outputDir.resolve("gradle.css") })
             setControls(true)
             setSlideNumber("c/t")
             setProgressBar(true)
@@ -76,7 +111,20 @@ tasks {
             )
         )
     }
-    assemble {
+    val exportPdf by registering(JavaExec::class) {
         dependsOn(asciidoctorRevealJs)
+
+        classpath = pdfConfiguration
+        mainClass.set("me.champeau.deck2pdf.Main")
+
+        workingDir(asciidoctorRevealJs.map { it.outputDir })
+        val outDirPath = "../../pdf"
+        args = listOf("index.html", "$outDirPath/slides.pdf", "--profile=revealjs")
+
+        inputs.dir(workingDir)
+        outputs.dir(workingDir.resolve(outDirPath))
+    }
+    assemble {
+        dependsOn(asciidoctorRevealJs, exportPdf)
     }
 }
