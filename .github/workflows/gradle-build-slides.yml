@@ -14,9 +14,9 @@ jobs:
         java-package: jdk+fx
         distribution: zulu
         
-    - name: Build slides
+    - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
-      with:
-        arguments: build
-        build-root-directory: slides
+
+    - name: Build slides
+      run: xvfb-run ./slides/gradlew -p slides build
 
