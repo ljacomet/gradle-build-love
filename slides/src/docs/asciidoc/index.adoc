@@ -2,6 +2,8 @@
 Louis Jacomet & Paul Merlin
 2022-04-20
 
+include::chapters/_0_abstract.adoc[]
+
 include::chapters/_1_intro.adoc[]
 
 include::chapters/_2_who.adoc[]
