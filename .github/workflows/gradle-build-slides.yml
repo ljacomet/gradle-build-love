@@ -1,0 +1,21 @@
+name: Build slides
+on: [pull_request, push]
+jobs:
+  gradle:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        distribution: temurin
+        java-version: 11
+        
+    - name: Build slides
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build
+        build-root-directory: slides
+
