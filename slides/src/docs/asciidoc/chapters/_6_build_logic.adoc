@@ -1,0 +1,9 @@
+== Logique de build
+
+```
+* Phases de build: init, configuration, task graph, execution
+* Building blocks: plugin, DSL extensions, tasks
+* Lazy configuration: properties/providers, containers, extensions => tasks
+* Service injection
+* Testing (testkit, approche générale, comment tester des scénarios et lesquels sont importants)
+```

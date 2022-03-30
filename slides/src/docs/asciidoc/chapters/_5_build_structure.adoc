@@ -1,0 +1,13 @@
+== Structure de build
+
+```
+* Multi-project builds
+* Build logic
+** Convention plugin
+** buildSrc vs. included build for build logic
+* Composite builds
+** Common build logic
+** Multi-software build
+* Monorepo vs. multirepo
+** Orthogonal to composite builds
+```

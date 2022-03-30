@@ -1,0 +1,10 @@
+== Performance
+
+```
+* Mesure mesure mesure - gradle-profiler
+* Sanity check: enable parallel, build-cache
+* Memory management (Xmx anyone?)
+* Dependency resolution (e.g. dynamic versions, repo presence/order/filtering)
+* Configuration cache (principle, constraints, benefits, demo of workflow for fixing problems)
+* Project isolation <preview>
+```

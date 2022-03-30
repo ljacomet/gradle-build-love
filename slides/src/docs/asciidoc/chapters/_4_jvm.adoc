@@ -1,0 +1,13 @@
+== Fonctionalites JVM
+
+```
+* Utiliser un gradle init application comme base (included-build plutôt que buildSrc? à ajouter)
+* Version catalog (support dans Gradle init à ajouter!)
+* Toolchains
+* Testing
+** Matrix testing?
+** Aggregation
+* Dependency verification
+* Test fixtures / feature variants
+* Publishing
+```

@@ -1,0 +1,16 @@
+== Qu'est-ce que Gradle ?
+
+> max 30min
+
+```
+* Utiliser un build application simple comme illustration
+* Modélisation d’un build vs. coder un script
+* Moteur d’exécution
+* Extensibilité : DSL / Plugins
+* Ecosystèmes
+** Core plugins
+** Community plugins
+* Interaction avec le build
+** Wrapper
+** IDE / CLI (VSCode ou pas?)
+```

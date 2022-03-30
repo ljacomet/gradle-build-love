@@ -5,3 +5,17 @@ Louis Jacomet & Paul Merlin
 include::chapters/_1_intro.adoc[]
 
 include::chapters/_2_who.adoc[]
+
+include::chapters/_3_whats_gradle.adoc[]
+
+include::chapters/_4_jvm.adoc[]
+
+include::chapters/_5_build_structure.adoc[]
+
+include::chapters/_6_build_logic.adoc[]
+
+include::chapters/_7_performance.adoc[]
+
+include::chapters/_8_roadmap.adoc[]
+
+include::chapters/_9_closing.adoc[]
