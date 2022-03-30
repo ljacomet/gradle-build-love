@@ -25,10 +25,12 @@ jobs:
       with:
         name: slides.zip
         path: slides/build/distributions/slides.zip
+        if-no-files-found: error
 
     - name: Upload Slides PDF
       uses: actions/upload-artifact@v3
       with:
         name: slides.pdf
         path: slides/build/pdf/slides.pdf
+        if-no-files-found: error
 
