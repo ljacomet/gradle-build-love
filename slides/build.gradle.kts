@@ -63,6 +63,7 @@ tasks {
     asciidoctorRevealJs {
         dependsOn(sassCompile)
         baseDirFollowsSourceDir()
+        inputs.dir(layout.projectDirectory.dir("src/docs/asciidoc"))
         sourceDirProperty.set(layout.projectDirectory.dir("src/docs/asciidoc"))
         resources {
             from("${sourceDir}/images") {
@@ -115,16 +116,17 @@ tasks {
         inputs.dir(workingDir)
         outputs.dir(workingDir.resolve(outDirPath))
 
-	doFirst {
-		val requiredJavaVersion = JavaVersion.VERSION_11
-		val wrongJavaVersionMessage = "This build must be run with a JavaFX enabled JDK version $requiredJavaVersion."
-		try {
-		    Class.forName("javafx.application.Application")
-		    if (JavaVersion.current() != requiredJavaVersion) throw Exception(wrongJavaVersionMessage)
-		} catch (ignore: Exception) {
-		    throw Exception(wrongJavaVersionMessage)
-		}
-	}
+        doFirst {
+            val requiredJavaVersion = JavaVersion.VERSION_11
+            val wrongJavaVersionMessage =
+                "This build must be run with a JavaFX enabled JDK version $requiredJavaVersion."
+            try {
+                Class.forName("javafx.application.Application")
+                if (JavaVersion.current() != requiredJavaVersion) throw Exception(wrongJavaVersionMessage)
+            } catch (ignore: Exception) {
+                throw Exception(wrongJavaVersionMessage)
+            }
+        }
     }
     val zipHtml by registering(Zip::class) {
         archiveBaseName.set("slides")

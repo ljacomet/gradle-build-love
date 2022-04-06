@@ -1,4 +1,7 @@
+[background-color="#02303a"]
 == Fonctionalites JVM
+
+=== Fonctionalites JVM
 
 ```
 * Utiliser un gradle init application comme base (included-build plutôt que buildSrc? à ajouter)

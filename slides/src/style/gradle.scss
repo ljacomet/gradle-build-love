@@ -41,6 +41,12 @@ section.has-dark-background {
     background-position: bottom 20px right 30px;
 }
 
+.reveal section img {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 // Theme template ------------------------------
 @import "_theme";
 // ---------------------------------------------

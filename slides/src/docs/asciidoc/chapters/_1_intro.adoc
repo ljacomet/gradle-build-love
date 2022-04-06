@@ -1,3 +1,4 @@
+[background-color="#02303a"]
 == Introduction
 
-image::placeholder.png[]
+image::placeholder.png[size=50%]

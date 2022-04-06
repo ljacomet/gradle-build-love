@@ -1,4 +1,7 @@
+[background-color="#02303a"]
 == Performance
+
+=== Performance
 
 ```
 * Mesure mesure mesure - gradle-profiler

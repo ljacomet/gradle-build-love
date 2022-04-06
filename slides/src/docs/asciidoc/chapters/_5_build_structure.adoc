@@ -1,4 +1,7 @@
+[background-color="#02303a"]
 == Structure de build
+
+=== Structure de build
 
 ```
 * Multi-project builds

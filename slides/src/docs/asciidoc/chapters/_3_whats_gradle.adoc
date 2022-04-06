@@ -1,4 +1,7 @@
+[background-color="#02303a"]
 == Qu'est-ce que Gradle ?
+
+=== Qu'est-ce que Gradle ?
 
 > max 30min
 
