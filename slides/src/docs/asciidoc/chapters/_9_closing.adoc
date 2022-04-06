@@ -1,9 +1,9 @@
 [background-color="#02303a"]
 == Dernieres questions
+image::gradle/bg-6.png[background, size=cover]
 
 [background-color="#02303a"]
 == Merci !
-
 image::gradle/bg-10.png[background, size=cover]
 
 image::gradle/folks.png[width=33%]

@@ -1,6 +1,5 @@
 [background-color="#02303a"]
 == Qui sommes nous ?
-
 image::gradle/bg-1.png[background, size=cover]
 
 === Louis

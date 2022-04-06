@@ -1,5 +1,6 @@
 [background-color="#02303a"]
 == Qu'est-ce que Gradle ?
+image::gradle/bg-7.png[background, size=cover]
 
 === Qu'est-ce que Gradle ?
 

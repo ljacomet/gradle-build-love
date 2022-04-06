@@ -1,5 +1,6 @@
 [background-color="#02303a"]
 == Logique de build
+image::gradle/bg-11.png[background, size=cover]
 
 === Logique de build
 

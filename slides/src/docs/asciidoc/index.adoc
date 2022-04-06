@@ -5,8 +5,6 @@ Louis Jacomet & Paul Merlin
 :title-slide-background-size: cover
 :title-slide-background-color: #02303a
 
-include::chapters/_0_abstract.adoc[]
-
 include::chapters/_1_intro.adoc[]
 
 include::chapters/_2_who.adoc[]

@@ -1,5 +1,6 @@
 [background-color="#02303a"]
 == Performance
+image::gradle/bg-2.png[background, size=cover]
 
 === Performance
 

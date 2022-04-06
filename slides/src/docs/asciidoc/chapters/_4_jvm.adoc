@@ -1,5 +1,6 @@
 [background-color="#02303a"]
 == Fonctionalites JVM
+image::gradle/bg-3.png[background, size=cover]
 
 === Fonctionalites JVM
 

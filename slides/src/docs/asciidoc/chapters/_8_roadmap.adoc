@@ -1,5 +1,6 @@
 [background-color="#02303a"]
 == Roadmap
+image::gradle/bg-4.png[background, size=cover]
 
 === Roadmap
 

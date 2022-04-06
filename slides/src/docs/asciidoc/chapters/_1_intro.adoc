@@ -1,4 +1,5 @@
 [background-color="#02303a"]
 == Introduction
+image::gradle/bg-9.png[background, size=cover]
 
 image::placeholder.png[size=50%]
