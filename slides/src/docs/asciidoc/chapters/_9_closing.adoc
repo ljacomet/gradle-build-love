@@ -1,3 +1,6 @@
 == Dernieres questions
 
+[background-color="#02303a"]
 == Merci !
+
+image::gradle/bg-10.png[background, size=cover]

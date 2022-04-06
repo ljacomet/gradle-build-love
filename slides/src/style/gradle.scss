@@ -9,12 +9,13 @@
 @import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 
+$darkColor: #02303a;
 
 // Override theme settings (see _settings.scss)
 $mainFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-$mainColor: black;
+$mainColor: $darkColor;
 $headingFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-$headingColor: black;
+$headingColor: $darkColor;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: white;
@@ -31,6 +32,13 @@ section.has-dark-background {
 	&, h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 	}
+}
+
+.reveal {
+    background-image: url("../images/gradle/logo.png");
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: bottom 20px right 30px;
 }
 
 // Theme template ------------------------------
