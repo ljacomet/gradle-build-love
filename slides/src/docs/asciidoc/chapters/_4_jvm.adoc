@@ -2,6 +2,8 @@
 == Fonctionalites JVM
 image::gradle/bg-3.png[background, size=cover]
 
+&#x2615;
+
 === Fonctionalites JVM
 image::gradle/bg-3.png[background, size=cover]
 

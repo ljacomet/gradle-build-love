@@ -2,8 +2,12 @@
 == Dernieres questions
 image::gradle/bg-6.png[background, size=cover]
 
+&#x2754;
+
 [background-color="#02303a"]
 == Merci !
 image::gradle/bg-10.png[background, size=cover]
+
+&#x1F647;
 
 image::gradle/folks.png[width=33%]

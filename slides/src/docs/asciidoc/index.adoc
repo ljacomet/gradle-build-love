@@ -1,4 +1,4 @@
-= Donnez de l'amour à votre build, il vous le rendra !
+= Donnez de l'amour à votre build, il vous le rendra ! &#x2764;
 Louis Jacomet & Paul Merlin
 2022-04-20
 :source-highlighter: highlightjs

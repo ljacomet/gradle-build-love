@@ -2,6 +2,8 @@
 == Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
+&#x1F418;
+
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 

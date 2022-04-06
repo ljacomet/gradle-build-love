@@ -2,6 +2,8 @@
 == Performance
 image::gradle/bg-2.png[background, size=cover]
 
+&#x1F680;
+
 === Performance
 image::gradle/bg-2.png[background, size=cover]
 

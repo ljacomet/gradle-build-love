@@ -2,6 +2,8 @@
 == Qui sommes nous ?
 image::gradle/bg-1.png[background, size=cover]
 
+&#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
+
 === Louis
 image::gradle/bg-1.png[background, size=cover]
 

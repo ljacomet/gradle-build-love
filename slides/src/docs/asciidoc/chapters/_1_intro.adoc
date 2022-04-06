@@ -2,4 +2,4 @@
 == Introduction
 image::gradle/bg-9.png[background, size=cover]
 
-image::placeholder.png[size=50%]
+&#x1F3DE;
