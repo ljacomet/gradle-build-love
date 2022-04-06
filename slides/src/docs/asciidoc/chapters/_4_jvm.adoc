@@ -3,6 +3,7 @@
 image::gradle/bg-3.png[background, size=cover]
 
 === Fonctionalites JVM
+image::gradle/bg-3.png[background, size=cover]
 
 ```
 * Utiliser un gradle init application comme base (included-build plutôt que buildSrc? à ajouter)

@@ -3,6 +3,7 @@
 image::gradle/bg-11.png[background, size=cover]
 
 === Logique de build
+image::gradle/bg-11.png[background, size=cover]
 
 ```
 * Phases de build: init, configuration, task graph, execution

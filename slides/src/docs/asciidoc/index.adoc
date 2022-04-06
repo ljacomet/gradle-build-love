@@ -1,6 +1,7 @@
 = Donnez de l'amour à votre build, il vous le rendra !
 Louis Jacomet & Paul Merlin
 2022-04-20
+:source-highlighter: highlightjs
 :title-slide-background-image: gradle/intro.png
 :title-slide-background-size: cover
 :title-slide-background-color: #02303a

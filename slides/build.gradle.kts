@@ -89,8 +89,6 @@ tasks {
         }
         attributes(
             mapOf(
-                "source-highlighter" to "coderay",
-                "coderay-css" to "style",
                 "imagesdir" to "./images",
                 "icons" to "font",
                 "idprefix" to "slide-",

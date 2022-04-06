@@ -3,6 +3,7 @@
 image::gradle/bg-2.png[background, size=cover]
 
 === Performance
+image::gradle/bg-2.png[background, size=cover]
 
 ```
 * Mesure mesure mesure - gradle-profiler

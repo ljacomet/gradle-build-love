@@ -3,9 +3,32 @@
 image::gradle/bg-1.png[background, size=cover]
 
 === Louis
+image::gradle/bg-1.png[background, size=cover]
 
 Blurb
 
 === Paul
+image::gradle/bg-1.png[background, size=cover]
 
-Blurb
+[source,kotlin]
+----
+speaker {
+    name = "Paul Merlin"
+    company = "Gradle"
+    successes = listOf(
+        "BASIC 'Hello, World!' in 1986",
+        "C 'Hello, World!' in 1989",
+        "Java 'Hello, World!' in 1996",
+        "Kotlin 'Hello, World!' in 2015",
+        "tools", "daemons", "apps", "frameworks", "libs"
+    )
+    failures = generateSequence(code) { bugs }
+    twitter = "@eskat0s"
+    github = "eskatos"
+}
+----
+
+=== Gradle
+image::gradle/bg-1.png[background, size=cover]
+
+Gradle

@@ -3,6 +3,7 @@
 image::gradle/bg-8.png[background, size=cover]
 
 === Structure de build
+image::gradle/bg-8.png[background, size=cover]
 
 ```
 * Multi-project builds
