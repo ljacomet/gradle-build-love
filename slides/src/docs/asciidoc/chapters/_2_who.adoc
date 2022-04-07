@@ -33,4 +33,15 @@ speaker {
 === Gradle
 image::gradle/bg-1.png[background, size=cover]
 
-Gradle
+Chez Gradle, notre mission et d'accélérer la productivité des développeurs et de rendre les développeurs plus heureux.
+
+image::gradle/logo.png[width=15%]
+
+On est la boite derrière le Gradle Build Tool, un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
+
+=== Gradle Enterprise
+image::gradle/bg-1.png[background, size=cover]
+
+Notre produit commercial, Gradle Enterprise, est la première solution de Developer Productivity Engineering (DPE).
+
+DEP est une pratique logicielle émergente qui repose sur des technologies d'accélération pour rendre les builds et tests plus rapides, pour rendre la recherche de problèmes plus efficace.

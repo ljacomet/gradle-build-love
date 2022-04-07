@@ -1,10 +1,10 @@
 [background-color="#02303a"]
-== Fonctionalites JVM
+== Fonctionnalités JVM
 image::gradle/bg-3.png[background, size=cover]
 
 &#x2615;
 
-=== Fonctionalites JVM
+=== Fonctionnalités JVM
 image::gradle/bg-3.png[background, size=cover]
 
 ```
