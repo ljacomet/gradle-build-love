@@ -1,5 +1,17 @@
 [background-color="#02303a"]
-== Dernieres questions
+== On recrute !
+image::gradle/bg-1.png[background, size=cover]
+
+Si ce dont nous avons parlé aujourd'hui vous intéresse, venez travailler avec nous !
+
+image::team_map.png[width=50%]
+
+https://gradle.com/careers/
+
+
+
+[background-color="#02303a"]
+== Questions
 image::gradle/bg-6.png[background, size=cover]
 
 &#x2754;
