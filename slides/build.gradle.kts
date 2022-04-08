@@ -60,6 +60,9 @@ tasks {
         source(layout.projectDirectory.dir("src/style"))
         destinationDir.set(layout.buildDirectory.dir("style"))
     }
+    asciidoctorGemsPrepare {
+        outputs.cacheIf { false }
+    }
     asciidoctorRevealJs {
         dependsOn(sassCompile)
         baseDirFollowsSourceDir()
