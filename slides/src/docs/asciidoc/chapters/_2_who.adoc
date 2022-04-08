@@ -4,10 +4,12 @@ image::gradle/bg-1.png[background, size=cover]
 
 &#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
 
+
 === Louis
 image::gradle/bg-1.png[background, size=cover]
 
 Blurb
+
 
 === Paul
 image::gradle/bg-1.png[background, size=cover]
@@ -30,6 +32,7 @@ speaker {
 }
 ----
 
+
 === Gradle
 image::gradle/bg-1.png[background, size=cover]
 
@@ -39,9 +42,45 @@ image::gradle/logo.png[width=15%]
 
 On est la boite derrière le Gradle Build Tool, un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
 
+
 === Gradle Enterprise
 image::gradle/bg-1.png[background, size=cover]
 
 Notre produit commercial, Gradle Enterprise, est la première solution de Developer Productivity Engineering (DPE).
 
-DEP est une pratique logicielle émergente qui repose sur des technologies d'accélération pour rendre les builds et tests plus rapides, pour rendre la recherche de problèmes plus efficace.
+DPE est une pratique logicielle émergente qui repose sur des technologies d'accélération pour rendre les builds et tests plus rapides, pour rendre la recherche de problèmes plus efficace.
+
+[%notitle]
+=== Gradle Enterprise
+image::gradle/ge-1.png[background, size=contain]
+
+[.notes]
+--
+metadata de tous les builds
+outputs de tous les builds
+observabilite: scans, performance trends, test dashboard etc...
+accélération: build-cache, test distribution, test selection etc..
+--
+
+[%notitle]
+=== Gradle Enterprise
+image::gradle/ge-4.png[background, size=contain]
+
+[.notes]
+--
+scans: cas d'utilisation
+--
+
+=== Gradle Enterprise
+image::gradle/bg-1.png[background, size=cover]
+
+TBD example build scan + QR code link
+
+=== On recrute !
+image::gradle/bg-1.png[background, size=cover]
+
+Si ce dont nous allons parler aujourd'hui vous intéresse, venez travailler avec nous !
+
+image::team_map.png[width=65%]
+
+https://gradle.com/careers/
