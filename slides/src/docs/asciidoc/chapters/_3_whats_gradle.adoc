@@ -36,7 +36,7 @@ image::gradle/bg-7.png[background, size=cover]
 
 * Modèle de configuration -> graphe acyclique de tâches
 * Performance
-** Execution en parallèle
+** Exécution en parallèle
 ** Ne pas refaire ce qui a déjà été fait
 *** Build incrémental
 *** Build cache

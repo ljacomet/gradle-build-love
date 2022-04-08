@@ -4,14 +4,126 @@ image::gradle/bg-2.png[background, size=cover]
 
 &#x1F680;
 
+
 === Performance
 image::gradle/bg-2.png[background, size=cover]
 
-```
-* Mesure mesure mesure - gradle-profiler
-* Sanity check: enable parallel, build-cache
-* Memory management (Xmx anyone?)
+image::xkcd-compiling.png[width=55%]
+
+[.small]
+https://xkcd.com/303/
+
+
+=== Performance
+image::gradle/bg-2.png[background, size=cover]
+
+image::monkeyuser-focus.png[width=30%]
+
+[.small]
+https://www.monkeyuser.com/2018/focus/
+
+
+=== Un build rapide c'est
+image::gradle/bg-2.png[background, size=cover]
+
+* moins de temps d'attente
+* moins de changements de contexte
+* plus de fluidité dans notre travail
+* plus de productivité
+
+
+=== Mesurer c'est douter
+image::gradle/bg-2.png[background, size=cover]
+
+[cols="<1,>1",frame=none,grid=none]
+|===
+a|* Mesurer
+* Changer
+* Mesurer
+* Comparer
+
+a|image::xkcd-optimizing.png[width=65%]
+
+[.small]
+https://xkcd.com/1691/
+|===
+
+
+=== `gradle-profiler`
+image::gradle/bg-2.png[background, size=cover]
+
+https://github.com/gradle/gradle-profiler/
+
+* benchmarks
+* profiling
+* TBD ...
+
+
+=== Fonctionnalités à activer
+image::gradle/bg-2.png[background, size=cover]
+
+* Activer l'exécution de tâches en parallèle
+** `--parallel`
+** `org.gradle.parallel=true`
+* Activer le build-cache
+** `--build-cache`
+** `org.gradle.caching=true`
+
+* test forking
+
+
+=== Gestion de la mémoire
+image::gradle/bg-2.png[background, size=cover]
+
+* Xmx anyone?
+* TBD
+
+
+=== Résolution de dépendances
+image::gradle/bg-2.png[background, size=cover]
+
 * Dependency resolution (e.g. dynamic versions, repo presence/order/filtering)
-* Configuration cache (principle, constraints, benefits, demo of workflow for fixing problems)
-* Project isolation <preview>
-```
+* TBD
+
+
+=== Nouvelles fonctionnalités
+image::gradle/bg-2.png[background, size=cover]
+
+* Configuration Cache
+* Isolated Projects
+* TBD
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+* principes, contraintes, benefices
+* etat d'avancement
+* demo of workflow for fixing problems
+* TBD
+
+
+=== Isolated Projects
+image::gradle/bg-2.png[background, size=cover]
+
+* principes, contraintes, benefices
+* etat d'avancement
+* demo of workflow for fixing problems
+* TBD
+
+
+=== Mesurer c'est douter
+image::gradle/bg-2.png[background, size=cover]
+
+[cols="<1,>1",frame=none,grid=none]
+|===
+a|* Mesurer
+* Changer
+* Mesurer
+* Comparer
+
+a|image::xkcd-optimizing.png[width=65%]
+
+[.small]
+https://xkcd.com/1691/
+|===
