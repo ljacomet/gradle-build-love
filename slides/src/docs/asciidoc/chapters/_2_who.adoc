@@ -74,7 +74,10 @@ scans: cas d'utilisation
 === Gradle Enterprise
 image::gradle/bg-1.png[background, size=cover]
 
-TBD example build scan + QR code link
+image::buildscan-example.png[width=100%]
+
+[.small]
+TBD QR code link
 
 === On recrute !
 image::gradle/bg-1.png[background, size=cover]
