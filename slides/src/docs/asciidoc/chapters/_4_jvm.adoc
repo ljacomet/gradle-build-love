@@ -38,7 +38,8 @@ image::gradle/bg-3.png[background, size=cover]
 === Format TOML
 image::gradle/bg-3.png[background, size=cover]
 
-```
+[source,toml]
+----
 [versions]
 groovy = "4.0.1"
 lang = { strictly = "[3.8, 4.0[", prefer="3.9" } }
@@ -53,7 +54,7 @@ groovy = ["groovy-core", "groovy-json", "groovy-nio"]
 
 [plugins]
 logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.10.0" }
-```
+----
 
 Il existe aussi une API dans le fichier `settings` de Gradle.
 
