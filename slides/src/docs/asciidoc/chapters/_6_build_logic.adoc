@@ -16,7 +16,7 @@ image::gradle/bg-11.png[background, size=cover]
 
 [background-color="#02303a"]
 === Démo
-image::gradle/bg-7.png[background, size=cover]
+image::gradle/bg-11.png[background, size=cover]
 
 [.notes]
 --
