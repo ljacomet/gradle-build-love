@@ -19,6 +19,7 @@ image::gradle/bg-1.png[background, size=cover]
 speaker {
     name = "Paul Merlin"
     company = "Gradle"
+    position = "Configuration Cache Project Lead"
     successes = listOf(
         "BASIC 'Hello, World!' in 1986",
         "C 'Hello, World!' in 1989",

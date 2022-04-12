@@ -1,0 +1,9 @@
+[background-color="#02303a"]
+== Agenda
+image::gradle/bg-11.png[background, size=cover]
+
+* Qu'est-ce que Gradle ?
+* Fonctionnalités JVM
+* Structure de build
+* Logique de build
+* Performance

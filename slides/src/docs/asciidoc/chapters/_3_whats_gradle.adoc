@@ -12,7 +12,7 @@ Utiliser build init application comme illustration
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
-Un outil pour automatiser la construction de logiciel
+Un outil pour automatiser la construction de logiciels
 
 * Un système de configuration extensible
 * Un moteur d'exécution de tâches
