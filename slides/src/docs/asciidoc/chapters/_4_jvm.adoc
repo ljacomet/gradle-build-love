@@ -20,6 +20,7 @@ image::gradle/bg-3.png[background, size=cover]
 ```
 
 === Catalogue de versions
+image::gradle/bg-3.png[background, size=cover]
 
 [%step]
 * Centralisation de la liste des dépendances
@@ -32,9 +33,10 @@ image::gradle/bg-3.png[background, size=cover]
 
 [background-color="#02303a"]
 === Démo
-image::gradle/bg-8.png[background, size=cover]
+image::gradle/bg-3.png[background, size=cover]
 
 === Format TOML
+image::gradle/bg-3.png[background, size=cover]
 
 ```
 [versions]
@@ -56,6 +58,7 @@ logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.1
 Il existe aussi une API dans le fichier `settings` de Gradle.
 
 === Points d'attention
+image::gradle/bg-3.png[background, size=cover]
 
 * Participe à la résolution de dépendances de façon classique
 ** N'impose pas une version
@@ -63,6 +66,7 @@ Il existe aussi une API dans le fichier `settings` de Gradle.
 * Pas accessible pour un plugin de settings ou un scrip d'initialisation
 
 === Java Toolchains
+image::gradle/bg-3.png[background, size=cover]
 
 [%step]
 * Permet de séparer le Java qui tourne Gradle de celui requis par le projet
@@ -75,9 +79,10 @@ Il existe aussi une API dans le fichier `settings` de Gradle.
 
 [background-color="#02303a"]
 === Démo
-image::gradle/bg-8.png[background, size=cover]
+image::gradle/bg-3.png[background, size=cover]
 
 === Quel Java Gradle connait-il?
+image::gradle/bg-3.png[background, size=cover]
 
 * Un certain nombre de défaut
 [%step]
@@ -87,6 +92,7 @@ image::gradle/bg-8.png[background, size=cover]
 ** Téléchargements précédents
 
 === Provisioner Java
+image::gradle/bg-3.png[background, size=cover]
 
 [%step]
 * Possible grâce à AdoptOpenJDK
@@ -94,6 +100,7 @@ image::gradle/bg-8.png[background, size=cover]
 * Micmac avec le vendeur
 
 === Futur
+image::gradle/bg-3.png[background, size=cover]
 
 [%step]
 * SPI pour créer des plugins de provisionement
@@ -104,6 +111,7 @@ image::gradle/bg-8.png[background, size=cover]
 ** Dans les plugins de la communauté, demandez le support!
 
 === Les suites de tests
+image::gradle/bg-3.png[background, size=cover]
 
 [%step]
 * Modélise une collection de tests
@@ -113,9 +121,10 @@ image::gradle/bg-8.png[background, size=cover]
 
 [background-color="#02303a"]
 === Démo
-image::gradle/bg-8.png[background, size=cover]
+image::gradle/bg-3.png[background, size=cover]
 
 === Evolution des suites de tests
+image::gradle/bg-3.png[background, size=cover]
 
 * Possibilité d'avoir plusieurs dimensions
 ** Différentes versions de Java pour tourner les tests
@@ -124,6 +133,7 @@ image::gradle/bg-8.png[background, size=cover]
 ** Nécessite d'interagir avec la tâche
 
 === Test fixture
+image::gradle/bg-3.png[background, size=cover]
 
 * Permet de séparer les fixtures du code de test
 * Permet de consommer les fixtures d'un librairie
