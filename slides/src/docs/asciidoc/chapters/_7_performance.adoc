@@ -49,42 +49,78 @@ https://xkcd.com/1691/
 |===
 
 
+=== Build Scans
+image::gradle/bg-2.png[background, size=cover]
+
+> Un enregistrement permanent de ce qui se passe pendant un build.
+
+TBD
+
+
 === `gradle-profiler`
 image::gradle/bg-2.png[background, size=cover]
 
 https://github.com/gradle/gradle-profiler/
 
-* benchmarks
-* profiling
+* benchmarking
+* tracing & profiling
 * TBD ...
+* TODO link to example results, traces, flame graphs etc...
 
 
-=== Fonctionnalités à activer
+=== Construction incrémentale
 image::gradle/bg-2.png[background, size=cover]
 
+Rien ne sert de refaire une tâche déjà faite!
+
+* up-to-date! inputs/outputs
+** `UP_TO_DATE` à la deuxième exécution
+
+
+=== Cache de construction
+image::gradle/bg-2.png[background, size=cover]
+
+* L'activer : `--build-cache`, `org.gradle.caching=true`
+* Vérifier : `FROM_CACHE` depuis un dossier différent
+* Resources : https://docs.gradle.org/current/userguide/build_cache.html, especially  https://docs.gradle.org/current/userguide/build_cache_debugging.html and https://docs.gradle.org/current/userguide/common_caching_problems.html
+
+
+=== Tâches incrémentales
+image::gradle/bg-2.png[background, size=cover]
+
+* Tâches incrémentales
+** Gradle API https://docs.gradle.org/current/userguide/custom_tasks.html#incremental_tasks
+** Support par plugin
+** A considérer pour des tâches qui traitent plusieurs fichiers
+** `gradle -i` pour comprendre ce qu'il se passe
+* Java incremental annotation processing
+** plugin/toolchain support
+
+
+=== Construction parallèle
+image::gradle/bg-2.png[background, size=cover]
+
+* work : parallel safe vs. parallel unsafe
 * max workers
-* Activer l'exécution de tâches en parallèle
+* Exécution parallèle de tâches de projets différents
 ** `--parallel`
 ** `org.gradle.parallel=true`
+** unsafe?
+* Test forking
 
-* test forking
 
-* Activer le build-cache
-** `--build-cache`
-** `org.gradle.caching=true`
+=== Résolution de dépendances
+image::gradle/bg-2.png[background, size=cover]
+
+* dynamic versions
+* repo presence/order/filtering
+* `mavenLocal()`
 
 
 === Gestion de la mémoire
 image::gradle/bg-2.png[background, size=cover]
 
 * Xmx anyone?
-* TBD
-
-
-=== Résolution de dépendances
-image::gradle/bg-2.png[background, size=cover]
-
-* Dependency resolution (e.g. dynamic versions, repo presence/order/filtering)
 * TBD
 
 
