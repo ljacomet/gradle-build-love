@@ -60,22 +60,23 @@ a|image::logo-gradle-elephant-outline.svg[]
 === Gradle Build Tool
 image::gradle/bg-1.png[background, size=cover]
 
-image::logo-gradle-build-tool.svg[]
+image::logo-gradle-build-tool.svg[role=product-logo-as-title]
 
+Outil de construction de logiciels publié sous la Apache License
 
-
-Le Gradle Build Tool est un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
+C'est est un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
 
 
 [%notitle]
 === Gradle Enterprise
 image::gradle/bg-1.png[background, size=cover]
 
-image::logo-gradle-enterprise.svg[]
+image::logo-gradle-enterprise.svg[role=product-logo-as-title]
 
-Notre produit commercial, Gradle Enterprise, est la première solution de Developer Productivity Engineering (DPE).
+Gradle Enterprise, produit commercial, est la première solution de Developer Productivity Engineering (DPE).
 
 DPE est une pratique logicielle émergente qui repose sur des technologies d'accélération pour rendre les builds et tests plus rapides, pour rendre la recherche de problèmes plus efficace.
+
 
 [%notitle]
 === Gradle Enterprise
