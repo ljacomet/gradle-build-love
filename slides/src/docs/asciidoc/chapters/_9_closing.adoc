@@ -15,6 +15,8 @@ image::gradle/bg-10.png[background, size=cover]
 
 &#x2754;
 
+image::gradle/folks.png[width=33%]
+
 
 [background-color="#02303a"]
 == Merci !
