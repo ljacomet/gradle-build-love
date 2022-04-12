@@ -133,9 +133,73 @@ image::gradle/bg-6.png[background, size=cover]
 * Intégration avec la couverture de code
 ** Nécessite d'interagir avec la tâche
 
-=== Test fixture
+=== Test fixtures
 image::gradle/bg-6.png[background, size=cover]
 
 * Permet de séparer les fixtures du code de test
-* Permet de consommer les fixtures d'un librairie
+* Permet de consommer les fixtures d'une librairie
 * Illustration du modèle avancé de gestion de dépendances de Gradle
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-8.png[background, size=cover]
+
+=== Modélisation des tests fixtures
+
+* Comme les suites de test: sources et dépendances séparées
+* Publiées de façon complètes
+** Comme une variante dans Gradle Module Metadata
+** Avec un `classifier` pour utilisation dans Maven / Ivy
+* Exemple de cette notion de variante dans la gestion de dépendances
+
+=== Gestion de dépendances: les variantes
+
+* Dimension supplémentaire d'un composant logiciel
+* Peut avoir ses propres artifacts et dépendances
+* Pensez `classifier`, sans les limitations
+* Nécessite Gradle Module Metadata
+
+=== Autre exemple: Dépendances optionelles
+
+[%step]
+* Possibilité de définir une variante qui
+[%step]
+** Dépend du composant principal
+** Ajoute des dépendances
+** Peut aussi ajouter un binaire
+* Qui en fait ne sont pas du tout optionelles ...
+* Mais bien obligatoires pour certains cas d'utilisation
+
+=== Applications du modèle des variantes
+
+* Test fixtures,
+* dépendances "optionelles"
+* Aggregation de résultats entre projets
+* (Transformation d'artifacts)
+
+=== Publication
+
+* Que publie-t-on?
+** Un composant
+** Ses variantes
+** Ses meta données
+* Où le publie-t-on?
+** Dans un repository Maven
+** Dans un repository Ivy
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-8.png[background, size=cover]
+
+=== Que publier?
+
+* Le composant, `java` la plus part du temps
+* Viser de modifier le composant plutôt que la publicationn
+** Un artifact additionel?
+** Définissez une variants
+
+=== Méta données
+
+* Pas possible de manipuler les GMM avec un API
+* Toute mutation de POM avec `withXml` va entrainer des différences
+* Comme pour les artifacts, modifier le composant!
