@@ -73,7 +73,7 @@ ide: intellij & vscode
 --
 
 
-== Qu'est-ce que Gradle ?
+=== Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
 Un outil pour automatiser la construction de logiciels
