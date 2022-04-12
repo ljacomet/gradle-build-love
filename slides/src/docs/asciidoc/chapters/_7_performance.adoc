@@ -62,14 +62,16 @@ https://github.com/gradle/gradle-profiler/
 === Fonctionnalités à activer
 image::gradle/bg-2.png[background, size=cover]
 
+* max workers
 * Activer l'exécution de tâches en parallèle
 ** `--parallel`
 ** `org.gradle.parallel=true`
+
+* test forking
+
 * Activer le build-cache
 ** `--build-cache`
 ** `org.gradle.caching=true`
-
-* test forking
 
 
 === Gestion de la mémoire
