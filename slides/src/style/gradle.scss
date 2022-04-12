@@ -50,3 +50,8 @@ section.has-dark-background {
 // Theme template ------------------------------
 @import "_theme";
 // ---------------------------------------------
+
+.reveal pre {
+    width: 100%;
+    font-size: 0.4em;
+}
