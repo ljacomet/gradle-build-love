@@ -4,13 +4,58 @@ image::gradle/bg-11.png[background, size=cover]
 
 &#x1F9F0;
 
-=== Logique de build
+
+=== Phases d'un build
 image::gradle/bg-11.png[background, size=cover]
 
-```
-* Phases de build: init, configuration, task graph, execution
-* Building blocks: plugin, DSL extensions, tasks
-* Lazy configuration: properties/providers, containers, extensions => tasks
-* Service injection
-* Testing (testkit, approche générale, comment tester des scénarios et lesquels sont importants)
-```
+* Initialisation
+* Configuration
+* Calcul du graphe de tâches
+* Execution du travail
+
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-7.png[background, size=cover]
+
+[.notes]
+--
+Observation d'un simple build
+CLI/IDE
+Build Scan
+--
+
+
+=== Building blocks
+image::gradle/bg-11.png[background, size=cover]
+
+* Plugins
+* API & extensions de DSL
+* Tâches
+* Build Services
+
+
+=== Configuration différée
+image::gradle/bg-11.png[background, size=cover]
+
+* `Property`/`Provider`
+* Conteneurs
+* Extensions => Tasks
+* TBD
+
+
+=== Injection de services
+image::gradle/bg-11.png[background, size=cover]
+
+* TBD
+
+
+=== Tester c'est douter
+image::gradle/bg-11.png[background, size=cover]
+
+image::tester-cest-douter.jpeg[width=40%]
+
+* TestKit
+* Approche générale
+* Comment tester des scénarios et lesquels sont importants
+* TBD

@@ -60,9 +60,24 @@ image::gradle/bg-7.png[background, size=cover]
 * Utilisation en ligne de commande
 * Utilisation depuis un IDE
 
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-7.png[background, size=cover]
+
 [.notes]
 --
 wrapper: utilité, mise à jour
 cli: options, run tasks, task paths, abbreviations
 ide: intellij & vscode
 --
+
+
+== Qu'est-ce que Gradle ?
+image::gradle/bg-7.png[background, size=cover]
+
+Un outil pour automatiser la construction de logiciels
+
+* Un système de configuration extensible
+* Un moteur d'exécution de tâches
+* Un support pour divers écosystèmes
