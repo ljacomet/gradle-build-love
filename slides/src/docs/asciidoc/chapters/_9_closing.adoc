@@ -11,7 +11,7 @@ https://gradle.com/careers/
 
 [background-color="#02303a"]
 == Questions
-image::gradle/bg-6.png[background, size=cover]
+image::gradle/bg-10.png[background, size=cover]
 
 &#x2754;
 
