@@ -19,12 +19,14 @@ image::gradle/bg-1.png[background, size=cover]
 speaker {
     name = "Paul Merlin"
     company = "Gradle"
+    joined = 2015
     position = "Configuration Cache Project Lead"
+    previously = "Kotlin DSL Project Lead"
     successes = listOf(
-        "BASIC 'Hello, World!' in 1986",
-        "C 'Hello, World!' in 1989",
-        "Java 'Hello, World!' in 1996",
-        "Kotlin 'Hello, World!' in 2015",
+        "BASIC 'Hello, World!'" in 1986,
+        "C 'Hello, World!'" in 1989,
+        "Java 'Hello, World!'" in 1996,
+        "Kotlin 'Hello, World!'" in 2015,
         "tools", "daemons", "apps", "frameworks", "libs"
     )
     failures = generateSequence(code) { bugs }
@@ -37,15 +39,39 @@ speaker {
 === Gradle
 image::gradle/bg-1.png[background, size=cover]
 
-Chez Gradle, notre mission et d'accélérer la productivité des développeurs et de rendre les développeurs plus heureux.
+[cols="^.^1,^.^1,^.^1",frame=none,grid=none,role=who-gradle]
+|===
+a|image::logo-gradleware.svg[]
+a|image::logo-gradle-old.svg[]
+a|image::logo-gradle-elephant-old.png[]
+|===
 
-image::gradle/logo.png[width=15%]
+Depuis 2008, notre mission est d'accélérer la productivité des développeurs.
 
-On est la boite derrière le Gradle Build Tool, un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
+[cols="^.^1,^.^1,^.^1",frame=none,grid=none,role=who-gradle]
+|===
+a|image::logo-gradle-elephant-geometrics.svg[]
+a|image::logo-gradle-elephant.svg[]
+a|image::logo-gradle-elephant-outline.svg[]
+|===
 
 
+[%notitle]
+=== Gradle Build Tool
+image::gradle/bg-1.png[background, size=cover]
+
+image::logo-gradle-build-tool.svg[]
+
+
+
+Le Gradle Build Tool est un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
+
+
+[%notitle]
 === Gradle Enterprise
 image::gradle/bg-1.png[background, size=cover]
+
+image::logo-gradle-enterprise.svg[]
 
 Notre produit commercial, Gradle Enterprise, est la première solution de Developer Productivity Engineering (DPE).
 
@@ -72,13 +98,20 @@ image::gradle/ge-4.png[background, size=contain]
 scans: cas d'utilisation
 --
 
+
 === Gradle Enterprise
 image::gradle/bg-1.png[background, size=cover]
 
 image::buildscan-example.png[width=100%]
 
 [.small]
-TBD QR code link
+TBD QR code link to challenge + swag
+
+[.notes]
+--
+Nous utiliserons les build scans pendant cette session pour illustrer certains points.
+--
+
 
 === On recrute !
 image::gradle/bg-1.png[background, size=cover]

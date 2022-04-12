@@ -55,3 +55,17 @@ section.has-dark-background {
     width: 100%;
     font-size: 0.4em;
 }
+
+.reveal table.who-gradle {
+    margin-top: 2em;
+}
+.reveal table.who-gradle td {
+    margin: 0;
+    padding: 0;
+}
+.reveal table.who-gradle img {
+    margin: 0;
+    padding: 0;
+    max-width: 75%;
+    max-height: 3em;
+}
