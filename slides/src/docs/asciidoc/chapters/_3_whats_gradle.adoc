@@ -19,31 +19,60 @@ Un outil pour automatiser la construction de logiciels
 * Un support pour divers écosystèmes
 
 
-=== Un système de configuration extensible
+=== Configuration extensible
 image::gradle/bg-7.png[background, size=cover]
 
-* Modélisation d’un build vs. coder un script
-* DSL/API de configuration
-* Extensibilité du DSL
+[cols="<.^7,^.^3",frame=none,grid=none]
+|===
+a|[.small]
 * Système de plugins
-* Un plugin étends le DSL
-* Un utilisateur configure le DSL étendu
-* Le plugin enregistre et configure un ensemble de tâches
+* DSL extensible
+* Modélisation d’un build vs. scripter des tâches
+a|
+[source,kotlin]
+--
+plugins {
+    id("java")
+}
+java {
+    withSourcesJar()
+}
+--
+
+include::../fragments/_diagram_task-graph.adoc[]
+
+image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/timeline?details=yznpxgmt5qzfo&expanded=WyIwLjMiLCIwLjMtMS4yIl0&show=Predecessors]
+|===
 
 
-=== Un moteur d'exécution de tâches
+=== Comment ça marche ?
+image::gradle/bg-7.png[background, size=cover]
+
+include::../fragments/_diagram_build-logic-parts.adoc[]
+
+
+=== Comment ça marche ?
+image::gradle/bg-7.png[background, size=cover]
+
+include::../fragments/_diagram_how-it-works.adoc[width=80%]
+
+
+=== Exécution de tâches
 image::gradle/bg-7.png[background, size=cover]
 
 * Modèle de configuration -> graphe acyclique de tâches
-* Performance
-** Exécution en parallèle
-** Ne pas refaire ce qui a déjà été fait
-*** Build incrémental
-*** Build cache
-*** Tâches incrémentales
+* Ne pas refaire ce qui a déjà été fait
+** Build incrémental - inputs/outputs
+** Build cache - cache des outputs
+** Tâches incrémentales - e.g. compilation
+* Exécution en parallèle
+
+include::../fragments/_diagram_task-graph.adoc[]
+
+include::../fragments/_diagram_parallel-execution.adoc[]
 
 
-=== Un support pour divers ecosystèmes
+=== Divers écosystèmes
 image::gradle/bg-7.png[background, size=cover]
 
 * Ecosystèmes

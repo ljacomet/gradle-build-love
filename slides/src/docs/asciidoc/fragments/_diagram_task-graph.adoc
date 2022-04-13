@@ -1,0 +1,33 @@
+[plantuml]
+....
+@startuml
+
+!theme spacelab
+
+skinparam shadowing false
+skinparam defaultFontSize 20
+skinparam defaultFontName Helvetica
+skinparam defaultFontColor white
+skinparam usecase {
+  BackgroundColor 1ba8cb
+  BorderColor 02303a
+  ArrowColor 02303a
+}
+
+top to bottom direction
+
+"**:compileJava**" as (compileJava)
+"**:processResources**" as (processResources)
+"**:classes**" as (classes)
+"**:jar**" as (jar)
+"**:sourcesJar**" as (sourcesJar)
+"**:assemble**" as (assemble) #02303a
+
+classes --> compileJava
+classes --> processResources
+jar --> classes
+assemble --> jar
+assemble --> sourcesJar
+
+@enduml
+....

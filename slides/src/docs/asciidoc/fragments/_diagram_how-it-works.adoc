@@ -1,0 +1,43 @@
+[plantuml,width=80%]
+....
+@startuml
+
+!theme spacelab
+
+skinparam actorStyle awesome
+skinparam shadowing false
+skinparam defaultFontSize 20
+skinparam defaultFontName Helvetica
+skinparam roundcorner 8
+
+actor "Build author" as A #02303a;line:02303a;line.bold;text:02303a
+actor "Build user" as U #1ba8cb;line:1ba8cb;line.bold;text:1ba8cb
+
+collections Plugins as P #007c54;line:007c54;line.bold;text:white
+
+package "<color:slategray>Gradle</color>" #whitesmoke;line:lightgray;line.bold {
+  component DSL as D #lightgray;line:darkslategray;text:darkslategray
+  component "Build model" as M #lightgray;line:darkslategray;text:darkslategray
+  component "Task graph" as T #lightgray;line:darkslategray;text:darkslategray
+  component "Work Execution" as W #lightgray;line:darkslategray;text:darkslategray
+}
+
+(<color:#white>Write build logic</color>) as U_CFG #02303a;line:02303a;line.bold
+(<color:#white>Requests tasks</color>) as U_RT #1ba8cb;line:1ba8cb;line.bold
+
+P --> T #line:007c54;text:007c54 : Register tasks\nbased on the build model
+P --> M #line:007c54;text:007c54 : Contribute\nextensions
+M -> D #line:007c54;text:007c54 : Exposes\ndynamic\nDSL
+
+A --> U_CFG #line:02303a;text:02303a
+U_CFG --> D #line:02303a;text:02303a : Using
+D --> M #line:02303a;text:02303a : Configures
+
+U --> U_RT #line:1ba8cb;text:1ba8cb
+U_RT --> T #line:1ba8cb;text:1ba8cb : Configures the build
+T --> T #line:1ba8cb;text:1ba8cb : Calculates task graph
+T --> W #line:1ba8cb;text:1ba8cb : Schedules tasks
+W --> W #line:1ba8cb;text:1ba8cb : Executes tasks
+
+@enduml
+....

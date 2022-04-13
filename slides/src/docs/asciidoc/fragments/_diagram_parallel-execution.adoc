@@ -1,0 +1,38 @@
+[plantuml]
+....
+@startuml
+
+!theme spacelab
+skinparam shadowing false
+skinparam defaultFontSize 16
+skinparam defaultFontName Helvetica
+skinparam defaultFontColor 02303a
+
+concise "Worker#1" as W1
+concise "Worker#2" as W2
+
+@0
+W1 is ":compileJava" #1ba8cb;line:02303a
+W2 is ":processResources" #1ba8cb;line:02303a
+
+@125
+W2 is ":sourcesJar" #1ba8cb;line:02303a
+
+@150
+W1 is ":classes" #1ba8cb;line:02303a
+
+@225
+W1 is ":jar" #1ba8cb;line:02303a
+
+@250
+W2 is "<color:lightgray>idle</color>" #white;line:lightgray
+
+@300
+W1 is "<color:1ba8cb>:assemble</color>" #02303a;line:1ba8cb
+
+W2@125 -> W1@150
+W2@250 -> W1@300
+
+
+@enduml
+....

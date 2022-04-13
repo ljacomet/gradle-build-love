@@ -27,6 +27,7 @@ asciidoctorj {
     fatalWarnings(missingIncludes())
     modules {
         diagram.use()
+        diagram.version("2.2.1")
     }
 }
 

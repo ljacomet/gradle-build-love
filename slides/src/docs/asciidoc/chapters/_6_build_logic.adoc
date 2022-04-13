@@ -34,6 +34,8 @@ image::gradle/bg-11.png[background, size=cover]
 * Tâches
 * Build Services
 
+include::../fragments/_diagram_build-logic-parts.adoc[]
+
 
 === Configuration différée
 image::gradle/bg-11.png[background, size=cover]
