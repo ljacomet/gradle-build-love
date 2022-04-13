@@ -75,6 +75,7 @@ Rien ne sert de refaire une tâche déjà faite!
 
 * up-to-date! inputs/outputs
 ** `UP_TO_DATE` à la deuxième exécution
+* Compilation avoidance (API vs. ABI)
 
 
 === Cache de construction
@@ -95,6 +96,7 @@ image::gradle/bg-2.png[background, size=cover]
 ** `gradle -i` pour comprendre ce qu'il se passe
 * Java incremental annotation processing
 ** plugin/toolchain support
+** how to check it works? do we emit a warning?
 
 
 === Construction parallèle

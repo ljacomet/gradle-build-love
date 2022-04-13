@@ -37,12 +37,25 @@ image::gradle/bg-11.png[background, size=cover]
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
+=== Plugins & extensions
+
+
+=== Plugins & tâches
+
+* Build incrémental - inputs/outputs
+* Build cache - cache des outputs
+* Tâches incrémentales - e.g. compilation
+
+
 === Configuration différée
 image::gradle/bg-11.png[background, size=cover]
 
 * `Property`/`Provider`
 * Conteneurs
 * Extensions => Tasks
+* afterEvaluate
+* Ordre
+*
 * TBD
 
 

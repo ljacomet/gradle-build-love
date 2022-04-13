@@ -24,7 +24,8 @@ image::gradle/bg-7.png[background, size=cover]
 
 [cols="<.^7,^.^3",frame=none,grid=none]
 |===
-a|[.small]
+a|
+[.small]
 * Système de plugins
 * DSL extensible
 * Modélisation d’un build vs. scripter des tâches
@@ -54,20 +55,47 @@ include::../fragments/_diagram_build-logic-parts.adoc[]
 === Comment ça marche ?
 image::gradle/bg-7.png[background, size=cover]
 
-include::../fragments/_diagram_how-it-works.adoc[width=80%]
+include::../fragments/_diagram_how-it-works.adoc[]
 
 
 === Exécution de tâches
 image::gradle/bg-7.png[background, size=cover]
 
-* Modèle de configuration -> graphe acyclique de tâches
-* Ne pas refaire ce qui a déjà été fait
-** Build incrémental - inputs/outputs
-** Build cache - cache des outputs
-** Tâches incrémentales - e.g. compilation
-* Exécution en parallèle
+[cols="<.^5,^.^2",frame=none,grid=none]
+|===
+a|
+Ne pas refaire ce qui a déjà été fait.
 
+Faire ce qu'il y a à faire le plus vite possible
+a|
 include::../fragments/_diagram_task-graph.adoc[]
+|===
+
+
+=== Exécution de tâches
+image::gradle/bg-7.png[background, size=cover]
+
+Ne pas refaire ce qui a déjà été fait
+
+[cols="<.^1,^.^1",frame=none,grid=none]
+|===
+a|
+* Build incrémental
+* Build cache
+* Tâches incrémentales
+a|
+include::../fragments/_diagram_task-execution.adoc[]
+|===
+
+
+=== Exécution de tâches
+image::gradle/bg-7.png[background, size=cover]
+
+Faire ce qu'il y a à faire le plus vite possible
+
+* Exécution parallèle des tâches
+* Exécution parallèle d'unités de travail +
+  Worker API / Test Execution
 
 include::../fragments/_diagram_parallel-execution.adoc[]
 
@@ -75,11 +103,10 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 === Divers écosystèmes
 image::gradle/bg-7.png[background, size=cover]
 
-* Ecosystèmes
-** Core plugins
-*** JVM: Java, Groovy, Scala
-** Community plugins
-*** Kotlin, Android, Native, Spring, Micronaut, Asciidoc etc...
+* Core plugins
+** JVM: Java, Groovy, Scala
+* Community plugins
+** Kotlin, Android, Native, Spring, Micronaut, Asciidoc etc...
 
 
 === Utiliser Gradle, le b.a.-ba
