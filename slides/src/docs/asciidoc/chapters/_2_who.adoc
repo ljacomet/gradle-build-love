@@ -107,6 +107,7 @@ image::buildscan-example.png[width=100%]
 
 [.small]
 TBD QR code link to challenge + swag
+https://gradle.com/gradle-and-maven-build-speed-challenge
 
 [.notes]
 --
@@ -121,4 +122,4 @@ Si ce dont nous allons parler aujourd'hui vous intéresse, venez travailler avec
 
 image::team_map.png[width=65%]
 
-https://gradle.com/careers/
+https://gradle.com/careers

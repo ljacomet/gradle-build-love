@@ -6,6 +6,7 @@ Louis Jacomet & Paul Merlin
 :title-slide-background-image: gradle/intro.png
 :title-slide-background-size: cover
 :title-slide-background-color: #02303a
+:hide-uri-scheme:
 
 include::chapters/_1_intro.adoc[]
 

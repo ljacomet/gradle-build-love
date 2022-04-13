@@ -11,7 +11,7 @@ image::gradle/bg-2.png[background, size=cover]
 image::xkcd-compiling.png[width=55%]
 
 [.small]
-https://xkcd.com/303/
+https://xkcd.com/303
 
 
 === Performance
@@ -20,7 +20,7 @@ image::gradle/bg-2.png[background, size=cover]
 image::monkeyuser-focus.png[width=30%]
 
 [.small]
-https://www.monkeyuser.com/2018/focus/
+https://www.monkeyuser.com/2018/focus
 
 
 === Un build rapide c'est
@@ -45,7 +45,7 @@ a|* Mesurer
 a|image::xkcd-optimizing.png[width=65%]
 
 [.small]
-https://xkcd.com/1691/
+https://xkcd.com/1691
 |===
 
 
@@ -60,7 +60,7 @@ TBD
 === `gradle-profiler`
 image::gradle/bg-2.png[background, size=cover]
 
-https://github.com/gradle/gradle-profiler/
+https://github.com/gradle/gradle-profiler
 
 * benchmarking
 * tracing & profiling
@@ -163,5 +163,5 @@ a|* Mesurer
 a|image::xkcd-optimizing.png[width=65%]
 
 [.small]
-https://xkcd.com/1691/
+https://xkcd.com/1691
 |===
