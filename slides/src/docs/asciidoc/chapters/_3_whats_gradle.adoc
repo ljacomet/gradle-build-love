@@ -4,19 +4,85 @@ image::gradle/bg-7.png[background, size=cover]
 
 &#x1F418;
 
-[.notes]
---
-Utiliser build init application comme illustration
---
 
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
 Un outil pour automatiser la construction de logiciels
 
-* Un système de configuration extensible
+* Un modèle de configuration extensible
+* Un moteur de résolution de dépendances
 * Un moteur d'exécution de tâches
-* Un support pour divers écosystèmes
+
+
+=== Divers écosystèmes
+image::gradle/bg-7.png[background, size=cover]
+
+* Core +
+image:logo-java.svg[role=inline-logo]
+image:logo-groovy.png[role=inline-logo]
+image:logo-scala.svg[role=inline-logo]
+image:logo-cpp.svg[role=inline-logo]
+image:logo-swift.svg[role=inline-logo]
+etc...
+* Community +
+image:logo-android.svg[role=inline-logo]
+image:logo-kotlin.png[role=inline-logo]
+image:logo-nokee.svg[role=inline-logo]
+image:logo-spring.svg[role=inline-logo]
+image:logo-micronaut.svg[role=inline-logo]
+image:logo-node.svg[role=inline-logo]
+image:logo-asciidoctor.svg[role=inline-logo] +
+etc...
+
+[.tiny]
+Logos venant de link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia] ou des pages officielles™ respectives.
+
+
+=== Comment on s'en sert ?
+image::gradle/bg-7.png[background, size=cover]
+
+* Gradle Wrapper
+** jvm requise, définit la version de gradle à utiliser, scripts pour utilisation sans installation
+** bootstrap: https://gradle-initializr.cleverapps.io ou une version de gradle installée
+* Utilisation
+** en ligne de commande
+** depuis un IDE
+
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-7.png[background, size=cover]
+
+[.notes]
+--
+utiliser build init application comme illustration
+wrapper: dans le système de gestion de versions, pas dans .gitignore
+cli: options, run tasks, task paths, abbreviations
+cli: mise à jour du wrapper --gradle-version
+ide: intellij & vscode - import gradle model => ide model ... sync!
+ide: source navigation, visibility, assistance
+--
+
+
+=== Comment on s'en sert ?
+image::gradle/bg-7.png[background, size=cover]
+
+* Gradle Wrapper [link:https://docs.gradle.org/current/userguide/gradle_wrapper.html[doc]]
+* Utilisation en ligne de commande +[link:https://docs.gradle.org/current/userguide/command_line_interface.html[doc]]
+* Utilisation depuis un IDE +
+[link:https://www.jetbrains.com/help/idea/gradle.html[doc]] IntelliJ IDEA +
+[link:https://github.com/microsoft/vscode-gradle[doc]] vscode
+
+
+=== Qu'est-ce que Gradle ?
+image::gradle/bg-7.png[background, size=cover]
+
+Un outil pour automatiser la construction de logiciels
+
+* Un modèle de configuration extensible
+* Un moteur de résolution de dépendances
+* Un moteur d'exécution de tâches
 
 
 === Configuration extensible
@@ -26,8 +92,9 @@ image::gradle/bg-7.png[background, size=cover]
 |===
 a|
 [.small]
+* Modèle de configuration extensible
 * Système de plugins
-* DSL extensible
+* DSL dynamique
 * Modélisation d’un build vs. scripter des tâches
 a|
 [source,kotlin]
@@ -58,6 +125,18 @@ image::gradle/bg-7.png[background, size=cover]
 include::../fragments/_diagram_how-it-works.adoc[]
 
 
+=== Résolution de dépendances
+image::gradle/bg-7.png[background, size=cover]
+
+* Dépendances déclarées via le modèle de configuration
+* Dépendances entre projets d'un build
+* Dépendances entre projets de plusieurs builds
+* ~> Dépendances entre tâches
+TODO
+
+include::../fragments/_diagram_task-graph.adoc[]
+
+
 === Exécution de tâches
 image::gradle/bg-7.png[background, size=cover]
 
@@ -80,8 +159,10 @@ Ne pas refaire ce qui a déjà été fait
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-* Build incrémental
-* Build cache
+* Build incrémental +
+  `UP-TO-DATE`
+* Build cache +
+  `FROM-CACHE`
 * Tâches incrémentales
 a|
 include::../fragments/_diagram_task-execution.adoc[]
@@ -100,40 +181,11 @@ Faire ce qu'il y a à faire le plus vite possible
 include::../fragments/_diagram_parallel-execution.adoc[]
 
 
-=== Divers écosystèmes
-image::gradle/bg-7.png[background, size=cover]
-
-* Core plugins
-** JVM: Java, Groovy, Scala
-* Community plugins
-** Kotlin, Android, Native, Spring, Micronaut, Asciidoc etc...
-
-
-=== Utiliser Gradle, le b.a.-ba
-image::gradle/bg-7.png[background, size=cover]
-
-* Gradle Wrapper
-* Utilisation en ligne de commande
-* Utilisation depuis un IDE
-
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-7.png[background, size=cover]
-
-[.notes]
---
-wrapper: utilité, mise à jour
-cli: options, run tasks, task paths, abbreviations
-ide: intellij & vscode
---
-
-
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
 Un outil pour automatiser la construction de logiciels
 
-* Un système de configuration extensible
+* Un modèle de configuration extensible
+* Un moteur de résolution de dépendances
 * Un moteur d'exécution de tâches
-* Un support pour divers écosystèmes

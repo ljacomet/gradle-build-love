@@ -48,12 +48,12 @@ else (non)
             goto exec
         else(oui)
             label space_400
-            #1ba8cb :FROM_CACHE;
+            #1ba8cb :FROM-CACHE;
             detach
         endif
     else(non)
         label space_500
-        #1ba8cb :UP_TO_DATE;
+        #1ba8cb :UP-TO-DATE;
         detach
     endif
 endif

@@ -54,7 +54,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 > Un enregistrement permanent de ce qui se passe pendant un build.
 
-TBD
+TODO
 
 
 === `gradle-profiler`
@@ -64,7 +64,7 @@ https://github.com/gradle/gradle-profiler
 
 * benchmarking
 * tracing & profiling
-* TBD ...
+* TODO ...
 * TODO link to example results, traces, flame graphs etc...
 
 
@@ -123,7 +123,7 @@ image::gradle/bg-2.png[background, size=cover]
 image::gradle/bg-2.png[background, size=cover]
 
 * Xmx anyone?
-* TBD
+* TODO
 
 
 === Nouvelles fonctionnalités
@@ -131,7 +131,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 * Configuration Cache
 * Isolated Projects
-* TBD
+* TODO
 
 
 === Configuration Cache
@@ -140,7 +140,7 @@ image::gradle/bg-2.png[background, size=cover]
 * principes, contraintes, benefices
 * etat d'avancement
 * demo of workflow for fixing problems
-* TBD
+* TODO
 
 
 === Isolated Projects
@@ -149,7 +149,7 @@ image::gradle/bg-2.png[background, size=cover]
 * principes, contraintes, benefices
 * etat d'avancement
 * demo of workflow for fixing problems
-* TBD
+* TODO
 
 
 === Mesurer c'est douter

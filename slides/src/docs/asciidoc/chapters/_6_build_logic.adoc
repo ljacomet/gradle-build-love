@@ -56,13 +56,13 @@ image::gradle/bg-11.png[background, size=cover]
 * afterEvaluate
 * Ordre
 *
-* TBD
+* TODO
 
 
 === Injection de services
 image::gradle/bg-11.png[background, size=cover]
 
-* TBD
+* TODO
 
 
 === Tester c'est douter
@@ -73,4 +73,4 @@ image::tester-cest-douter.jpeg[width=40%]
 * TestKit
 * Approche générale
 * Comment tester des scénarios et lesquels sont importants
-* TBD
+* TODO

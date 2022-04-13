@@ -106,7 +106,7 @@ image::gradle/bg-1.png[background, size=cover]
 image::buildscan-example.png[width=100%]
 
 [.small]
-TBD QR code link to challenge + swag
+TODO QR code link to challenge + swag
 https://gradle.com/gradle-and-maven-build-speed-challenge
 
 [.notes]
