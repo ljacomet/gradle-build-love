@@ -23,7 +23,7 @@ image:logo-java.svg[role=inline-logo]
 image:logo-groovy.png[role=inline-logo]
 image:logo-scala.svg[role=inline-logo]
 image:logo-cpp.svg[role=inline-logo]
-image:logo-swift.svg[role=inline-logo]
+image:logo-swift.svg[role=inline-logo] +
 etc...
 * Community +
 image:logo-android.svg[role=inline-logo]
@@ -32,7 +32,12 @@ image:logo-nokee.svg[role=inline-logo]
 image:logo-spring.svg[role=inline-logo]
 image:logo-micronaut.svg[role=inline-logo]
 image:logo-node.svg[role=inline-logo]
-image:logo-asciidoctor.svg[role=inline-logo] +
+image:logo-asciidoctor.svg[role=inline-logo]
+image:logo-docker.svg[role=inline-logo]
+image:logo-pgsql.svg[role=inline-logo]
+image:logo-sonarqube.svg[role=inline-logo]
+image:logo-flyway.svg[role=inline-logo]
+image:logo-spotbugs.png[role=inline-logo] +
 etc...
 
 [.tiny]

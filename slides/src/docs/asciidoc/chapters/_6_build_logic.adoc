@@ -8,7 +8,6 @@ image::gradle/bg-11.png[background, size=cover]
 === Phases d'un build
 image::gradle/bg-11.png[background, size=cover]
 
-* Initialisation
 * Configuration
 * Calcul du graphe de tâches
 * Execution du travail
@@ -37,6 +36,17 @@ image::gradle/bg-11.png[background, size=cover]
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
+=== Tester c'est douter
+image::gradle/bg-11.png[background, size=cover]
+
+image::tester-cest-douter.jpeg[width=40%]
+
+* TestKit
+* Approche générale
+* Comment tester des scénarios et lesquels sont importants
+* TODO
+
+
 === Plugins & extensions
 
 
@@ -62,15 +72,4 @@ image::gradle/bg-11.png[background, size=cover]
 === Injection de services
 image::gradle/bg-11.png[background, size=cover]
 
-* TODO
-
-
-=== Tester c'est douter
-image::gradle/bg-11.png[background, size=cover]
-
-image::tester-cest-douter.jpeg[width=40%]
-
-* TestKit
-* Approche générale
-* Comment tester des scénarios et lesquels sont importants
 * TODO
