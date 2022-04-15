@@ -4,7 +4,89 @@ image::gradle/bg-4.png[background, size=cover]
 
 &#x1F4C3;
 
-=== Roadmap
+=== Principales priorités
 image::gradle/bg-4.png[background, size=cover]
 
-> ??? :-)
+* Gradle Core
+* Écosystème JVM
+* Logique de build
+* Performance
+
+
+=== Core Platform
+image::gradle/bg-4.png[background, size=cover]
+
+[cols="<.^1,<.^1",frame=none,grid=none]
+|===
+a|Focus actuel
+[.small]
+--
+* Migration complète vers `Property<T>`
+* TODO
+--
+a|Focus suivant
+[.small]
+--
+* TODO
+* TODO
+--
+|===
+
+
+=== Écosystème JVM
+image::gradle/bg-4.png[background, size=cover]
+
+[cols="<.^1,<.^1",frame=none,grid=none]
+|===
+a|Focus actuel
+[.small]
+--
+* TODO
+* TODO
+--
+a|Focus suivant
+[.small]
+--
+* TODO
+* TODO
+--
+|===
+
+
+=== Logique de build
+image::gradle/bg-4.png[background, size=cover]
+
+[cols="<.^1,<.^1",frame=none,grid=none]
+|===
+a|Focus actuel
+[.small]
+--
+* Uniformité des DSL Groovy et Kotlin
+* TODO
+--
+a|Focus suivant
+[.small]
+--
+* Tester plusieurs versions de Gradle
+* TODO
+--
+|===
+
+
+=== Performance
+image::gradle/bg-4.png[background, size=cover]
+
+
+[cols="<.^1,<.^1",frame=none,grid=none]
+|===
+a|Focus actuel
+[.small]
+--
+* Configuration Cache stable
+--
+a|Focus suivant
+[.small]
+--
+* Project Isolation stable
+--
+|===
