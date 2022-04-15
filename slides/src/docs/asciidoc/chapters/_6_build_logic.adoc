@@ -25,6 +25,16 @@ Build Scan
 --
 
 
+=== Logique de build
+image::gradle/bg-11.png[background, size=cover]
+
+Scripts du build vs. Plugins
+
+* Les scripts du build sont déclaratifs
+* Les plugins locaux au build implémentent la logique de configuration du build
+* La logique de build utilise des plugins externes
+
+
 === Blocs de construction
 image::gradle/bg-11.png[background, size=cover]
 
@@ -35,7 +45,7 @@ image::gradle/bg-11.png[background, size=cover]
 include::../fragments/_diagram_how-it-works.adoc[]
 
 
-== Modèle de programmation
+=== Modèle de programmation
 image::gradle/bg-11.png[background, size=cover]
 
 * Don't call us, we'll call you - _Sugarloaf^WHollywood_
@@ -46,7 +56,7 @@ image::gradle/bg-11.png[background, size=cover]
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
-== Beans ?
+=== Beans ?
 
 * Oui et non
 * TODO words from polygene
