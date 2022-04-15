@@ -89,3 +89,26 @@ div.product-logo-as-title img {
 .reveal div.small div.content .ulist {
     font-size: 0.75em;
 }
+
+.reveal div.listingblock div.title {
+    font-size: 0.3em;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.reveal .colist table {
+    margin: 0;
+    border: 0;
+    font-size: 0.4em;
+}
+
+.reveal .colist td {
+    padding: 0;
+    border: 0;
+}
+
+.reveal .colist .conum {
+    margin: 0 0.75em 0 0;
+}

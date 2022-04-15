@@ -87,12 +87,15 @@ image::gradle/bg-4.png[background, size=cover]
 a|*Focus actuel*
 [.small]
 --
-* Configuration Cache stable
-* Project Isolation pour les early birds
+* Configuration Cache +
+  `stable`
+* Project Isolation +
+  `incubating`
 --
 a|*Focus suivant*
 [.small]
 --
-* Project Isolation stable
+* Project Isolation +
+  `stable`
 --
 |===

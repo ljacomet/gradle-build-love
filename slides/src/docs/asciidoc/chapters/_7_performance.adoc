@@ -75,7 +75,11 @@ Rien ne sert de refaire une tâche déjà faite!
 * up-to-date! inputs/outputs
 ** `UP_TO_DATE` à la deuxième exécution
 * Compilation avoidance (API vs. ABI)
-
+* Test d'incrémentalité
+** Lancer un build
+** Lancer un autre build sans faire de changement
+** Si une tâche est réexécutée, on perds du temps !
+*** Investiguer!
 
 === Cache de construction
 image::gradle/bg-2.png[background, size=cover]
@@ -147,10 +151,10 @@ image::gradle/bg-2.png[background, size=cover]
 image::gradle/bg-2.png[background, size=cover]
 
 [%step]
-* Configuration Cache [_incubating_]
+* *Configuration Cache* [_incubating_]
 +
 Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
-* Project Isolation [_prototype_]
+* *Project Isolation* [_prototype_]
 +
 Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
 
@@ -233,9 +237,10 @@ image::gradle/bg-2.png[background, size=cover]
 
 Feuille de route, à ce jour
 
-* [.line-through]#incubating# => stable dans Gradle 8.x (en opt-in) +
-
-* Activé par défaut dans Gradle 9.0 (avec un opt-out)
+* [.line-through]#incubating# => stable dans Gradle 8.x +
+  (en opt-in)
+* Activé par défaut dans Gradle 9.0 +
+  (avec un opt-out)
 
 
 
