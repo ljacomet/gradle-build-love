@@ -244,16 +244,8 @@ Feuille de route, à ce jour
   (en opt-in)
 * Activé par défaut dans Gradle 9.0 +
   (avec un opt-out)
-
-
-
-=== Configuration Cache
-image::gradle/bg-2.png[background, size=cover]
-
-Quirks
-
-* TODO
-
+* Seul mode possible dans Gradle x.x +
+  (sans opt-out)
 
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
@@ -278,7 +270,7 @@ Principes
 === Project Isolation
 image::gradle/bg-2.png[background, size=cover]
 
-Bénéfices futurs
+Bénéfices
 
 * *Synchronization IDE plus rapide*
 ** Cache de modèles TAPI pour les IDE
@@ -304,11 +296,14 @@ image::gradle/bg-2.png[background, size=cover]
 
 État d'avancement
 
+[.small]
+--
 * Actuellement au stade de prototype
 * Activable aujourd'hui
 ** dégrade les performances si les contraintes sont violées
 ** l'accéleration de la synchronization IDE ne fonctionne pas encore
-** l'accéleration de la phase de configuration n'est pas implémenté
+** l'accéleration de la phase de configuration n'est pas implémentée
+--
 
 
 // =====================================================================================================================
