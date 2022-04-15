@@ -32,7 +32,8 @@ a|
 * Don't call us, we'll call you! +
 _Sugarloaf^WHollywood_
 * Types abstraits, instanciés et décorés par Gradle
-* Services Gradle injectés
+* Services Gradle injectés +
+  [link:https://docs.gradle.org/current/userguide/custom_gradle_types.html#service_injection[doc]]
 --
 a|
 .`build.gradle`
@@ -288,6 +289,7 @@ abstract class MyTask : DefaultTask() {
 <1> Marque la tâche comme _cacheable_
 <2> Définit la sensibilité des chemins pour cet _input_
 
+
 === _Inputs_ de tâches incrémentaux
 image::gradle/bg-11.png[background, size=cover]
 
@@ -314,17 +316,13 @@ TRANSITION: tout ça c'est du code, et le code ça se teste
 // =====================================================================================================================
 
 
-=== Injection de services
-image::gradle/bg-11.png[background, size=cover]
-
-* TODO
-
-
 === Build services
 image::gradle/bg-11.png[background, size=cover]
 
-_ Services de build partagés ou _shared build services_
+_Services de build partagés_ ou _shared build services_
+
 * TODO
+* DEMO?
 
 
 // =====================================================================================================================
