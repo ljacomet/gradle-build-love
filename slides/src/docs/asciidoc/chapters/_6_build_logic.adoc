@@ -25,15 +25,39 @@ Build Scan
 --
 
 
-=== Building blocks
+=== Blocs de construction
 image::gradle/bg-11.png[background, size=cover]
 
 * Plugins
-* API & extensions de DSL
+* Extensions de DSL
 * Tâches
-* Build Services
+
+include::../fragments/_diagram_how-it-works.adoc[]
+
+
+== Modèle de programmation
+image::gradle/bg-11.png[background, size=cover]
+
+* Don't call us, we'll call you - _Sugarloaf^WHollywood_
+* `(abstract class|interface) MyType extends GradleApiType` +
+  instancié et décoré par Gradle
+* Services Gradle injectés `@Inject`
 
 include::../fragments/_diagram_build-logic-parts.adoc[]
+
+
+== Beans ?
+
+* Oui et non
+* TODO words from polygene
+* JavaBeans + `Property<T>`
+* La convention JavaBeans apporte de l'interop avec Groovy et Kotlin
+* `Property<T>` associe une propriété à ses dépendances dans le build
+
+[.notes]
+--
+TRANSITION: tout ça c'est du code, et le code ça se teste
+--
 
 
 === Tester c'est douter
@@ -43,14 +67,40 @@ image::tester-cest-douter.jpeg[width=40%]
 
 * TestKit
 * Approche générale
-* Comment tester des scénarios et lesquels sont importants
 * TODO
 
 
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-11.png[background, size=cover]
+
+[.notes]
+--
+Montrer les tests du plugin de démo
+--
+
+
+=== TestKit
+image::gradle/bg-11.png[background, size=cover]
+
+* Comment tester des scénarios et lesquels sont importants
+* Tester plusieurs versions de Gradle
+* TODO
+
+
+=== Plugins
+image::gradle/bg-11.png[background, size=cover]
+
+* Cibles de plugin : `Project`, `Settings` ou `Gradle`
+* Equivalence en scripts : _project script_, _settings script_, _init script_
+*
+
 === Plugins & extensions
+image::gradle/bg-11.png[background, size=cover]
 
 
 === Plugins & tâches
+image::gradle/bg-11.png[background, size=cover]
 
 * Build incrémental - inputs/outputs
 * Build cache - cache des outputs
@@ -66,6 +116,13 @@ image::gradle/bg-11.png[background, size=cover]
 * afterEvaluate
 * Ordre
 *
+* TODO
+
+
+=== Build services
+image::gradle/bg-11.png[background, size=cover]
+
+_ Services de build partagés ou _shared build services_
 * TODO
 
 
