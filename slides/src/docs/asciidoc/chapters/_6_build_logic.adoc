@@ -11,14 +11,63 @@ image::gradle/bg-11.png[background, size=cover]
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
-=== Idiomatisme
+=== Scripts du build vs. Plugins
 image::gradle/bg-11.png[background, size=cover]
 
-Scripts du build vs. Plugins
+*Configuration* +
+Les scripts du build sont déclaratifs
 
-* Les scripts du build sont déclaratifs
-* Les plugins locaux au build implémentent la logique de configuration du build
-* La logique de build utilise des plugins externes
+*Conventions* +
+Les plugins locaux au build implémentent la logique de configuration du build
+
+https://plugins.gradle.org +
+La logique de build utilise des plugins externes
+
+
+
+=== Écrire des plugins
+image::gradle/bg-11.png[background, size=cover]
+
+Un plugin Gradle est construit par un build Gradle
+
+[cols="<.^7,<.^3",frame=none,grid=none]
+|===
+a|
+[.small]
+--
+Des plugins de développement de plugins pour:
+
+* modéliser la construction de plugins Gradle
+* valider plugins, extensions de DSL et tâches
+* faciliter les tests d'intégration
+* déclarer les métadonnées des plugins
+* publier les plugins sur https://plugins.gradle.org
+--
+a|
+.Script d'un projet de plugin Java
+[source,kotlin]
+----
+plugins {
+    id("java-gradle-plugin")
+}
+----
+
+.Script d'un projet de plugin Groovy
+[source,kotlin]
+----
+plugins {
+    id("groovy-gradle-plugin")
+}
+----
+
+.Script d'un projet de plugin Kotlin
+[source,kotlin]
+----
+plugins {
+    id("kotlin-dsl")
+}
+----
+|===
 
 
 === Modèle de programmation
@@ -29,23 +78,27 @@ image::gradle/bg-11.png[background, size=cover]
 a|
 [.small]
 --
-* Don't call us, we'll call you! +
+Don't call us, we'll call you! +
 _Sugarloaf^WHollywood_
-* Types abstraits, instanciés et décorés par Gradle
-* Services Gradle injectés +
-  [link:https://docs.gradle.org/current/userguide/custom_gradle_types.html#service_injection[doc]]
+
+Types abstraits, instanciés et décorés +
+par Gradle
+
+Services Gradle injectés +
+[link:https://docs.gradle.org/current/userguide/custom_gradle_types.html#service_injection[doc]]
 --
 a|
-.`build.gradle`
+.`Something.groovy`
 [source,groovy]
 ----
-abstract class Something {
+abstract class Something implements GradleApiType {
 
     @Inject
     abstract ExecOperations getExecOps()
 
     abstract Property<String> getSomeProperty()
 
+    @Override
     def someAction() {
         execOps.exec {
             commandLine "git", "status"
@@ -53,8 +106,12 @@ abstract class Something {
         println someProperty.get()
     }
 }
+----
 
-objects.newInstance(Something)
+.`build.gradle`
+[source,groovy]
+----
+def some = objects.newInstance(Something)
 ----
 |===
 
@@ -62,12 +119,15 @@ objects.newInstance(Something)
 === Beans ?
 image::gradle/bg-11.png[background, size=cover]
 
-* Oui et non ... JavaBeans + `Property<T>`
-* JavaBeans pour l'interop avec Groovy et Kotlin
-* `Property<T>` est un conteneur de valeur +
-  `Provider<T>` est son pendant immutable
-** associe une propriété à ses dépendances dans le build
-** permet un chaînage _lazy_ des propriétés
+Oui et non ... JavaBeans + `Property<T>`
+
+JavaBeans pour l'interop avec Groovy et Kotlin
+
+`Property<T>` est un conteneur de valeur +
+`Provider<T>` est son pendant immutable
+
+* associe une propriété à ses dépendances dans le build
+* permet un chaînage _lazy_ des propriétés
 
 
 === Blocs de construction
@@ -76,10 +136,11 @@ image::gradle/bg-11.png[background, size=cover]
 [cols="<.^1,^.^2",frame=none,grid=none]
 |===
 a|
-* Plugins
-* Extensions de DSL
-* Tâches
+Plugins
 
+Extensions de DSL
+
+Tâches
 a|
 include::../fragments/_diagram_how-it-works.adoc[]
 |===
@@ -88,12 +149,14 @@ include::../fragments/_diagram_how-it-works.adoc[]
 === Phases d'un build
 image::gradle/bg-11.png[background, size=cover]
 
-* *Configuration* +
-  Plugins + DSL = enregistrement des tâches
-* *Calcul du graphe de tâches* +
-  Gradle
-* *Execution du travail* +
-  Dépendances de tâches, incrémentalité
+*Configuration* +
+Plugins + DSL = enregistrement des tâches
+
+*Calcul du graphe de tâches* +
+Gradle
+
+*Execution du travail* +
+Dépendances de tâches, incrémentalité
 
 
 === Plugins
@@ -102,16 +165,18 @@ image::gradle/bg-11.png[background, size=cover]
 [cols="<.^3,<.^4",frame=none,grid=none]
 |===
 a|
-* Cibles de plugin
-** `Project`
-** `Settings`
-** `Gradle`
+Cibles de plugin
+
+* `Project`
+* `Settings`
+* `Gradle`
 
 a|
-* Equivalences en scripts
-** _project script_
-** _settings script_
-** _init script_
+Equivalences en scripts
+
+* _project script_
+* _settings script_
+* _init script_
 |===
 
 .`MyPlugin.java`
@@ -268,6 +333,7 @@ abstract class MyTask : DefaultTask() {
 === Tâches mises en cache
 image::gradle/bg-11.png[background, size=cover]
 
+.`MyTask.kt`
 [source,kotlin]
 ----
 @CacheableTask <1>
@@ -314,6 +380,16 @@ TRANSITION: tout ça c'est du code, et le code ça se teste
 --
 
 // =====================================================================================================================
+
+
+=== Écrire des tâches
+image::gradle/bg-11.png[background, size=cover]
+
+* Beaucoup d'opt-ins auxquels penser
+* Gradle valide les plugins et les tâches
+** au runtime -> warnings / failures / deprecations
+** lors de l'écriture de plugins -> `:validatePlugins`
+* Évolution balancée vers plus de choses par défaut tout en maintenant la compatibilité
 
 
 === Build services
