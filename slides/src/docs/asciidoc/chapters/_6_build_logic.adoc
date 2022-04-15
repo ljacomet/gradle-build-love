@@ -38,34 +38,52 @@ Scripts du build vs. Plugins
 === Blocs de construction
 image::gradle/bg-11.png[background, size=cover]
 
+[cols="<.^1,^.^2",frame=none,grid=none]
+|===
+a|
 * Plugins
 * Extensions de DSL
 * Tâches
 
+a|
 include::../fragments/_diagram_how-it-works.adoc[]
+|===
 
 
 === Modèle de programmation
 image::gradle/bg-11.png[background, size=cover]
 
-* Don't call us, we'll call you - _Sugarloaf^WHollywood_
-* `(abstract class|interface) MyType extends GradleApiType` +
-  instancié et décoré par Gradle
-* Services Gradle injectés `@Inject`
-
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
+=== Modèle de programmation
+image::gradle/bg-11.png[background, size=cover]
+
+* Don't call us, we'll call you! +
+  _Sugarloaf^WHollywood_
+* `(abstract class|interface)` +
+  `MyType extends GradleApiType` +
+  *instancié et décoré par Gradle*
+* Services Gradle injectés +
+  `@Inject`
+
+
 === Beans ?
+image::gradle/bg-11.png[background, size=cover]
 
 * Oui et non
-* TODO words from polygene
 * JavaBeans + `Property<T>`
 * La convention JavaBeans apporte de l'interop avec Groovy et Kotlin
-* `Property<T>` associe une propriété à ses dépendances dans le build
+* `Property<T>` associe une propriété à ses dépendances dans le build et plus
+
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-11.png[background, size=cover]
 
 [.notes]
 --
+Montrer le plugin de démo, son extension DSL et ses tâches
 TRANSITION: tout ça c'est du code, et le code ça se teste
 --
 
@@ -73,10 +91,30 @@ TRANSITION: tout ça c'est du code, et le code ça se teste
 === Tester c'est douter
 image::gradle/bg-11.png[background, size=cover]
 
-image::tester-cest-douter.jpeg[width=40%]
+[cols="<.^1,^.^1",frame=none,grid=none]
+|===
+a|
+* Tests unitaires +
+`ProjectBuilder`
+* Tests d'intégration +
+`Gradle TestKit`
 
-* TestKit
-* Approche générale
+a|
+image::tester-cest-douter.jpeg[]
+|===
+
+
+=== Tests unitaires
+image::gradle/bg-11.png[background, size=cover]
+
+* `ProjectBuilder`
+* TODO
+
+
+=== Tests d'intégration
+image::gradle/bg-11.png[background, size=cover]
+
+* `Gradle TestKit`
 * TODO
 
 
@@ -86,11 +124,11 @@ image::gradle/bg-11.png[background, size=cover]
 
 [.notes]
 --
-Montrer les tests du plugin de démo
+Montrer et expliquer les tests du plugin de démo
 --
 
 
-=== TestKit
+=== Gradle TestKit
 image::gradle/bg-11.png[background, size=cover]
 
 * Comment tester des scénarios et lesquels sont importants
@@ -129,14 +167,15 @@ image::gradle/bg-11.png[background, size=cover]
 * TODO
 
 
+=== Injection de services
+image::gradle/bg-11.png[background, size=cover]
+
+* TODO
+
+
 === Build services
 image::gradle/bg-11.png[background, size=cover]
 
 _ Services de build partagés ou _shared build services_
 * TODO
 
-
-=== Injection de services
-image::gradle/bg-11.png[background, size=cover]
-
-* TODO
