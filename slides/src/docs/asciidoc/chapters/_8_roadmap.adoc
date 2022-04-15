@@ -18,13 +18,14 @@ image::gradle/bg-4.png[background, size=cover]
 
 [cols="<.^1,<.^1",frame=none,grid=none]
 |===
-a|Focus actuel
+a|*Focus actuel*
 [.small]
 --
+* Groovy 4 & Kotlin 1.6
 * Migration complète vers `Property<T>`
 * TODO
 --
-a|Focus suivant
+a|*Focus suivant*
 [.small]
 --
 * TODO
@@ -38,17 +39,23 @@ image::gradle/bg-4.png[background, size=cover]
 
 [cols="<.^1,<.^1",frame=none,grid=none]
 |===
-a|Focus actuel
+a|*Focus actuel*
+
 [.small]
 --
-* TODO
+* Java 18 et 19
 * TODO
 --
-a|Focus suivant
+a|*Focus suivant*
 [.small]
 --
-* TODO
-* TODO
+* Toolchains
+** SPI
+** Selection de JVM
+** Exploitation core et plugins
+* Test suites
+** Matrices de tests
+** Couverture du code
 --
 |===
 
@@ -58,17 +65,15 @@ image::gradle/bg-4.png[background, size=cover]
 
 [cols="<.^1,<.^1",frame=none,grid=none]
 |===
-a|Focus actuel
+a|*Focus actuel*
 [.small]
 --
 * Uniformité des DSL Groovy et Kotlin
-* TODO
 --
-a|Focus suivant
+a|*Focus suivant*
 [.small]
 --
 * Tester plusieurs versions de Gradle
-* TODO
 --
 |===
 
@@ -79,12 +84,13 @@ image::gradle/bg-4.png[background, size=cover]
 
 [cols="<.^1,<.^1",frame=none,grid=none]
 |===
-a|Focus actuel
+a|*Focus actuel*
 [.small]
 --
 * Configuration Cache stable
+* Project Isolation pour les early birds
 --
-a|Focus suivant
+a|*Focus suivant*
 [.small]
 --
 * Project Isolation stable
