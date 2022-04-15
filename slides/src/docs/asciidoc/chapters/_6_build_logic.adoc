@@ -314,6 +314,22 @@ TRANSITION: tout ça c'est du code, et le code ça se teste
 // =====================================================================================================================
 
 
+=== Injection de services
+image::gradle/bg-11.png[background, size=cover]
+
+* TODO
+
+
+=== Build services
+image::gradle/bg-11.png[background, size=cover]
+
+_ Services de build partagés ou _shared build services_
+* TODO
+
+
+// =====================================================================================================================
+
+
 === Tester c'est douter
 image::gradle/bg-11.png[background, size=cover]
 
@@ -321,9 +337,9 @@ image::gradle/bg-11.png[background, size=cover]
 |===
 a|
 * Tests unitaires +
-`ProjectBuilder`
+`ProjectBuilder` [link:https://docs.gradle.org/current/javadoc/org/gradle/testfixtures/ProjectBuilder.html[doc]]
 * Tests d'intégration +
-`Gradle TestKit`
+`Gradle TestKit` [link:https://docs.gradle.org/current/userguide/test_kit.html[doc]]
 
 a|
 image::tester-cest-douter.jpeg[]
@@ -334,14 +350,19 @@ image::tester-cest-douter.jpeg[]
 image::gradle/bg-11.png[background, size=cover]
 
 * `ProjectBuilder`
-* TODO
+* Pour tester les interactions avec le modèle de configuration
+* Seulement sur `Project`
+* Pas pour tester les tâches
 
 
 === Tests d'intégration
 image::gradle/bg-11.png[background, size=cover]
 
 * `Gradle TestKit`
-* TODO
+* Pour tester des builds complets
+* Fais tourner un vrai Gradle
+* Expose la sortie de Gradle pour assertions
+* Expose les résultats de tâches pour assertions
 
 
 [background-color="#02303a"]
@@ -362,29 +383,3 @@ image::gradle/bg-11.png[background, size=cover]
 * Comment tester des scénarios et lesquels sont importants
 * Tester plusieurs versions de Gradle
 * TODO
-
-
-=== Configuration différée
-image::gradle/bg-11.png[background, size=cover]
-
-* `Property`/`Provider`
-* Conteneurs
-* Extensions => Tasks
-* afterEvaluate
-* Ordre
-*
-* TODO
-
-
-=== Injection de services
-image::gradle/bg-11.png[background, size=cover]
-
-* TODO
-
-
-=== Build services
-image::gradle/bg-11.png[background, size=cover]
-
-_ Services de build partagés ou _shared build services_
-* TODO
-
