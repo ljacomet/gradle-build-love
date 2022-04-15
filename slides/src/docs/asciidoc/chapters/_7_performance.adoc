@@ -147,6 +147,9 @@ image::gradle/bg-2.png[background, size=cover]
 * TODO
 
 
+// =====================================================================================================================
+
+
 === Nouvelles fonctionnalités
 image::gradle/bg-2.png[background, size=cover]
 
@@ -260,21 +263,28 @@ image::gradle/bg-2.png[background, size=cover]
 * Vous pouvez démarrer son adoption aujourd'hui
 
 
+// =====================================================================================================================
+
+
 === Project Isolation
 image::gradle/bg-2.png[background, size=cover]
 
 Principes
 
 * Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
-* TODO
+* Isole les projets les uns des autres
 
 
 === Project Isolation
 image::gradle/bg-2.png[background, size=cover]
 
-Bénéfices
+Bénéfices futurs
 
-* TODO
+* *Synchronization IDE plus rapide*
+** Cache de modèles TAPI pour les IDE
+* *Phase de configuration plus rapide*
+** Cache de configuration par projet
+** Configuration parallèle
 
 
 === Project Isolation
@@ -282,17 +292,11 @@ image::gradle/bg-2.png[background, size=cover]
 
 Contraintes
 
-* TODO
-
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-2.png[background, size=cover]
-
-[.notes]
---
-TODO
---
+* Ne pas référencer un `Project` depuis un autre
+* Configuration avec `subprojects {}` & `allprojects {}`
+** Utiliser des plugins de convention
+* Consommer les _outputs_ d'un projet dans un autre
+** Utiliser les publications et les dépendances
 
 
 === Project Isolation
@@ -300,8 +304,17 @@ image::gradle/bg-2.png[background, size=cover]
 
 État d'avancement
 
+* Actuellement au stade de prototype
+* Activable aujourd'hui
+** dégrade les performances si les contraintes sont violées
+** l'accéleration de la synchronization IDE ne fonctionne pas encore
+** l'accéleration de la phase de configuration n'est pas implémenté
 
-=== Mesurer c'est douter
+
+// =====================================================================================================================
+
+
+=== Performance
 image::gradle/bg-2.png[background, size=cover]
 
 [cols="<1,>1",frame=none,grid=none]
