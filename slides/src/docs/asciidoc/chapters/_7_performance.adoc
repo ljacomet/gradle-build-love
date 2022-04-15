@@ -29,7 +29,6 @@ image::gradle/bg-2.png[background, size=cover]
 * moins de temps d'attente
 * moins de changements de contexte
 * plus de fluidité dans notre travail
-* plus de productivité
 
 
 === Mesurer c'est douter
@@ -114,14 +113,32 @@ image::gradle/bg-2.png[background, size=cover]
 === Résolution de dépendances
 image::gradle/bg-2.png[background, size=cover]
 
-* dynamic versions
+* Versions dynamiques
+* Déclarations de repositories
+
+
+=== Résolution de dépendances
+image::gradle/bg-2.png[background, size=cover]
+
+Versions dynamiques
+
+TODO
+
+
+=== Résolution de dépendances
+image::gradle/bg-2.png[background, size=cover]
+
+Déclarations de repositories
+
 * repo presence/order/filtering
 * `mavenLocal()`
+* TODO
 
 
 === Gestion de la mémoire
 image::gradle/bg-2.png[background, size=cover]
 
+* Processus Java: client, daemon, workers*
 * Xmx anyone?
 * TODO
 
@@ -129,27 +146,154 @@ image::gradle/bg-2.png[background, size=cover]
 === Nouvelles fonctionnalités
 image::gradle/bg-2.png[background, size=cover]
 
-* Configuration Cache
-* Isolated Projects
+[%step]
+* Configuration Cache [_incubating_]
++
+Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
+* Project Isolation [_prototype_]
++
+Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Principes
+
+* Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
+* Détection des _inputs_ de la logique de build pour invalidation
+* Tâches isolées du modèle de build mutable et entre elles
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Bénéfices
+
+* Quand rien n'a changé, la configuration est complétement sautée
+* Moins de pression mémoire car le modèle de build peut être garbage collecté
+* Exécution de toutes les tâches en parallèle (incl. intra-projets)
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Contraintes sur la logique de configuration
+
+* Environnement, fichiers de conf, process externes (e.g. `git`) etc...
+* _Build listeners_ enregistrés lors de la configuration, notifiés lors de l'exécution
+* link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Contraintes sur la logique d'exécution
+
+* Pas de références au modèle de build dans les tâches +
+e.g. `Project`, `Task` etc...
+* Pas d'objets _live_ dans les _inputs_ +
+e.g. `InputStream`, `Socket` etc...
+* link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+* Force les bonnes pratiques
+** Claire séparation entre configuration et execution
+** Déclaration correcte des _inputs_
+** Pas d'interdépendance entre instances de tâches
+
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-2.png[background, size=cover]
+
+[.notes]
+--
+Utiliser `gradle/gradle`
+Execution des tests
+Adoption progressive
+Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la doc
+--
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+* Les plugins Core JVM sont compatibles
+** tous les autres ne le sont pas encore [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
+* Les plugins Kotlin et Android sont compatibles
+* De plus en plus de plugins communautaires sont compatibles link:https://github.com/gradle/gradle/issues/13490[gradle/gradle#13490]
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Feuille de route, à ce jour
+
+* [.line-through]#incubating# => stable dans Gradle 8.x (en opt-in) +
+
+* Activé par défaut dans Gradle 9.0 (avec un opt-out)
+
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Quirks
+
 * TODO
 
 
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-* principes, contraintes, benefices
-* etat d'avancement
-* demo of workflow for fixing problems
-* TODO
+* Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
+* Le jeu en vaut la chandelle
+* Vous pouvez démarrer son adoption aujourd'hui
 
 
-=== Isolated Projects
+=== Project Isolation
 image::gradle/bg-2.png[background, size=cover]
 
-* principes, contraintes, benefices
-* etat d'avancement
-* demo of workflow for fixing problems
+Principes
+
+* Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
 * TODO
+
+
+=== Project Isolation
+image::gradle/bg-2.png[background, size=cover]
+
+Bénéfices
+
+* TODO
+
+
+=== Project Isolation
+image::gradle/bg-2.png[background, size=cover]
+
+Contraintes
+
+* TODO
+
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-2.png[background, size=cover]
+
+[.notes]
+--
+TODO
+--
+
+
+=== Project Isolation
+image::gradle/bg-2.png[background, size=cover]
+
+État d'avancement
 
 
 === Mesurer c'est douter
