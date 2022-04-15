@@ -97,6 +97,7 @@ image::gradle/ge-4.png[background, size=contain]
 [.notes]
 --
 scans: cas d'utilisation
+Un enregistrement permanent de ce qui se passe pendant un build.
 --
 
 
