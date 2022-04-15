@@ -14,6 +14,7 @@ $darkColor: #02303a;
 // Override theme settings (see _settings.scss)
 $mainFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 $mainColor: $darkColor;
+$mainFontSize: 36px;
 $headingFont: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 $headingColor: $darkColor;
 $headingTextShadow: none;
@@ -23,10 +24,12 @@ $linkColor: #1ba8cb;
 $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
-$heading1Size: 2.5em;
-$heading2Size: 2em;
+$heading1Size: 2em;
+$heading2Size: 1.75em;
 $heading3Size: 1.5em;
 $heading4Size: 1em;
+
+$blockMargin: 16px;
 
 section.has-dark-background {
 	&, h1, h2, h3, h4, h5, h6 {
@@ -45,6 +48,7 @@ section.has-dark-background {
     background: none;
     border: none;
     box-shadow: none;
+    margin: 0;
 }
 
 // Theme template ------------------------------
