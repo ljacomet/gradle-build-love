@@ -73,42 +73,72 @@ image::gradle/bg-1.png[background, size=cover]
 
 image::logo-gradle-enterprise.svg[role=product-logo-as-title]
 
-Gradle Enterprise, produit commercial, est la première solution de Developer Productivity Engineering (DPE).
+Gradle Enterprise, produit commercial, est la première solution intégrée de Developer Productivity Engineering (DPE)
 
-DPE est une pratique logicielle émergente qui repose sur des technologies d'accélération pour rendre les builds et tests plus rapides, pour rendre la recherche de problèmes plus efficace.
-
-
-[%notitle]
-=== Gradle Enterprise
-image::gradle/ge-1.png[background, size=contain]
+image::gradle/ge-1.png[width=70%]
 
 [.notes]
 --
 metadata de tous les builds
 outputs de tous les builds
 observabilite: scans, performance trends, test dashboard etc...
-accélération: build-cache, test distribution, test selection etc..
+accélération: build-cache, test distribution, predictive test selection etc..
 --
 
-[%notitle]
-=== Gradle Enterprise
-image::gradle/ge-4.png[background, size=contain]
+
+=== Developer Productivity Engineering
+image::gradle/bg-1.png[background, size=cover]
+
+DPE est une pratique logicielle émergente qui repose sur des technologies d'accélération et l'analyse de données  pour améliorer la productivité des développeurs.
+
+[cols="<.^1,^.^1",frame=none,grid=none]
+|===
+a|
+* rendre les builds et tests plus rapides
+* rendre la recherche de problèmes plus efficace
+
+a|image::dpe-showdown.jpeg[]
+
+[.small]
+https://twitter.com/DpeShowdown
+|===
+
 
 [.notes]
 --
-scans: cas d'utilisation
-Un enregistrement permanent de ce qui se passe pendant un build.
+DevProdEng Showdown est une série d'événements de 30 minutes diffusés en direct où un panel des experts débattent de sujets d'actualité liés à l'ingénierie de la productivité.
+
+Deux formules
+* showdown: jeu télévisé, plusieurs participants
+* lowdown: interview en face à face
+
+Comment Netflix, Microsoft, LinkedIn et autres équipes font de la DPE?
 --
 
 
-=== Gradle Enterprise
+=== Build Scans
 image::gradle/bg-1.png[background, size=cover]
 
-image::buildscan-example.png[width=100%]
+Un enregistrement permanent +
+de ce qui se passe pendant un build.
 
+[cols="<.^65,^.^35",frame=none,grid=none]
+|===
+a|image::buildscan-example.png[]
+
+image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu]
+a|
 [.small]
-TODO QR code link to challenge + swag
-https://gradle.com/gradle-and-maven-build-speed-challenge
+--
+*Gradle & Maven build speed challenge*
+
+// TODO QR code link to challenge + swag
+// https://gradle.com/gradle-and-maven-build-speed-challenge
+image::qrcode-build-speed-challenge.svg[link=images/qrcode-build-speed-challenge.svg]
+
+Recevez des goodies :)
+--
+|===
 
 [.notes]
 --

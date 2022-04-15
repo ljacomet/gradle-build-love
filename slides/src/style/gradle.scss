@@ -90,7 +90,7 @@ div.product-logo-as-title img {
     font-size: 0.25em;
 }
 
-.reveal div.small div.content .ulist {
+.reveal div.small div.content {
     font-size: 0.75em;
 }
 
@@ -106,6 +106,14 @@ div.product-logo-as-title img {
     margin: 0;
     border: 0;
     font-size: 0.4em;
+}
+
+.reveal table th {
+    padding: 0.2em;
+}
+
+.reveal table td {
+    padding: 0.2em;
 }
 
 .reveal .colist td {
