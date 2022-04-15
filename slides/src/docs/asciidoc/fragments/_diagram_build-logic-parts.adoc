@@ -3,7 +3,7 @@
 
 +-------------------------------------+
 | c2BD                                |
-|            Build scripts            |
+|           Scripts du build          |
 |                                     |
 |            (Kotlin/Groovy)          |
 |                                     |
