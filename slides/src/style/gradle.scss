@@ -55,6 +55,18 @@ section.has-dark-background {
 @import "_theme";
 // ---------------------------------------------
 
+.reveal .slides {
+    text-align: left;
+}
+
+.reveal .slides .imageblock {
+    text-align: center;
+}
+
+.reveal .slides .center {
+    text-align: center;
+}
+
 .reveal pre {
     width: 100%;
     font-size: 0.4em;

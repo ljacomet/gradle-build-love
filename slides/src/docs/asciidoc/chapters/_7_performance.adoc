@@ -10,7 +10,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 image::xkcd-compiling.png[width=55%]
 
-[.small]
+[.center.small]
 https://xkcd.com/303
 
 
@@ -19,7 +19,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 image::monkeyuser-focus.png[width=30%]
 
-[.small]
+[.center.small]
 https://www.monkeyuser.com/2018/focus
 
 
@@ -34,7 +34,7 @@ image::gradle/bg-2.png[background, size=cover]
 === Mesurer c'est douter
 image::gradle/bg-2.png[background, size=cover]
 
-[cols="<1,>1",frame=none,grid=none]
+[cols="<1,^1",frame=none,grid=none]
 |===
 a|* Mesurer
 * Changer
@@ -153,12 +153,10 @@ image::gradle/bg-2.png[background, size=cover]
 === Nouvelles fonctionnalités
 image::gradle/bg-2.png[background, size=cover]
 
-[%step]
-* *Configuration Cache* [_incubating_]
-+
+*Configuration Cache* [_incubating_] +
 Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
-* *Project Isolation* [_prototype_]
-+
+
+*Project Isolation* [_prototype_] +
 Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
 
 
@@ -312,7 +310,7 @@ image::gradle/bg-2.png[background, size=cover]
 === Performance
 image::gradle/bg-2.png[background, size=cover]
 
-[cols="<1,>1",frame=none,grid=none]
+[cols="<1,^1",frame=none,grid=none]
 |===
 a|* Mesurer
 * Changer

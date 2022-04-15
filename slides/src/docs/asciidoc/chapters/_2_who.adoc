@@ -153,4 +153,5 @@ Si ce dont nous allons parler aujourd'hui vous intéresse, venez travailler avec
 
 image::team_map.png[width=65%]
 
+[.center]
 https://gradle.com/careers
