@@ -180,6 +180,7 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 [.notes]
 --
 Tirer le meilleur parti de nos machines
+
 Ne peut pas être défini dynamiquement: `gradle.properties` pour les devs, ligne de commande pour la CI
 --
 
@@ -475,10 +476,10 @@ image::gradle/bg-2.png[background, size=cover]
 
 [.notes]
 --
-Utiliser `gradle/gradle`
-Execution des tests
-Adoption progressive
-Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la doc
+Utiliser `gradle/gradle` +
+Execution des tests +
+Adoption progressive +
+Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la doc +
 --
 
 

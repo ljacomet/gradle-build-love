@@ -392,6 +392,7 @@ image::gradle/bg-11.png[background, size=cover]
 [.notes]
 --
 Montrer les tâches du plugin de demo
+
 TRANSITION: tout ça c'est du code, et le code ça se teste
 --
 

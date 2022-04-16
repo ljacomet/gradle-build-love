@@ -61,12 +61,12 @@ image::gradle/bg-7.png[background, size=cover]
 
 [.notes]
 --
-utiliser build init application comme illustration
-wrapper: dans le système de gestion de versions, pas dans .gitignore
-cli: options, run tasks, task paths, abbreviations
-cli: mise à jour du wrapper --gradle-version
-ide: intellij & vscode - import gradle model => ide model ... sync!
-ide: source navigation, visibility, assistance
+utiliser build init application comme illustration +
+wrapper: dans le système de gestion de versions, pas dans .gitignore +
+cli: options, run tasks, task paths, abbreviations +
+cli: mise à jour du wrapper --gradle-version +
+ide: intellij & vscode - import gradle model => ide model ... sync! +
+ide: source navigation, visibility, assistance +
 --
 
 

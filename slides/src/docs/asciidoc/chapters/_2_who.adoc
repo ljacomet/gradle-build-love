@@ -79,9 +79,9 @@ image::gradle/ge-1.png[width=70%]
 
 [.notes]
 --
-metadata de tous les builds
-outputs de tous les builds
-observabilite: scans, performance trends, test dashboard etc...
+metadata de tous les builds +
+outputs de tous les builds +
+observabilite: scans, performance trends, test dashboard etc... +
 accélération: build-cache, test distribution, predictive test selection etc..
 --
 
