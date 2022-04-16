@@ -194,9 +194,11 @@ class MyPlugin implements Plugin<Project> {
 === Scripts de plugin précompilés
 image::gradle/bg-11.png[background, size=cover]
 
-* aka. Precompiled Script Plugins
-* Plugins écrits avec le DSL gradle
-* Placés dans un `SourceSet`
+aka. Precompiled Script Plugins
+
+Plugins écrits avec le DSL gradle
+
+Placés dans un `SourceSet`
 
 [source]
 ----
@@ -271,10 +273,11 @@ Les tâches sont des fonctions
 a|
 [.small]
 --
-* Que sont les _input_ de la tâche ?
-* Que sont les _outputs_ de la tâche ?
-* Que se passe-t-il +
-  quand l'un d'eux change ?
+Que sont les _input_ de la tâche ?
+
+Que sont les _outputs_ de la tâche ?
+
+Que se passe-t-il quand l'un d'eux change ?
 --
 
 a|
@@ -355,18 +358,31 @@ abstract class MyTask : DefaultTask() {
 <1> Marque la tâche comme _cacheable_
 <2> Définit la sensibilité des chemins pour cet _input_
 
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache]
+
 
 === _Inputs_ de tâches incrémentaux
 image::gradle/bg-11.png[background, size=cover]
 
-[.small]
---
-* `fun action(inputChanges: InputChanges)`
-** Savez précisemment _quels_ fichiers ont changé
-** L'action de tâche peut alors faire le minimum de travail
-* Usage typique : tâche qui produit un fichier _output_ par fichier _input_
-* Usage avancé : compilation
---
+.MyTask.kt
+[source,kotlin]
+----
+fun action(inputChanges: InputChanges) {
+  /* ... */
+}
+----
+
+Sachez précisemment _quels_ fichiers ont changé
+
+L'action de tâche peut alors faire le minimum de travail
+
+Usage typique : produire un fichier _output_ par fichier _input_
+
+Usage avancé : compilation
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/custom_tasks.html#incremental_tasks[doc/incremental_tasks]
 
 
 [background-color="#02303a"]
@@ -385,11 +401,14 @@ TRANSITION: tout ça c'est du code, et le code ça se teste
 === Écrire des tâches
 image::gradle/bg-11.png[background, size=cover]
 
-* Beaucoup d'opt-ins auxquels penser
-* Gradle valide les plugins et les tâches
-** au runtime -> warnings / failures / deprecations
-** lors de l'écriture de plugins -> `:validatePlugins`
-* Évolution balancée vers plus de choses par défaut tout en maintenant la compatibilité
+Beaucoup d'opt-ins auxquels penser
+
+Gradle valide les plugins et les tâches
+
+* au runtime -> warnings / failures / deprecations
+* lors de l'écriture de plugins -> `:validatePlugins`
+
+Évolution balancée vers plus de choses par défaut tout en maintenant la compatibilité
 
 
 === Build services
@@ -410,9 +429,10 @@ image::gradle/bg-11.png[background, size=cover]
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-* Tests unitaires +
+*Tests unitaires* +
 `ProjectBuilder` [link:https://docs.gradle.org/current/javadoc/org/gradle/testfixtures/ProjectBuilder.html[doc]]
-* Tests d'intégration +
+
+*Tests d'intégration* +
 `Gradle TestKit` [link:https://docs.gradle.org/current/userguide/test_kit.html[doc]]
 
 a|
@@ -423,20 +443,25 @@ image::tester-cest-douter.jpeg[]
 === Tests unitaires
 image::gradle/bg-11.png[background, size=cover]
 
-* `ProjectBuilder`
-* Pour tester les interactions avec le modèle de configuration
-* Seulement sur `Project`
-* Pas pour tester les tâches
+`ProjectBuilder`
+
+Pour tester les interactions avec le modèle de configuration
+
+Seulement sur `Project`
+
+Pas pour tester les tâches
 
 
 === Tests d'intégration
 image::gradle/bg-11.png[background, size=cover]
 
-* `Gradle TestKit`
-* Pour tester des builds complets
-* Fais tourner un vrai Gradle
-* Expose la sortie de Gradle pour assertions
-* Expose les résultats de tâches pour assertions
+`Gradle TestKit`
+
+Pour tester des builds complets
+
+Fait tourner un vrai Gradle
+
+Expose la sortie de Gradle et les résultats de tâche pour assertions
 
 
 [background-color="#02303a"]
@@ -451,9 +476,31 @@ Montrer et expliquer les tests du plugin de démo
 // =====================================================================================================================
 
 
-=== Gradle TestKit
+=== Test d'incrémentalité
 image::gradle/bg-11.png[background, size=cover]
 
-* Comment tester des scénarios et lesquels sont importants
+* Lancer un build
+* Lancer un autre build sans faire de changement
+* Les tâches doivent être `UP-TO-DATE`
+
+
+=== Test de mise en cache
+image::gradle/bg-11.png[background, size=cover]
+
+* Activer le build cache
+* Préparer deux copies du même projet dans des répertoires différents
+* Dans le premier répertoire, lancer un build
+* Dans le deuxième répertoire, lancer un build
+* Les tâches du deuxième build doivent être `FROM-CACHE`
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache],
+en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
+et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
+
+
+=== Supporter plusieurs versions de Gradle
+image::gradle/bg-11.png[background, size=cover]
+
 * Tester plusieurs versions de Gradle
 * TODO

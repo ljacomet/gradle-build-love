@@ -26,9 +26,11 @@ https://www.monkeyuser.com/2018/focus
 === Un build rapide c'est
 image::gradle/bg-2.png[background, size=cover]
 
-* moins de temps d'attente
-* moins de changements de contexte
-* plus de fluidité dans notre travail
+Moins de temps d'attente
+
+Moins de changements de contexte
+
+Plus de fluidité dans notre travail
 
 
 === Mesurer c'est douter
@@ -51,9 +53,11 @@ https://xkcd.com/1691
 === Build Scans
 image::gradle/bg-2.png[background, size=cover]
 
-> Un enregistrement permanent de ce qui se passe pendant un build.
+Un enregistrement permanent de ce qui se passe pendant un build
 
-TODO
+image::buildscan-example.png[]
+
+image::build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu]
 
 
 === `gradle-profiler`
@@ -67,51 +71,137 @@ https://github.com/gradle/gradle-profiler
 * TODO link to example results, traces, flame graphs etc...
 
 
-=== Construction incrémentale
+=== Test d'incrémentalité
 image::gradle/bg-2.png[background, size=cover]
 
-Rien ne sert de refaire une tâche déjà faite!
+* Lancer un build
+* Lancer un autre build sans faire de changement
+* Les tâches doivent être `UP-TO-DATE`
 
-* up-to-date! inputs/outputs
-** `UP_TO_DATE` à la deuxième exécution
-* Compilation avoidance (API vs. ABI)
-* Test d'incrémentalité
-** Lancer un build
-** Lancer un autre build sans faire de changement
-** Si une tâche est réexécutée, on perds du temps !
-*** Investiguer!
 
-=== Cache de construction
+=== Test de mise en cache
 image::gradle/bg-2.png[background, size=cover]
 
-* L'activer : `--build-cache`, `org.gradle.caching=true`
-* Vérifier : `FROM_CACHE` depuis un dossier différent
-* Resources : https://docs.gradle.org/current/userguide/build_cache.html, especially  https://docs.gradle.org/current/userguide/build_cache_debugging.html and https://docs.gradle.org/current/userguide/common_caching_problems.html
+* Activer le build cache
+* Préparer deux copies du même projet dans des répertoires différents
+* Dans le premier répertoire, lancer un build
+* Dans le deuxième répertoire, lancer un build
+* Les tâches du deuxième build doivent être `FROM-CACHE`
 
-
-=== Tâches incrémentales
-image::gradle/bg-2.png[background, size=cover]
-
-* Tâches incrémentales
-** Gradle API https://docs.gradle.org/current/userguide/custom_tasks.html#incremental_tasks
-** Support par plugin
-** A considérer pour des tâches qui traitent plusieurs fichiers
-** `gradle -i` pour comprendre ce qu'il se passe
-* Java incremental annotation processing
-** plugin/toolchain support
-** how to check it works? do we emit a warning?
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache],
+en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
+et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
 
 
 === Construction parallèle
 image::gradle/bg-2.png[background, size=cover]
 
-* work : parallel safe vs. parallel unsafe
-* max workers
-* Exécution parallèle de tâches de projets différents
-** `--parallel`
-** `org.gradle.parallel=true`
-** unsafe?
-* Test forking
+Nombre de _workers_
+
+.En ligne de commande
+[source,shell]
+--
+./gradlew --max-workers=16
+--
+
+.`gradle.properties`
+[source,properties]
+--
+org.gradle.workers-max=16
+--
+
+[.small]
+--
+Définit le maximum de travaux exécutés en parallèle
+
+Par défault == nombre de cores
+--
+
+include::../fragments/_diagram_parallel-execution.adoc[]
+
+[.notes]
+--
+Tirer le meilleur parti de nos machines
+Ne peut pas être défini dynamiquement: `gradle.properties` pour les devs, ligne de commande pour la CI
+--
+
+
+=== Construction parallèle
+image::gradle/bg-2.png[background, size=cover]
+
+Deux choses sont exécutés en parallèle par défaut
+
+* Téléchargement des dépendances
+* Tâches utilisant la Worker API
+
+`--max-workers=1` pour un build séquentiel
+
+
+=== Construction parallèle
+image::gradle/bg-2.png[background, size=cover]
+
+Exécution de tâches en parallèle
+
+.En ligne de commande
+[source,shell]
+--
+./gradlew --parallel
+--
+
+.`gradle.properties`
+[source,properties]
+--
+org.gradle.parallel=true
+--
+
+Seulement entre tâches de différents projets +
+Les tâches d'un même projet sont exécutés séquentiellement
+
+Pas de contrat d'isolation des unités de travail !
+
+[.small]
+--
+Problèmes possibles si
+
+* mauvaise déclaration des _inputs_ et _outputs_ de tâches
+* logique de tâches qui accède à des tâches d'autre projets
+
+En pratique, Core est testé, la vaste majorité des plugins le supportent.
+--
+
+
+=== Construction parallèle
+image::gradle/bg-2.png[background, size=cover]
+
+Exécution des tests en parallèle
+
+Si une tâche de test est trop longue elle empêche d'autres _workers_ d'exécuter d'autres tâches.
+
+.`build.gradle.kts`
+[source,kotlin]
+--
+tasks.test {
+    maxParallelForks = 16 <1>
+    forkEvery = 100 <2>
+}
+--
+<1> Définit le nombre maximum de _workers_ utilisés pour l'exécution des tests
+<2> Nombre maximum de tests exécutés par un processus d'exécution de test
+
+
+=== Construction parallèle
+image::gradle/bg-2.png[background, size=cover]
+
+* Parallélisme *maximum* `--max-workers=16`
+* Téléchargement des *dépendances*
+* *Tâches* utilisant la Worker API
+* Parallélisme *entre projets* `--parallel`
+* Parallélisme des *tests* +
+`tasks.test { maxParallelForks = 16 }`
+
+[.top-margin]
+include::../fragments/_diagram_parallel-execution.adoc[]
 
 
 === Résolution de dépendances
@@ -202,15 +292,6 @@ e.g. `InputStream`, `Socket` etc...
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
 
 
-=== Configuration Cache
-image::gradle/bg-2.png[background, size=cover]
-
-* Force les bonnes pratiques
-** Claire séparation entre configuration et execution
-** Déclaration correcte des _inputs_
-** Pas d'interdépendance entre instances de tâches
-
-
 [background-color="#02303a"]
 === Démo
 image::gradle/bg-2.png[background, size=cover]
@@ -227,10 +308,22 @@ Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la do
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-* Les plugins Core JVM sont compatibles
-** tous les autres ne le sont pas encore [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
-* Les plugins Kotlin et Android sont compatibles
-* De plus en plus de plugins communautaires sont compatibles link:https://github.com/gradle/gradle/issues/13490[gradle/gradle#13490]
+Force les bonnes pratiques
+
+* Claire séparation entre configuration et execution
+* Déclaration correcte des _inputs_
+* Pas d'interdépendance entre instances de tâches
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Les plugins Core JVM sont compatibles +
+tous les autres ne le sont pas encore [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
+
+Les plugins Kotlin et Android sont compatibles
+
+De plus en plus de plugins communautaires sont compatibles link:https://github.com/gradle/gradle/issues/13490[gradle/gradle#13490]
 
 
 === Configuration Cache
@@ -248,9 +341,11 @@ Feuille de route, à ce jour
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-* Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
-* Le jeu en vaut la chandelle
-* Vous pouvez démarrer son adoption aujourd'hui
+Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
+
+Le jeu en vaut la chandelle
+
+Vous pouvez démarrer son adoption dès aujourd'hui
 
 
 // =====================================================================================================================
@@ -296,11 +391,13 @@ image::gradle/bg-2.png[background, size=cover]
 
 [.small]
 --
-* Actuellement au stade de prototype
-* Activable aujourd'hui
-** dégrade les performances si les contraintes sont violées
-** l'accéleration de la synchronization IDE ne fonctionne pas encore
-** l'accéleration de la phase de configuration n'est pas implémentée
+Actuellement au stade de prototype
+
+Activable aujourd'hui
+
+* dégrade les performances si les contraintes sont violées
+* l'accéleration de la synchronization IDE ne fonctionne pas encore
+* l'accéleration de la phase de configuration n'est pas implémentée
 --
 
 
