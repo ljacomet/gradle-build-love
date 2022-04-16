@@ -207,26 +207,80 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 === Résolution de dépendances
 image::gradle/bg-2.png[background, size=cover]
 
-* Versions dynamiques
-* Déclarations de repositories
+Versions dynamiques - qui changent dans le temps
+
+.`build.gradle.kts`
+[source,kotlin]
+----
+dependencies {
+    implementation("org.springframework:spring-web:5.+") <1>
+    implementation("org.springframework:spring-web:5.0.3.BUILD-SNAPSHOT") <2>
+}
+----
+<1> Nécessite de lister les versions disponibles
+<2> Nécessite de résoudre le dernier `SNAPSHOT`
+
+Vérifier si une nouvelle version est disponible peut avoir un fort impact sur les performances.
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/dynamic_versions.html[doc/dynamic_versions]
 
 
 === Résolution de dépendances
 image::gradle/bg-2.png[background, size=cover]
 
-Versions dynamiques
+Déclarations de _repositories_
 
-TODO
+Chaque dépendance est cherchée dans les _repositories_ dans leur ordre de déclaration.
+
+.`build.gradle.kts`
+[source,kotlin]
+----
+repositories {
+    mavenLocal() <1>
+    mavenCentral() <2>
+    maven { url = uri("https://repo.mycompany.com") } <3>
+}
+----
+<1> L'accès à `~/.m2/repository` n'est pas coordonné (besoin de "toucher le disque" à chaque build) et les snapshots ne sont pas datés (confiance zero)
+<2> Les dépendances internes vont être cherchées sur Maven Central
+<3> Le _repository_ interne va recevoir des reqûetes pour les dépendances non trouvées
 
 
 === Résolution de dépendances
 image::gradle/bg-2.png[background, size=cover]
 
-Déclarations de repositories
+Déclarations de _repositories_
 
-* repo presence/order/filtering
-* `mavenLocal()`
-* TODO
+.`build.gradle.kts`
+[source,kotlin]
+----
+repositories {
+    maven {
+        url = uri("https://repo.mycompany.com")
+        content {
+            includeGroup("my.company") <1>
+        }
+    }
+    mavenCentral {
+        content {
+            excludeGroupByRegex("my\\.company.*") <2>
+        }
+    }
+    mavenLocal {
+        content {
+            includeGroup("my.company") <3>
+        }
+    }
+}
+----
+<1> Ce _repository_ ne sera utilisé que pour des dépendances avec le groupe `my.company`
+<2> Ce _repository_ ne sera utilisé pour tout sauf les dépendances avec le groupe `my.company`
+<3> `mavenLocal()` est mis en dernier et filtré pour éviter de "toucher le disque" trop souvent ou des incohérence de dépendances. +
+*Ne pas en avoir besoin c'est mieux !*
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/declaring_repositories.html[userguide/declaring_repositories]
 
 
 === Gestion de la mémoire
