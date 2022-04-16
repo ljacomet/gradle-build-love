@@ -58,7 +58,7 @@ image::gradle/bg-6.png[background, size=cover]
 
 * Participe à la résolution de dépendances de façon classique
 ** N'impose pas une version
-* Possibilité de publier et donc d'importer un catalogue
+* Possibilité de publier et d'importer un catalogue
 * Pas accessible pour un plugin de settings ou un scrip d'initialisation
 
 === Java Toolchains
@@ -194,11 +194,50 @@ image::gradle/bg-6.png[background, size=cover]
 * Qui en fait ne sont pas du tout optionelles ...
 * Mais bien obligatoires pour certains cas d'utilisation
 
+=== Exemple
+
+[cols="<.^1",frame=none,grid=none]
+|===
+a|
+.`producer.gradle.kts`
+[source,kotlin]
+----
+java {
+    registerFeature("mysqlSupport") {
+        usingSourceSet(sourceSets["main"])
+    }
+    registerFeature("mongodbSupport") {
+        usingSourceSet(sourceSets["main"])
+    }
+}
+
+dependencies {
+    "mysqlSupportImplementation"("mysql:mysql-connector-java:8.0.14")
+    "mongodbSupportImplementation"("org.mongodb:mongodb-driver-sync:3.9.1")
+}
+----
+.`consumer.gradle.kts`
+[source,kotlin]
+----
+dependencies {
+    implementation(project(":producer"))
+
+    // On ajoute la variant MySQL
+    runtimeOnly(project(":producer")) {
+        capabilities {
+            requireCapability("org.gradle.demo:producer-mysql-support")
+        }
+    }
+}
+----
+|===
+
+
 === Applications du modèle des variantes
 image::gradle/bg-6.png[background, size=cover]
 
 * Test fixtures
-* Dépendances "optionelles"
+* Fonctionalités optionelles
 * Aggregation de résultats entre projets
 * (Transformation d'artifacts)
 
