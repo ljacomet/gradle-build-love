@@ -68,10 +68,55 @@ image::gradle/bg-2.png[background, size=cover]
 
 https://github.com/gradle/gradle-profiler
 
-* benchmarking
-* tracing & profiling
-* TODO ...
-* TODO link to example results, traces, flame graphs etc...
+* Installer avec SDKMAN! ou Homebrew +
+  ou télécharger depuis GitHub
+* Orchestre des builds Gradle pour +
+  mesurer, changer, mesurer, comparer
+* Scenarios avec mutations pour +
+  builds, synchronisation IDE
+* Benchmarks & comparaisons
+* Profilers +
+  `async-profiler`, `jprofiler`, `yourkit`, `jfr`
+
+
+=== `gradle-profiler`
+image::gradle/bg-2.png[background, size=cover]
+
+Scenarios
+
+.`performance.scenario`
+[source,json]
+----
+default-scenarios = ["upToDateBuild"]
+upToDateBuild {
+    tasks = ["assemble"]
+}
+nonAbiChange {
+    tasks = ["assemble"]
+    apply-non-abi-change-to = ["src/main/java/MyThing.java", "src/main/java/MyOtherThing.java"]
+}
+compareGradle {
+    tasks = ["assemble"]
+    versions = ["7.0", "7.4.2"]
+}
+----
+
+
+=== `gradle-profiler`
+image::gradle/bg-2.png[background, size=cover]
+
+Benchmark & comparaison
+
+* Résultats en CSV et en HTML
+* TODO screenshot + link to results
+
+
+=== `gradle-profiler`
+image::gradle/bg-2.png[background, size=cover]
+
+Profiling avec `async-profiler`
+
+* TODO screenshot + link to flame graphs etc...
 
 
 // =====================================================================================================================
