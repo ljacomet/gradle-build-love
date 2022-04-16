@@ -33,6 +33,9 @@ Moins de changements de contexte
 Plus de fluidité dans notre travail
 
 
+// =====================================================================================================================
+
+
 === Mesurer c'est douter
 image::gradle/bg-2.png[background, size=cover]
 
@@ -71,6 +74,9 @@ https://github.com/gradle/gradle-profiler
 * TODO link to example results, traces, flame graphs etc...
 
 
+// =====================================================================================================================
+
+
 === Test d'incrémentalité
 image::gradle/bg-2.png[background, size=cover]
 
@@ -94,10 +100,20 @@ en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugg
 et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
 
 
+// =====================================================================================================================
+
+
 === Construction parallèle
 image::gradle/bg-2.png[background, size=cover]
 
 Nombre de _workers_
+
+[.small]
+--
+Définit le maximum de travaux exécutés en parallèle
+
+Par défault == nombre de cores
+--
 
 .En ligne de commande
 [source,shell]
@@ -112,11 +128,7 @@ org.gradle.workers-max=16
 --
 
 [.small]
---
-Définit le maximum de travaux exécutés en parallèle
-
-Par défault == nombre de cores
---
+`--max-workers=1` pour un build séquentiel
 
 include::../fragments/_diagram_parallel-execution.adoc[]
 
@@ -135,7 +147,7 @@ Deux choses sont exécutés en parallèle par défaut
 * Téléchargement des dépendances
 * Tâches utilisant la Worker API
 
-`--max-workers=1` pour un build séquentiel
+include::../fragments/_diagram_parallel-execution.adoc[]
 
 
 === Construction parallèle
@@ -202,6 +214,9 @@ image::gradle/bg-2.png[background, size=cover]
 
 [.top-margin]
 include::../fragments/_diagram_parallel-execution.adoc[]
+
+
+// =====================================================================================================================
 
 
 === Résolution de dépendances
@@ -283,12 +298,75 @@ repositories {
 link:https://docs.gradle.org/current/userguide/declaring_repositories.html[userguide/declaring_repositories]
 
 
+// =====================================================================================================================
+
+
 === Gestion de la mémoire
 image::gradle/bg-2.png[background, size=cover]
 
-* Processus Java: client, daemon, workers*
-* Xmx anyone?
-* TODO
+Un build c'est au minimum deux processus Java +
+avec des paramètres mémoire par défaut
+
+*Gradle Client* +
+UI (CLI/IDE) et communication avec le _daemon_ +
+`-Xmx64m`
+
+*Gradle Daemon* +
+Configure et exécute le build +
+`-Xmx512m -XX:MaxMetaspaceSize=256m`
+
+Certaines tâches utilisent d'*autres processus* +
+`-Xmx512m -XX:MaxMetaspaceSize=256m`
+
+
+=== Gestion de la mémoire
+image::gradle/bg-2.png[background, size=cover]
+
+Comprendre qu'on a un problème mémoire
+
+* Build trop lent
+* `Expiring Daemon because JVM heap space is exhausted`
+* Les Build Scans montrent la pression mémoire image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/performance/build#garbage-collection]
+* `gradle-profiler` pour capturer les allocations
+
+
+=== Gestion de la mémoire
+image::gradle/bg-2.png[background, size=cover]
+
+Changer les paramètres mémoire
+
+[.small]
+*Gradle CLI* - rarement nécessaire
+
+.Variable d'environnement `JAVA_OPTS`
+[source,shell]
+----
+JAVA_OPTS="-Xmx64m -XX:MaxPermSize=64m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
+----
+
+[.small]
+*Gradle Daemon*
+
+.`gradle.properties`
+[source,properties]
+----
+org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+----
+
+[.small]
+*Tâches, e.g. `Test`*
+
+.`build.gradle.kts`
+[source,kotlin]
+----
+tasks.test {
+    maxHeapSize = "1G"
+}
+----
+
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/build_environment.html#sec:configuring_jvm_memory[doc/configuring_jvm_memory]
 
 
 // =====================================================================================================================
