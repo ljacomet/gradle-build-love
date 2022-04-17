@@ -7,3 +7,7 @@
 plugins {
     id("org.example.java-library-conventions")
 }
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
