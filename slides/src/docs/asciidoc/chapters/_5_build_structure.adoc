@@ -18,3 +18,113 @@ image::gradle/bg-9.png[background, size=cover]
 * Monorepo vs. multirepo
 ** Orthogonal to composite builds
 ```
+
+=== Composants de base
+image::gradle/bg-9.png[background, size=cover]
+
+* Un fichier de configuration du build: `settings.gradle(.kts)`
+* Un fichier de configuration par projet: `build.gradle(.kts)`
+* Des fichiers annexes:
+** `gradle.properties`
+** `gradle/wrapper`
+** Catalogues de version `*.versions.toml`
+** Et plus ...
+
+=== Un ou plusieurs projets
+image::gradle/bg-9.png[background, size=cover]
+
+* Un seul build contient un ou plusieurs projets
+* Les settings servent à declarer les participants à un build
+* Tâche `projects` pour lister les participants d'un build
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-9.png[background, size=cover]
+
+[.notes]
+--
+* Génération d'une app avec init
+* Montrer les settings
+* Montrer les différents projets
+* Montrer les tâches
+* Parler des dépendances entre projets
+* Ajouter les toolchains en dupliquant
+--
+
+=== Structure d'un build
+image::gradle/bg-9.png[background, size=cover]
+
+* Approcher celle-ci comme celle de n'import quel code
+** Eviter les répetitions
+** Construire des abstractions
+* Mais pensez à votre futur moi
+** Ouvrir un projet doit vous donner les informations importantes
+** Trop de centralisation peut nuire la relecture
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-9.png[background, size=cover]
+
+[.notes]
+--
+* Montrer les plugins de convention
+* Pseudo navigation (select & shift shift)
+* Y déplacer les infos de toolchain
+--
+
+=== Plugins de convention
+image::gradle/bg-9.png[background, size=cover]
+
+* Orchestration de plugins existants
+* Configuration de défauts pour vous, votre projet, votre compagnie
+* Au sein du projet ou publiés
+
+=== La convention `buildSrc`
+image::gradle/bg-9.png[background, size=cover]
+
+* Contient du code visible pour la configuration du projet
+* Tous les projets voient tout le contenu de `buildSrc`
+* Tout changement invalide tous les projets
+
+=== Composition de builds
+image::gradle/bg-9.png[background, size=cover]
+
+* Mélanger plusieurs builds indépendants
+* Un build principal et un ou plusieurs builds inclus
+* Gradle s'occupe de connecter les morceaux
+* Remplace une publication locale
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-9.png[background, size=cover]
+
+[.notes]
+--
+* Composite classique
+* Changement et effet immédiat
+--
+
+=== Composition pour logique de build
+image::gradle/bg-9.png[background, size=cover]
+
+* Même principe qu'un composite classique
+* Le build contribue de la logique ... de build
+* Plus ciblé que `buildSrc`
+
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-9.png[background, size=cover]
+
+[.notes]
+--
+* Migration hors de buildSrc pour le projet init d'application
+* Illustration des effets de changement de logique
+--
+
+=== Mono vs. Multi repository
+image::gradle/bg-9.png[background, size=cover]
+
+* Décision qui vous appartient
+* Gradle est agnostique à cette notion
+* Dans les deux cas, vous pouvez avoir plusieurs builds
+* Assemblés en tant que composites
