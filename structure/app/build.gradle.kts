@@ -13,10 +13,6 @@ dependencies {
     implementation(project(":utilities"))
 }
 
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-}
-
 application {
     // Define the main class for the application.
     mainClass.set("org.example.app.App")

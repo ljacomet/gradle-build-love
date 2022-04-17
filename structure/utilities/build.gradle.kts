@@ -11,7 +11,3 @@ plugins {
 dependencies {
     api(project(":list"))
 }
-
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-}
