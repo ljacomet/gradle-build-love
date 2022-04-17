@@ -1,11 +1,11 @@
 [background-color="#02303a"]
 == Structure de build
-image::gradle/bg-8.png[background, size=cover]
+image::gradle/bg-9.png[background, size=cover]
 
 &#x1F5C3;
 
 === Structure de build
-image::gradle/bg-8.png[background, size=cover]
+image::gradle/bg-9.png[background, size=cover]
 
 ```
 * Multi-project builds
