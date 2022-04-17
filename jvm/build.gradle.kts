@@ -9,6 +9,7 @@
 plugins {
     `java-library`
     groovy
+    alias(libs.plugins.spotbugs)
 }
 
 repositories {
@@ -18,6 +19,7 @@ repositories {
 dependencies {
     api(libs.math)
     implementation(libs.guava)
+    runtimeOnly(micronaut.logback)
 
     testImplementation(libs.spock)
     testImplementation(libs.groovy.core)
