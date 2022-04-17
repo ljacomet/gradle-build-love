@@ -25,7 +25,17 @@ dependencies {
     testImplementation(libs.groovy.core)
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+        vendor.set(JvmVendorSpec.ADOPTIUM)
+    }
+}
+
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+    javaLauncher.set(javaToolchains.launcherFor{
+        languageVersion.set(JavaLanguageVersion.of(11))
+    })
 }
