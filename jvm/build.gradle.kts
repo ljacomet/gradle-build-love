@@ -16,11 +16,11 @@ repositories {
 }
 
 dependencies {
-    api("org.apache.commons:commons-math3:3.6.1")
-    implementation("com.google.guava:guava:30.1.1-jre")
+    api(libs.math)
+    implementation(libs.guava)
 
-    testImplementation("org.codehaus.groovy:groovy:3.0.9")
-    testImplementation("org.spockframework:spock-core:2.0-groovy-3.0")
+    testImplementation(libs.spock)
+    testImplementation(libs.groovy.core)
 }
 
 tasks.named<Test>("test") {
