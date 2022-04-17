@@ -8,7 +8,26 @@ image::gradle/bg-1.png[background, size=cover]
 === Louis
 image::gradle/bg-1.png[background, size=cover]
 
-Blurb
+[source,kotlin]
+----
+speaker {
+    name = "Louis Jacomet"
+    company = "Gradle"
+    joined = 2018
+    position = "Support Team Lead"
+    previously = "Dependency Management, JVM"
+    past = listOf(
+        "Terracotta / Ehcache" in 2013,
+        "Devoxx Belgium Committee" in 2012,
+        "Contractor" in 2002,
+        "Java 'Hello, World!'" in 1997
+    )
+    failures = generateSequence(code) { bugs }
+    twitter = "@ljacomet"
+    github = "ljacomet"
+    extra = "Not fully figured out how to stay out of management !?!"
+}
+----
 
 
 === Paul
