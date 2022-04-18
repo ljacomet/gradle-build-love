@@ -4,9 +4,11 @@ image::gradle/bg-1.png[background, size=cover]
 
 &#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
 
-
+[%notitle]
 === Louis
 image::gradle/bg-1.png[background, size=cover]
+
+image::louis.png[height=250,width=250]
 
 [source,kotlin]
 ----
@@ -29,9 +31,11 @@ speaker {
 }
 ----
 
-
+[%notitle]
 === Paul
 image::gradle/bg-1.png[background, size=cover]
+
+image::paul.png[height=250,width=250]
 
 [source,kotlin]
 ----
