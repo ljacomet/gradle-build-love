@@ -32,14 +32,6 @@ java {
     }
 }
 
-tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-    javaLauncher.set(javaToolchains.launcherFor{
-        languageVersion.set(JavaLanguageVersion.of(11))
-    })
-}
-
 testing {
     suites {
         val integrationTest by registering(JvmTestSuite::class) {
@@ -51,6 +43,19 @@ testing {
                 all {
                     testTask.configure {
                         shouldRunAfter(tasks.test)
+                    }
+                }
+            }
+        }
+
+        val test by getting(JvmTestSuite::class) {
+            useJUnitJupiter()
+            targets {
+                all {
+                    testTask.configure {
+                        javaLauncher.set(javaToolchains.launcherFor{
+                            languageVersion.set(JavaLanguageVersion.of(17))
+                        })
                     }
                 }
             }
