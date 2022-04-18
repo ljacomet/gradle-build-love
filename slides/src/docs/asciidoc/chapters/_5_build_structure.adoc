@@ -4,21 +4,6 @@ image::gradle/bg-9.png[background, size=cover]
 
 &#x1F5C3;
 
-=== Structure de build
-image::gradle/bg-9.png[background, size=cover]
-
-```
-* Multi-project builds
-* Build logic
-** Convention plugin
-** buildSrc vs. included build for build logic
-* Composite builds
-** Common build logic
-** Multi-software build
-* Monorepo vs. multirepo
-** Orthogonal to composite builds
-```
-
 === Composants de base
 image::gradle/bg-9.png[background, size=cover]
 
@@ -34,7 +19,9 @@ image::gradle/bg-9.png[background, size=cover]
 image::gradle/bg-9.png[background, size=cover]
 
 * Un seul build contient un ou plusieurs projets
-* Les settings servent à declarer les participants à un build
+* Les settings servent à
+** déclarer les participants à un build
+** configurer des éléments communs
 * Tâche `projects` pour lister les participants d'un build
 
 [background-color="#02303a"]
@@ -57,6 +44,7 @@ image::gradle/bg-9.png[background, size=cover]
 * Approcher celle-ci comme celle de n'import quel code
 ** Eviter les répetitions
 ** Construire des abstractions
+** En bref, appliquer des bonnes pratiques !
 * Mais pensez à votre futur moi
 ** Ouvrir un projet doit vous donner les informations importantes
 ** Trop de centralisation peut nuire la relecture
