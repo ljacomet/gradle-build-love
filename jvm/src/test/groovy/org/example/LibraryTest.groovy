@@ -8,7 +8,7 @@ import spock.lang.Specification
 class LibraryTest extends Specification {
     def "someLibraryMethod returns true"() {
         setup:
-        def lib = new Library()
+        def lib = LibraryFixture.libraryInstance()
 
         when:
         def result = lib.someLibraryMethod()

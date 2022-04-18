@@ -10,6 +10,7 @@ plugins {
     `java-library`
     groovy
     alias(libs.plugins.spotbugs)
+    `java-test-fixtures`
 }
 
 repositories {
@@ -20,6 +21,8 @@ dependencies {
     api(libs.math)
     implementation(libs.guava)
     runtimeOnly(micronaut.logback)
+
+    testFixturesApi(libs.groovy.core)
 
     testImplementation(libs.spock)
     testImplementation(libs.groovy.core)
@@ -37,6 +40,7 @@ testing {
         val integrationTest by registering(JvmTestSuite::class) {
             dependencies {
                 implementation(project)
+                implementation(project.dependencies.testFixtures(project))
             }
             useJUnitJupiter()
             targets {
