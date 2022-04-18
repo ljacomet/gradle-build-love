@@ -189,6 +189,8 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
 
+// TODO Au final ce slide est présent 3 fois, voulu?
+
 Un outil pour automatiser la construction de logiciels
 
 * Un modèle de configuration extensible
