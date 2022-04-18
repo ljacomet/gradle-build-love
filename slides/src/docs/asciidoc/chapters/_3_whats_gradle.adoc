@@ -48,7 +48,7 @@ Logos venant de link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia
 image::gradle/bg-7.png[background, size=cover]
 
 * Gradle Wrapper
-** jvm requise, définit la version de gradle à utiliser, scripts pour utilisation sans installation
+** JVM requise, définit la version de gradle à utiliser, scripts pour utilisation sans installation
 ** bootstrap: https://gradle-initializr.cleverapps.io ou une version de gradle installée
 * Utilisation
 ** en ligne de commande
@@ -74,7 +74,7 @@ ide: source navigation, visibility, assistance +
 image::gradle/bg-7.png[background, size=cover]
 
 * Gradle Wrapper [link:https://docs.gradle.org/current/userguide/gradle_wrapper.html[doc]]
-* Utilisation en ligne de commande +[link:https://docs.gradle.org/current/userguide/command_line_interface.html[doc]]
+* Utilisation en ligne de commande [link:https://docs.gradle.org/current/userguide/command_line_interface.html[doc]]
 * Utilisation depuis un IDE +
 [link:https://www.jetbrains.com/help/idea/gradle.html[doc]] IntelliJ IDEA +
 [link:https://github.com/microsoft/vscode-gradle[doc]] vscode
