@@ -456,6 +456,8 @@ Pas pour tester les tâches
 === Tests d'intégration
 image::gradle/bg-11.png[background, size=cover]
 
+// TODO Pourquoi certains slide n'utilisent pas de bullet list?
+
 `Gradle TestKit`
 
 Pour tester des builds complets
