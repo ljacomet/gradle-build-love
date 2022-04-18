@@ -39,3 +39,21 @@ tasks.named<Test>("test") {
         languageVersion.set(JavaLanguageVersion.of(11))
     })
 }
+
+testing {
+    suites {
+        val integrationTest by registering(JvmTestSuite::class) {
+            dependencies {
+                implementation(project)
+            }
+            useJUnitJupiter()
+            targets {
+                all {
+                    testTask.configure {
+                        shouldRunAfter(tasks.test)
+                    }
+                }
+            }
+        }
+    }
+}
