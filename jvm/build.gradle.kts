@@ -11,7 +11,11 @@ plugins {
     groovy
     alias(libs.plugins.spotbugs)
     `java-test-fixtures`
+    `maven-publish`
 }
+
+group = "org.example"
+version = "0.1"
 
 repositories {
     mavenCentral()
@@ -63,6 +67,30 @@ testing {
                     }
                 }
             }
+        }
+    }
+}
+
+val javaComponent = components["java"] as AdhocComponentWithVariants
+javaComponent.withVariantsFromConfiguration(configurations.testFixturesApiElements.get()) {
+    skip()
+}
+javaComponent.withVariantsFromConfiguration(configurations.testFixturesRuntimeElements.get()) {
+    skip()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+            pom {
+                description.set("Funky library for Devoxx Fr turning 10!")
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = uri("repository")
         }
     }
 }
