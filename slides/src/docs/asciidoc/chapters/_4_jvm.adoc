@@ -59,7 +59,7 @@ image::gradle/bg-6.png[background, size=cover]
 * Participe à la résolution de dépendances de façon classique
 ** N'impose pas une version
 * Possibilité de publier et d'importer un catalogue
-* Pas accessible pour un plugin de settings ou un scrip d'initialisation
+* Pas accessible pour un plugin de settings ou un script d'initialisation
 
 === Java Toolchains
 image::gradle/bg-6.png[background, size=cover]
@@ -67,7 +67,7 @@ image::gradle/bg-6.png[background, size=cover]
 [%step]
 * Permet de séparer le Java qui tourne Gradle de celui requis par le projet
 * Application pour la compilation, les tests et l'exécution
-* Permet de choisir avec les critères de :
+* Permet de choisir avec les critères suivants :
 [%step]
 ** Version du langage Java
 ** Vendeur de la JVM
@@ -112,6 +112,11 @@ image::gradle/bg-6.png[background, size=cover]
 * Plus de tâches qui les supportent
 ** Dans Gradle : analyse de code par exemple
 ** Dans les plugins de la communauté, demandez le support!
+
+[.notes]
+--
+* Par exemple support toolchain dans Checkstyle pour Gradle 7.5
+--
 
 === Les suites de tests
 image::gradle/bg-6.png[background, size=cover]
