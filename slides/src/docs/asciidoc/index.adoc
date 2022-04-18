@@ -1,12 +1,13 @@
-= Donnez de l'amour à votre build, il vous le rendra ! &#x2764;
-Louis Jacomet & Paul Merlin
-2022-04-20
 :source-highlighter: highlightjs
 :highlightjs-languages: java, groovy, kotlin, toml, json, xml, properties, shell
 :title-slide-background-image: gradle/intro.png
 :title-slide-background-size: cover
 :title-slide-background-color: #02303a
 :hide-uri-scheme:
+
+= Donnez de l'amour à votre build, il vous le rendra ! &#x2764;
+
+Louis Jacomet & Paul Merlin
 
 include::chapters/_1_intro.adoc[]
 
