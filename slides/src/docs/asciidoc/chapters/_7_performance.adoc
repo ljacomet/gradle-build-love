@@ -85,21 +85,31 @@ image::gradle/bg-2.png[background, size=cover]
 Scenarios
 
 .`performance.scenario`
-[source,json]
+[source,toml]
 ----
-default-scenarios = ["upToDateBuild"]
 upToDateBuild {
-    tasks = ["assemble"]
+  tasks = ["assemble"] <1>
+}
+cleanBuild {
+  tasks = ["assemble"]
+  cleanup-tasks = ["clean"] <2>
 }
 nonAbiChange {
-    tasks = ["assemble"]
-    apply-non-abi-change-to = ["src/main/java/MyThing.java", "src/main/java/MyOtherThing.java"]
+  tasks = ["assemble"]
+  apply-non-abi-change-to = ["src/main/java/MyThing.java", "src/main/java/MyOtherThing.java"] <3>
 }
 compareGradle {
-    tasks = ["assemble"]
-    versions = ["7.0", "7.4.2"]
+  tasks = ["assemble"]
+  versions = ["7.0", "7.4.2"] <4>
 }
 ----
+<1> Chaque exécution lancera les taches declarées
+<2> Taches exécutées et non mesurées entre exécutions
+<3> Une collection de modifieurs pour changer des fichiers entre exécutions
+<4> Comparaison de versions de Gradle
+
+[.small.top-margin]
+Et bien plus encore ...
 
 
 === `gradle-profiler`
@@ -118,11 +128,12 @@ Profiling avec `async-profiler`
 
 * TODO screenshot + link to flame graphs etc...
 
+
 === Elements de la performance Gradle
 image::gradle/bg-2.png[background, size=cover]
 
 * Parallèlisme
-* Resolution de dépendances
+* Résolution de dépendances
 * Gestion de la mémoire
 
 
@@ -417,7 +428,6 @@ tasks.test {
 }
 ----
 
-
 [.small.center.top-margin]
 link:https://docs.gradle.org/current/userguide/build_environment.html#sec:configuring_jvm_memory[doc/configuring_jvm_memory]
 
@@ -453,6 +463,18 @@ Bénéfices
 * Quand rien n'a changé, la configuration est complétement sautée
 * Moins de pression mémoire car le modèle de build peut être garbage collecté
 * Exécution de toutes les tâches en parallèle (incl. intra-projets)
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+image::cc-perf-java.png[]
+
+
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+image::cc-perf-android.png[]
 
 
 === Configuration Cache
