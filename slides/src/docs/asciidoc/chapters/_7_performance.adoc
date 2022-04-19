@@ -141,6 +141,16 @@ link:performance/profiler/profiling/incrementalAssembleParallel-7.4.2-cpu-simpli
 |===
 
 
+=== `gradle-profiler`
+image::gradle/bg-2.png[background, size=cover]
+
+* Scenarios fréquents pour vos developpeurs / CI
+** Temps de configuration
+** Build incrémental
+** Synchronisation IDE
+* Benchmarks récurrents pour prévenir les regressions
+* Profiling pour identifier les bottlenecks
+
 
 === Elements de la performance Gradle
 image::gradle/bg-2.png[background, size=cover]
@@ -377,7 +387,7 @@ Comprendre qu'on a un problème mémoire
 
 * Build trop lent
 * `Expiring Daemon because JVM heap space is exhausted`
-* Les Build Scans montrent la pression mémoire image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/performance/build#garbage-collection]
+* Les Build Scans montrent la pression mémoire image:build-scan-link.svg[link=https://ge.gradle.org/s/ojxxc2ucs5zjo/performance/build#garbage-collection]
 * `gradle-profiler` pour capturer les allocations
 
 
