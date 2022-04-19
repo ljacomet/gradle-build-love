@@ -39,6 +39,9 @@ Jeudi 10h45, Kevin Davin
 
 https://cfp.devoxx.fr/2022/talk/ZWH-7741/Proteger_son_organisation_des_attaques_par_le_systeme_de_build[Protéger son organisation des attaques par le système de build] +
 Jeudi 13h30, Louis Jacomet
+
+https://cfp.devoxx.fr/2022/talk/SPO-9762/Gradle_BoF[Gradle BoF] +
+Jeudi 21h, Kevin, Louis, Paul
 |===
 
 
