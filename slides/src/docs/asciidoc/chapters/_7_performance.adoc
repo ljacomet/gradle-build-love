@@ -117,8 +117,10 @@ image::gradle/bg-2.png[background, size=cover]
 
 Benchmark & comparaison
 
-* Résultats en CSV et en HTML
-* TODO screenshot + link to results
+image::profiler-benchmark-results-html.png[width=80%]
+
+[.small.center.top-margin]
+Résultats en link:performance/profiler/benchmarking/benchmark.html[HTML] et en link:performance/profiler/benchmarking/benchmark.csv[CSV]
 
 
 === `gradle-profiler`
@@ -126,7 +128,18 @@ image::gradle/bg-2.png[background, size=cover]
 
 Profiling avec `async-profiler`
 
-* TODO screenshot + link to flame graphs etc...
+[cols="^.^1,^.^1",frame=none,grid=none]
+|===
+a|image::profiler-flame-graph.png[]
+
+[.small]
+link:performance/profiler/profiling/incrementalAssembleParallel-7.4.2-cpu-simplified-flames.svg[flame graph]
+a|image::profiler-icicle-graph.png[]
+
+[.small]
+link:performance/profiler/profiling/incrementalAssembleParallel-7.4.2-cpu-simplified-icicles.svg[icicle graph]
+|===
+
 
 
 === Elements de la performance Gradle

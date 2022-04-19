@@ -1,0 +1,30 @@
+scenario,incrementalAssembleParallel,incrementalAssembleParallel
+version,Gradle 7.3.3,Gradle 7.4.2
+tasks,assemble,assemble
+value,total execution time,total execution time
+warm-up build #1,71231,74722
+warm-up build #2,4606,5510
+warm-up build #3,5139,4609
+warm-up build #4,3363,3776
+warm-up build #5,3140,3517
+warm-up build #6,4434,3621
+measured build #1,3567,3627
+measured build #2,3655,3882
+measured build #3,3225,4116
+measured build #4,3351,3569
+measured build #5,3805,3361
+measured build #6,3243,2933
+measured build #7,4856,3661
+measured build #8,3412,3266
+measured build #9,4076,2997
+measured build #10,4204,3827
+measured build #11,3233,3171
+measured build #12,2823,3092
+measured build #13,3002,2984
+measured build #14,3937,2972
+measured build #15,2771,3088
+measured build #16,2858,2886
+measured build #17,3084,2806
+measured build #18,2701,2960
+measured build #19,2911,2748
+measured build #20,2858,3152

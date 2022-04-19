@@ -104,6 +104,9 @@ tasks {
 
             )
         )
+        resources {
+            from(layout.projectDirectory.dir("src/docs/resources"))
+        }
     }
     val exportPdf by registering(JavaExec::class) {
         dependsOn(asciidoctorRevealJs)
