@@ -295,6 +295,31 @@ include::../fragments/_diagram_task-execution.adoc[]
 |===
 
 
+
+=== Test d'incrémentalité
+image::gradle/bg-11.png[background, size=cover]
+
+* Lancer un build
+* Lancer un autre build sans faire de changement
+* Les tâches doivent être `UP-TO-DATE`
+
+
+=== Test de mise en cache
+image::gradle/bg-11.png[background, size=cover]
+
+* Activer le build cache
+* Préparer deux copies du même projet dans des répertoires différents
+* Dans le premier répertoire, lancer un build
+* Dans le deuxième répertoire, lancer un build
+* Les tâches du deuxième build doivent être `FROM-CACHE`
+
+[.small.center.top-margin]
+link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache],
+en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
+et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
+
+
+
 === Écrire des tâches
 image::gradle/bg-11.png[background, size=cover]
 
@@ -476,29 +501,6 @@ Montrer et expliquer les tests du plugin de démo
 --
 
 // =====================================================================================================================
-
-
-=== Test d'incrémentalité
-image::gradle/bg-11.png[background, size=cover]
-
-* Lancer un build
-* Lancer un autre build sans faire de changement
-* Les tâches doivent être `UP-TO-DATE`
-
-
-=== Test de mise en cache
-image::gradle/bg-11.png[background, size=cover]
-
-* Activer le build cache
-* Préparer deux copies du même projet dans des répertoires différents
-* Dans le premier répertoire, lancer un build
-* Dans le deuxième répertoire, lancer un build
-* Les tâches du deuxième build doivent être `FROM-CACHE`
-
-[.small.center.top-margin]
-link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache],
-en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
-et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
 
 
 === Supporter plusieurs versions de Gradle
