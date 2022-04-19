@@ -4,6 +4,15 @@ image::gradle/bg-6.png[background, size=cover]
 
 &#x2615;
 
+=== Un peu de tout
+image::gradle/bg-6.png[background, size=cover]
+
+* Catalogues de version
+* Toolchains
+* Suites de tests
+* Tests fixtures
+* Publication
+
 === Catalogue de versions
 image::gradle/bg-6.png[background, size=cover]
 
@@ -299,3 +308,12 @@ image::gradle/bg-6.png[background, size=cover]
 * Mais tout n'est pas couvert
 * Qu'est-ce qu'il vous manque en pratique?
 ** Pensez à le demander ici ou sur https://github.com/gradle/gradle/issues/new?assignees=&labels=a%3Afeature%2C+to-triage&template=contributor_feature_request.md&title=[GitHub]
+
+=== Fonctionnalités JVM
+image::gradle/bg-6.png[background, size=cover]
+
+* Catalogues de version
+* Toolchains
+* Suites de tests
+* Tests fixtures
+* Publication
