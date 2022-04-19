@@ -16,14 +16,12 @@ image::gradle/bg-6.png[background, size=cover]
 === Catalogue de versions
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
 * Centralisation de la liste des dépendances
-[%step]
-** Leurs coordonnées et version, y compris riche
+** Coordonnées et version, y compris riche
 ** Pas de classifier, exclude ou autres attributs
-* Fourni des accesseurs typés
-* Possibilité de séparer la version du `group:artifact`
-* Permet de déclarer des groupes de dépendances
+* Accesseurs typés
+* Séparation : `group:artifact` et `version`
+* Groupes de dépendances
 
 [background-color="#02303a"]
 === Démo
@@ -60,24 +58,25 @@ groovy = ["groovy-core", "groovy-json", "groovy-nio"]
 logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.10.0" }
 ----
 
-* Il existe aussi une API dans le fichier `settings` de Gradle.
+Il existe aussi une API dans le fichier `settings` de Gradle.
 
 === Points d'attention
 image::gradle/bg-6.png[background, size=cover]
 
-* Participe à la résolution de dépendances de façon classique
+* Contrainte comme une autre
 ** N'impose pas une version
-* Possibilité de publier et d'importer un catalogue
-* Pas accessible pour un plugin de settings ou un script d'initialisation
+** Supporte les options _riches_
+* Publication et import de catalogue
+* Limitations
+** Pas pour un plugin de settings
+** Ni script d'initialisation
 
 === Java Toolchains
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
-* Permet de séparer le Java qui tourne Gradle de celui requis par le projet
+* Séparation du Java pour Gradle et de celui pour le projet
 * Application pour la compilation, les tests et l'exécution
-* Permet de choisir avec les critères suivants :
-[%step]
+* Critères disponibles :
 ** Version du langage Java
 ** Vendeur de la JVM
 ** (Implémentation : défaut ou J9)
@@ -96,17 +95,16 @@ image::gradle/bg-6.png[background, size=cover]
 === Quel Java Gradle connait-il?
 image::gradle/bg-6.png[background, size=cover]
 
-* Un certain nombre de défauts
-[%step]
+* Défauts autodétectés :
 ** Par OS: Linux, macOS, Windows
 ** Package managers: Asdf-vm, Jabba, SDKMAN!
 ** Maven toolchains
 ** Téléchargements précédents
+* Explicite
 
 === Provisioner Java
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
 * Possible grâce à AdoptOpenJDK
 * Mais pas idéal, suite à la migration Adoptium
 * Micmac avec le vendeur
@@ -114,13 +112,12 @@ image::gradle/bg-6.png[background, size=cover]
 === Futur
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
 * SPI pour créer des plugins de provisionnement
 * Plus d'options pour sélectionner sa JVM
 ** GraalVM, version plus précise, early access, ...
-* Plus de tâches qui les supportent
-** Dans Gradle : analyse de code par exemple
-** Dans les plugins de la communauté, demandez le support!
+* Support dans plus de tâches
+** Core Gradle : analyse de code par exemple
+** Plugins de la communauté : demandez le support !
 
 [.notes]
 --
@@ -130,10 +127,9 @@ image::gradle/bg-6.png[background, size=cover]
 === Les suites de tests
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
 * Modélise une collection de tests
-* Permet une séparation logique des tests au niveau des sources et dépendances
-* Le défaut de Gradle, `test`, est maintenant dérivé de ce modèle
+* Séparation logique des tests au niveau des sources et dépendances
+* Défaut de Gradle, `test`, est dérivé de ce modèle
 
 [background-color="#02303a"]
 === Démo
@@ -151,17 +147,17 @@ image::gradle/bg-6.png[background, size=cover]
 === Evolution des suites de tests
 image::gradle/bg-6.png[background, size=cover]
 
-* Possibilité d'avoir plusieurs dimensions
+* Notions de dimensions
 ** Différentes versions de Java pour tourner les tests
-** Se traduira par plusieurs tâches de `Test`
+** Produira plusieurs tâches de `Test`
 * Intégration avec la couverture de code
-** Nécessite d'interagir avec la tâche actuellement
+** Interaction au niveau de la tâche actuellement
 
 === Test fixtures
 image::gradle/bg-6.png[background, size=cover]
 
-* Permet de séparer les fixtures du code de test
-* Permet de consommer les fixtures d'une librairie
+* Séparation des fixtures du code de test
+* Consommation des fixtures d'une librairie
 * Illustration du modèle avancé de gestion de dépendances de Gradle
 
 [background-color="#02303a"]
@@ -179,9 +175,9 @@ image::gradle/bg-8.png[background, size=cover]
 image::gradle/bg-6.png[background, size=cover]
 
 * Comme les suites de test : sources et dépendances séparées
-* Publiées de façon complètes
-** Comme une variante dans Gradle Module Metadata
-** Avec un `classifier` pour utilisation dans Maven / Ivy
+* Publication complète
+** Variante dans Gradle Module Metadata
+** `classifier` pour Maven / Ivy
 
 [.notes]
 --
@@ -194,19 +190,17 @@ image::gradle/bg-6.png[background, size=cover]
 * Dimension supplémentaire d'un composant logiciel
 * Peut avoir ses propres artifacts et dépendances
 * Pensez `classifier`, sans les limitations
-* Nécessite Gradle Module Metadata
+* Nécessite Gradle Module Metadata (GMM)
 
 === Autre exemple : Dépendances optionelles
 image::gradle/bg-6.png[background, size=cover]
 
-[%step]
-* Possibilité de définir une variante qui
-[%step]
+* Définition d'une variante qui
 ** Dépend du composant principal
 ** Ajoute des dépendances
 ** Peut aussi ajouter un binaire
-* Qui en fait ne sont pas du tout optionelles ...
-* Mais bien obligatoires pour certains cas d'utilisation
+* Dépendances en fait pas optionelles ...
+* Mais obligatoires pour certaines fonctionnalités
 
 === Exemple
 
@@ -282,17 +276,19 @@ image::gradle/bg-8.png[background, size=cover]
 image::gradle/bg-6.png[background, size=cover]
 
 * Le composant
+** Modélisation d'un ensemble de _variantes_
+** Variante: configuration _consommable_ et artifacts
 ** `java` pour les plugins Java
-* Modifiez le composant plutôt que la publicationn
-** Un artifact additionel ?
+* Modifiez le composant plutôt que la publication
+** Un artifact additionnel ?
 ** Définissez une variante
 
 === Méta données
 image::gradle/bg-6.png[background, size=cover]
 
-* Pas possible de manipuler les GMM avec un API
-* Toute mutation de POM avec `withXml` va entrainer des différences
-* Comme pour les artifacts, modifiez le composant!
+* Pas d'API de manipulation des GMM
+* Mutation de POM avec `withXml` => différences
+* Comme pour les artifacts, modifiez le composant !
 
 === Astuces de publication
 
@@ -304,10 +300,13 @@ image::gradle/bg-6.png[background, size=cover]
 
 === Besoins pour les composants JVM
 
-* Gradle fournit un certain nombre de choses
-* Mais tout n'est pas couvert
-* Qu'est-ce qu'il vous manque en pratique?
-** Pensez à le demander ici, à la BoF jeudi ou sur https://github.com/gradle/gradle/issues/new?assignees=&labels=a%3Afeature%2C+to-triage&template=contributor_feature_request.md&title=[GitHub]
+Beaucoup de choses incluses ...
+
+\... Mais tout n'est pas couvert
+
+Qu'est-ce qu'il vous manque en pratique?
+
+Pensez à le demander ici, à la BoF jeudi ou sur https://github.com/gradle/gradle/issues/new?assignees=&labels=a%3Afeature%2C+to-triage&template=contributor_feature_request.md&title=[GitHub]
 
 === Fonctionnalités JVM
 image::gradle/bg-6.png[background, size=cover]
