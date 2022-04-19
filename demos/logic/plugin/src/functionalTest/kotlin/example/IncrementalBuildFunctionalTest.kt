@@ -6,11 +6,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 import java.io.File
-import kotlin.math.exp
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
-class FileProcessingPluginFunctionalTest {
+class IncrementalBuildFunctionalTest {
 
     @get:Rule
     val tempFolder = TemporaryFolder()
@@ -42,8 +40,8 @@ class FileProcessingPluginFunctionalTest {
         val runner = GradleRunner.create()
             .forwardOutput()
             .withPluginClasspath()
-            .withArguments("processFiles")
             .withProjectDir(projectDir)
+            .withArguments("processFiles")
 
         runner.build().let { result ->
             assertEquals(TaskOutcome.SUCCESS, result.task(":processFiles")?.outcome)
