@@ -26,3 +26,9 @@ image::gradle/bg-10.png[background, size=cover]
 &#x1F647;
 
 image::gradle/folks.png[width=33%]
+
+
+[background-color="#02303a"]
+[%notitle]
+== PTS Webinar
+image::pts-webinar.png[background, size=contain]

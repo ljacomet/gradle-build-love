@@ -9,8 +9,6 @@
 
 Louis Jacomet & Paul Merlin
 
-include::chapters/_1_intro.adoc[]
-
 include::chapters/_2_who.adoc[]
 
 include::chapters/_3_agenda.adoc[]

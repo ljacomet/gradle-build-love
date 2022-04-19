@@ -1,5 +1,0 @@
-[background-color="#02303a"]
-== Introduction
-image::gradle/bg-5.png[background, size=cover]
-
-&#x1F3DE;
