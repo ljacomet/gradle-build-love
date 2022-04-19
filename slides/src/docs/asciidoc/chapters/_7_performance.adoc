@@ -118,9 +118,16 @@ Profiling avec `async-profiler`
 
 * TODO screenshot + link to flame graphs etc...
 
+=== Elements de la performance Gradle
+image::gradle/bg-2.png[background, size=cover]
+
+* Parallèlisme
+* Resolution de dépendances
+* Gestion de la mémoire
+
 
 // =====================================================================================================================
-
+// TODO Choisir le chapitre - sont dans build logic aussi
 
 === Test d'incrémentalité
 image::gradle/bg-2.png[background, size=cover]

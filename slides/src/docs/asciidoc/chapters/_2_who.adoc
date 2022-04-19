@@ -4,9 +4,11 @@ image::gradle/bg-1.png[background, size=cover]
 
 &#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
 
-
+[%notitle]
 === Louis
 image::gradle/bg-1.png[background, size=cover]
+
+image::louis.png[height=250,width=250]
 
 [source,kotlin]
 ----
@@ -29,9 +31,11 @@ speaker {
 }
 ----
 
-
+[%notitle]
 === Paul
 image::gradle/bg-1.png[background, size=cover]
+
+image::paul.png[height=250,width=250]
 
 [source,kotlin]
 ----
@@ -81,9 +85,10 @@ image::gradle/bg-1.png[background, size=cover]
 
 image::logo-gradle-build-tool.svg[role=product-logo-as-title]
 
-Outil de construction de logiciels publié sous la Apache License
+Outil de construction de logiciels publié sous la license https://github.com/gradle/gradle/blob/master/LICENSE[Apache]
 
-C'est est un des 20 projets open source les plus populaires d'après TechCrunch avec plus de 23 millions de téléchargements mensuels.
+// TODO Idéalement on trouve un truc plus récent qu'un article de 2017 ...
+C'est un des 20 projets open source les plus populaires d'après https://techcrunch.com/2017/04/07/tracking-the-explosive-growth-of-open-source-software/[TechCrunch] avec près de 30 millions de téléchargements mensuels.
 
 
 [%notitle]
