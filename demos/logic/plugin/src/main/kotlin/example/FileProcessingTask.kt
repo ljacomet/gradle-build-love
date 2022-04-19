@@ -6,7 +6,6 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
-import org.gradle.api.tasks.SkipWhenEmpty
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
@@ -17,7 +16,6 @@ abstract class FileProcessingTask : DefaultTask() {
     abstract val processing: Property<String>
 
     @get:InputFiles
-    @get:SkipWhenEmpty
     abstract val inputDirectory: DirectoryProperty
 
     @get:OutputDirectory
@@ -42,7 +40,7 @@ abstract class FileProcessingTask : DefaultTask() {
     fun processFile(processing: String, inputFile: File, outputFile: File) {
         outputFile.run {
             parentFile.mkdirs()
-            writeText(processing)
+            writeText(inputFile.readText().reversed())
         }
     }
 }
