@@ -1,0 +1,35 @@
+[plantuml]
+....
+@startuml
+
+!theme spacelab
+
+skinparam shadowing false
+skinparam defaultFontSize 20
+skinparam defaultFontName Helvetica
+skinparam defaultFontColor white
+skinparam usecase {
+  BackgroundColor 1ba8cb
+  BorderColor 02303a
+  ArrowColor 02303a
+}
+
+top to bottom direction
+
+"**:test**" as (test) #02303a
+"**:classes**" as (classes)
+"**:compileJava**" as (compileJava)
+"**:compileTestClasses**" as (compileTest)
+"**...**" as (resources)
+"**??**" as (missing) #ffffff;text:black
+"**...**" as (extra)
+
+test --> compileTest
+compileTest --> extra
+test --> classes
+test --> resources
+classes --> compileJava
+compileJava --> missing
+
+@enduml
+....

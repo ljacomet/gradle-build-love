@@ -125,14 +125,35 @@ include::../fragments/_diagram_how-it-works.adoc[]
 === Résolution de dépendances
 image::gradle/bg-7.png[background, size=cover]
 
-* Dépendances déclarées via le modèle de configuration
-* Dépendances entre projets d'un build
-* Dépendances entre projets de plusieurs builds
-* ~> Dépendances entre tâches
-TODO
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Commence par la tâche invoquée
+a|
+include::../fragments/_diagram_task-graph-resolve1.adoc[]
+|===
 
-include::../fragments/_diagram_task-graph.adoc[]
+=== Résolution de dépendances
+image::gradle/bg-7.png[background, size=cover]
 
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Puis connecte les tâches avec dépendance directe
+a|
+include::../fragments/_diagram_task-graph-resolve2.adoc[]
+|===
+
+=== Résolution de dépendances
+image::gradle/bg-7.png[background, size=cover]
+
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Et aussi celles indirectes, potentiellement dans un autre projet
+a|
+include::../fragments/_diagram_task-graph-resolve3.adoc[]
+|===
 
 === Exécution de tâches
 image::gradle/bg-7.png[background, size=cover]
