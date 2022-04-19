@@ -1,19 +1,8 @@
 [background-color="#02303a"]
-== Structure de build
+== Structure de build(s)
 image::gradle/bg-9.png[background, size=cover]
 
 &#x1F5C3;
-
-=== Composants de base
-image::gradle/bg-9.png[background, size=cover]
-
-* Un fichier de configuration du build: `settings.gradle(.kts)`
-* Un fichier de configuration par projet: `build.gradle(.kts)`
-* Des fichiers annexes:
-** `gradle.properties`
-** `gradle/wrapper`
-** Catalogues de version `*.versions.toml`
-** Et plus ...
 
 === Un ou plusieurs projets
 image::gradle/bg-9.png[background, size=cover]

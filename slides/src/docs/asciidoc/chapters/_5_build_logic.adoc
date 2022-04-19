@@ -4,6 +4,16 @@ image::gradle/bg-11.png[background, size=cover]
 
 &#x1F9F0;
 
+=== Composants de base
+image::gradle/bg-9.png[background, size=cover]
+
+* Un fichier de configuration du build: `settings.gradle(.kts)`
+* Un fichier de configuration par projet: `build.gradle(.kts)`
+* Des fichiers annexes:
+** `gradle.properties`
+** `gradle/wrapper`
+** Catalogues de version `*.versions.toml`
+** Et plus ...
 
 === Langages d'implémentation
 image::gradle/bg-11.png[background, size=cover]
