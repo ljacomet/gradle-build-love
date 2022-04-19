@@ -79,19 +79,9 @@ image::gradle/bg-7.png[background, size=cover]
 [link:https://www.jetbrains.com/help/idea/gradle.html[doc]] IntelliJ IDEA +
 [link:https://github.com/microsoft/vscode-gradle[doc]] vscode
 
-
-=== Qu'est-ce que Gradle ?
-image::gradle/bg-7.png[background, size=cover]
-
-Un outil pour automatiser la construction de logiciels
-
-* Un modèle de configuration extensible
-* Un moteur de résolution de dépendances
-* Un moteur d'exécution de tâches
-
-
 === Configuration extensible
 image::gradle/bg-7.png[background, size=cover]
+
 
 [cols="<.^7,^.^3",frame=none,grid=none]
 |===
@@ -188,8 +178,6 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]
-
-// TODO Au final ce slide est présent 3 fois, voulu?
 
 Un outil pour automatiser la construction de logiciels
 
