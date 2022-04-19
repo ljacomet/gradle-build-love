@@ -513,5 +513,38 @@ et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[d
 === Supporter plusieurs versions de Gradle
 image::gradle/bg-11.png[background, size=cover]
 
-* Tester plusieurs versions de Gradle
-* TODO
+Tester plusieurs versions de Gradle
+
+* Pas de support intégré dans Gradle
+* S'implemente relativement facilement
+
+
+=== Supporter plusieurs versions de Gradle
+image::gradle/bg-11.png[background, size=cover]
+
+Tester plusieurs versions de Gradle
+
+.`build.gradle.kts`
+[source,kotlin]
+----
+listOf("5.0", "6.0", "7.0", "7.4.2").forEach { testedVersion -> <1>
+    val taskName = "testGradle${testedVersion.replace(".","_")}"
+    val testTask = tasks.register<Test>(taskName) {
+        classpath = tasks.test.get().classpath
+        /* ... */
+        systemProperty("testedGradleVersion", testedVersion) <2>
+    }
+    tasks.check { dependsOn(testTask) }
+}
+----
+<1> Liste des versions de Gradle testées
+<2> Une _System Property_ que les tests peuvent utiliser
+
+[.top-margin]
+.`AbstractIntegrationTest.kt`
+[source,kotlin]
+----
+GradleRunner.create().withGradleVersion(System.getProperty("testedGradleVersion"))
+----
+
+Support officiel futur grâce aux tests matriciels
