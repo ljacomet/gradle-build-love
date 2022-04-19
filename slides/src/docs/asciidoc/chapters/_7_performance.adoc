@@ -474,6 +474,17 @@ image::gradle/bg-2.png[background, size=cover]
 image::cc-perf-android.png[]
 
 
+[background-color="#02303a"]
+=== Démo
+image::gradle/bg-2.png[background, size=cover]
+
+[.notes]
+--
+Utiliser `gradle/gradle` +
+Execution des tests
+--
+
+
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
@@ -502,10 +513,8 @@ image::gradle/bg-2.png[background, size=cover]
 
 [.notes]
 --
-Utiliser `gradle/gradle` +
-Execution des tests +
-Adoption progressive +
 Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la doc +
+Adoption progressive: notCompatibleWithConfigurationCache()
 --
 
 

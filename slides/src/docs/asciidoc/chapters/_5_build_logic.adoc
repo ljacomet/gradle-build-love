@@ -422,13 +422,13 @@ Gradle valide les plugins et les tâches
 Évolution balancée vers plus de choses par défaut tout en maintenant la compatibilité
 
 
-=== Build services
-image::gradle/bg-11.png[background, size=cover]
-
-_Services de build partagés_ ou _shared build services_
-
-* TODO
-* DEMO?
+//=== Build services
+//image::gradle/bg-11.png[background, size=cover]
+//
+//_Services de build partagés_ ou _shared build services_
+//
+//* TODO
+//* DEMO?
 
 
 // =====================================================================================================================
