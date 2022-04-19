@@ -12,3 +12,4 @@ rootProject.name = "example-plugin"
 include("plugin")
 include("plugin2")
 include("plugin3")
+include("plugin4")
