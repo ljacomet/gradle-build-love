@@ -18,14 +18,16 @@ Un outil pour automatiser la construction de logiciels
 === Divers écosystèmes
 image::gradle/bg-7.png[background, size=cover]
 
-* Core +
+*Core* +
 image:logo-java.svg[role=inline-logo]
 image:logo-groovy.png[role=inline-logo]
 image:logo-scala.svg[role=inline-logo]
-image:logo-cpp.svg[role=inline-logo]
-image:logo-swift.svg[role=inline-logo] +
+image:logo-checkstyle.png[role=inline-logo]
+image:logo-jacoco.png[role=inline-logo] +
 etc...
-* Community +
+
+[.top-margin]
+*Community* +
 image:logo-android.svg[role=inline-logo]
 image:logo-kotlin.png[role=inline-logo]
 image:logo-nokee.svg[role=inline-logo]
@@ -40,7 +42,7 @@ image:logo-flyway.svg[role=inline-logo]
 image:logo-spotbugs.png[role=inline-logo] +
 etc...
 
-[.tiny]
+[.tiny.top-margin]
 Logos venant de link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia] ou des pages officielles™ respectives.
 
 
