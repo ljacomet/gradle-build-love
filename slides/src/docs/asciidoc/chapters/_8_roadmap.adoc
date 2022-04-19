@@ -7,44 +7,25 @@ image::gradle/bg-4.png[background, size=cover]
 === Principales priorités
 image::gradle/bg-4.png[background, size=cover]
 
-* Gradle Core
 * Écosystème JVM
-* Logique de build
+* Idiomatic Gradle
 * Performance
-
-
-=== Core Platform
-image::gradle/bg-4.png[background, size=cover]
-
-[cols="<.^1,<.^1",frame=none,grid=none]
-|===
-a|*Focus actuel*
-[.small]
---
-* Groovy 4 & Kotlin 1.6
-* Migration complète vers `Property<T>`
-* TODO
---
-a|*Focus suivant*
-[.small]
---
-* TODO
-* TODO
---
-|===
 
 
 === Écosystème JVM
 image::gradle/bg-4.png[background, size=cover]
 
-[cols="<.^1,<.^1",frame=none,grid=none]
+[cols="<.<1,<.<1",frame=none,grid=none]
 |===
 a|*Focus actuel*
 
 [.small]
 --
+* Aggregation de résultats
+* Diagnotics de résolution de dépendances
 * Java 18 et 19
-* TODO
+* Toolchains
+** Checkstyle
 --
 a|*Focus suivant*
 [.small]
@@ -60,19 +41,22 @@ a|*Focus suivant*
 |===
 
 
-=== Logique de build
+=== Idiomatic Gradle
 image::gradle/bg-4.png[background, size=cover]
 
-[cols="<.^1,<.^1",frame=none,grid=none]
+[cols="<.<1,<.<1",frame=none,grid=none]
 |===
 a|*Focus actuel*
 [.small]
 --
-* Uniformité des DSL Groovy et Kotlin
+* Build continu sur base de notifications du systeme de fichiers
+* Groovy 4 & Kotlin 1.6
 --
 a|*Focus suivant*
 [.small]
 --
+* Migration complète vers `Property<T>`
+* Uniformité des DSL Groovy et Kotlin
 * Tester plusieurs versions de Gradle
 --
 |===
@@ -82,7 +66,7 @@ a|*Focus suivant*
 image::gradle/bg-4.png[background, size=cover]
 
 
-[cols="<.^1,<.^1",frame=none,grid=none]
+[cols="<.<1,<.<1",frame=none,grid=none]
 |===
 a|*Focus actuel*
 [.small]
