@@ -5,7 +5,7 @@
 :title-slide-background-color: #02303a
 :hide-uri-scheme:
 
-= Donnez de l'amour à votre build, il vous le rendra ! &#x2764;
+= Donnez de l'amour à votre build, il vous le rendra ! ❤️
 
 Louis Jacomet & Paul Merlin
 
