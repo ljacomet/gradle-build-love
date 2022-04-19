@@ -156,7 +156,6 @@ a|
 --
 *Gradle & Maven build speed challenge*
 
-// TODO QR code link to challenge + swag
 // https://gradle.com/gradle-and-maven-build-speed-challenge
 image::qrcode-build-speed-challenge.svg[link=images/qrcode-build-speed-challenge.svg]
 
