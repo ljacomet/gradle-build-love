@@ -6,6 +6,7 @@ plugins {
     `java-base`
     id("org.asciidoctor.jvm.revealjs") version "3.3.2"
     id("io.freefair.sass-base") version "6.4.1"
+    id("org.ajoberstar.git-publish") version "3.0.1"
 }
 
 repositories {
@@ -141,4 +142,13 @@ tasks {
     assemble {
         dependsOn(asciidoctorRevealJs, zipHtml, exportPdf)
     }
+}
+
+gitPublish {
+  repoUri.set("git@github.com:eskatos/gradle-build-love.git")
+  branch.set("gh-pages")
+  contents {
+    from(tasks.asciidoctorRevealJs)
+  }
+  commitMessage.set("Publish slides")
 }
