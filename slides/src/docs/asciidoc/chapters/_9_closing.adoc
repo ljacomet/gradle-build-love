@@ -44,9 +44,3 @@ https://cfp.devoxx.fr/2022/talk/SPO-9762/Gradle_BoF[Gradle BoF] +
 Jeudi 21h, Kevin, Louis, Paul
 |===
 
-
-
-[background-color="#02303a"]
-[%notitle]
-== PTS Webinar
-image::pts-webinar.png[background, size=contain]

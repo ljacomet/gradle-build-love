@@ -9,9 +9,9 @@
 
 Louis Jacomet & Paul Merlin
 
-include::chapters/_1_who.adoc[]
+include::chapters/_1_agenda.adoc[]
 
-include::chapters/_2_agenda.adoc[]
+include::chapters/_2_who.adoc[]
 
 include::chapters/_3_whats_gradle.adoc[]
 
