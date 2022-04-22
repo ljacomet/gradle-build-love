@@ -10,7 +10,10 @@ jobs:
         java-version: 11
         java-package: jdk+fx
         distribution: zulu
-        
+
+    - name: Install graphviz
+      run: sudo apt-get install -y graphviz
+
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
 
@@ -30,4 +33,3 @@ jobs:
         name: slides.pdf
         path: slides/build/pdf/slides.pdf
         if-no-files-found: error
-
