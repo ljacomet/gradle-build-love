@@ -1,11 +1,11 @@
-= Donnez de l'amour à votre build, il vous le rendra !
+= Give your build some love, it will be returned!
+
+Kyle Moore <kmoore@gradle.com>
 
 Louis Jacomet <louis@gradle.com>
 
-Paul Merlin <paul@gradle.com>
+Slides for our https://devoxx.be/talk/?id=19409[Devoxx Belgium 2022] presentation
 
-== Slides
+== Slides and recording
 
-HTML:: link:https://eskatos.github.io/gradle-build-love/[eskatos.github.io/gradle-build-love]
-PDF:: link:https://github.com/eskatos/gradle-build-love/releases/download/SLIDES/20220420_DevoxxFR_Donnez-de-l-amour-a-votre-build-il-vous-le-rendra.pdf[20220420_DevoxxFR_Donnez-de-l-amour-a-votre-build-il-vous-le-rendra.pdf]
-
+Let's wait until the session happens
