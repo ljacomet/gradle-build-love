@@ -1,11 +1,6 @@
 [background-color="#02303a"]
-== Qui sommes nous ?
-image::gradle/bg-1.png[background, size=cover]
-
-&#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
-
 [%notitle]
-=== Louis
+== Louis
 image::gradle/bg-1.png[background, size=cover]
 
 image::louis.png[height=250,width=250]
@@ -30,34 +25,6 @@ speaker {
     extra = "Not fully figured out how to stay out of management !?!"
 }
 ----
-
-[%notitle]
-=== Paul
-image::gradle/bg-1.png[background, size=cover]
-
-image::paul.png[height=250,width=250]
-
-[source,kotlin]
-----
-speaker {
-    name = "Paul Merlin"
-    company = "Gradle"
-    joined = 2015
-    position = "Configuration Cache Project Lead"
-    previously = "Kotlin DSL Project Lead"
-    successes = listOf(
-        "BASIC 'Hello, World!'" in 1986,
-        "C 'Hello, World!'" in 1989,
-        "Java 'Hello, World!'" in 1996,
-        "Kotlin 'Hello, World!'" in 2015,
-        "tools", "daemons", "apps", "frameworks", "libs"
-    )
-    failures = generateSequence(code) { bugs }
-    twitter = "@eskat0s"
-    github = "eskatos"
-}
-----
-
 
 === Gradle
 image::gradle/bg-1.png[background, size=cover]

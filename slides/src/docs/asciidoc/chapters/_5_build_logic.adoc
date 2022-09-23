@@ -125,50 +125,6 @@ def some = objects.newInstance(Something)
 ----
 |===
 
-
-=== Beans ?
-image::gradle/bg-11.png[background, size=cover]
-
-Oui et non ... JavaBeans + `Property<T>`
-
-JavaBeans pour l'interop avec Groovy et Kotlin
-
-`Property<T>` est un conteneur de valeur +
-`Provider<T>` est son pendant immutable
-
-* associe une propriété à ses dépendances dans le build
-* permet un chaînage _lazy_ des propriétés
-
-
-=== Blocs de construction
-image::gradle/bg-11.png[background, size=cover]
-
-[cols="<.^1,^.^2",frame=none,grid=none]
-|===
-a|
-Plugins
-
-Extensions de DSL
-
-Tâches
-a|
-include::../fragments/_diagram_how-it-works.adoc[]
-|===
-
-
-=== Phases d'un build
-image::gradle/bg-11.png[background, size=cover]
-
-*Configuration* +
-Plugins + DSL = enregistrement des tâches
-
-*Calcul du graphe de tâches* +
-Gradle
-
-*Execution du travail* +
-Dépendances de tâches, incrémentalité
-
-
 === Plugins
 image::gradle/bg-11.png[background, size=cover]
 
@@ -217,61 +173,7 @@ src/main/kotlin/my-plugin.settings.gradle.kts
 src/main/groovy/my-plugin.init.gradle
 ----
 
-
-=== Étendre le DSL
-image::gradle/bg-11.png[background, size=cover]
-
-Extensions : objets nommés +
-enregistrés sur `Settings` ou `Project`
-
-[cols="<.^1,<.^1",frame=none,grid=none]
-|===
-a|
-.`MyExtension.kt`
-[source,kotlin]
-----
-interface MyExtension {
-
-    var someProperty: Property<Int>
-
-    var someDirectory: DirectoryProperty
-
-    fun someFunction(parameter:String)
-}
-----
-.`my-plugin.gradle.kts`
-[source,kotlin]
-----
-extensions.create<MyExtension>("myExtension")
-----
-a|
-.`build.gradle`
-[source,groovy]
-----
-plugins {
-    id("my-plugin")
-}
-
-myExtension {
-    someProperty = 42
-    someDirectory = layout.buildDirectory.dir("pa/th")
-    someFunction("parameter")
-}
-----
-|===
-
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-11.png[background, size=cover]
-
-[.notes]
---
-Montrer le plugin de démo, son extension DSL
---
-
 // =====================================================================================================================
-
 
 === Écrire des tâches
 image::gradle/bg-11.png[background, size=cover]
@@ -293,8 +195,6 @@ Que se passe-t-il quand l'un d'eux change ?
 a|
 include::../fragments/_diagram_task-execution.adoc[]
 |===
-
-
 
 === Test d'incrémentalité
 image::gradle/bg-11.png[background, size=cover]
@@ -395,41 +295,6 @@ abstract class MyTask : DefaultTask() {
 
 [.small.center.top-margin]
 link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache]
-
-
-=== _Inputs_ de tâches incrémentaux
-image::gradle/bg-11.png[background, size=cover]
-
-.MyTask.kt
-[source,kotlin]
-----
-fun action(inputChanges: InputChanges) {
-  /* ... */
-}
-----
-
-Sachez précisemment _quels_ fichiers ont changé
-
-L'action de tâche peut alors faire le minimum de travail
-
-Usage typique : produire un fichier _output_ par fichier _input_
-
-Usage avancé : compilation
-
-[.small.center.top-margin]
-link:https://docs.gradle.org/current/userguide/custom_tasks.html#incremental_tasks[doc/incremental_tasks]
-
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-11.png[background, size=cover]
-
-[.notes]
---
-Montrer les tâches du plugin de demo
-
-TRANSITION: tout ça c'est du code, et le code ça se teste
---
 
 // =====================================================================================================================
 

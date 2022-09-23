@@ -13,20 +13,6 @@ image::gradle/bg-9.png[background, size=cover]
 ** configurer des éléments communs
 * Tâche `projects` pour lister les participants d'un build
 
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-9.png[background, size=cover]
-
-[.notes]
---
-* Génération d'une app avec init
-* Montrer les settings
-* Montrer les différents projets
-* Montrer les tâches
-* Parler des dépendances entre projets
-* Ajouter les toolchains en dupliquant
---
-
 === Structure d'un build
 image::gradle/bg-9.png[background, size=cover]
 
@@ -70,16 +56,6 @@ image::gradle/bg-9.png[background, size=cover]
 * Un build principal et un ou plusieurs builds inclus
 * Gradle s'occupe de connecter les morceaux
 * Remplace une publication locale
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-9.png[background, size=cover]
-
-[.notes]
---
-* Composite classique
-* Changement et effet immédiat
---
 
 === Composition pour logique de build
 image::gradle/bg-9.png[background, size=cover]

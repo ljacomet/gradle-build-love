@@ -68,82 +68,6 @@ image::gradle/bg-2.png[background, size=cover]
 
 https://github.com/gradle/gradle-profiler
 
-* Installer avec SDKMAN! ou Homebrew +
-  ou télécharger depuis GitHub
-* Orchestre des builds Gradle pour +
-  mesurer, changer, mesurer, comparer
-* Scenarios avec mutations pour +
-  builds, synchronisation IDE
-* Benchmarks & comparaisons
-* Profilers +
-  `async-profiler`, `jprofiler`, `yourkit`, `jfr`
-
-
-=== `gradle-profiler`
-image::gradle/bg-2.png[background, size=cover]
-
-Scenarios
-
-.`performance.scenario`
-[source,toml]
-----
-upToDateBuild {
-  tasks = ["assemble"] <1>
-}
-cleanBuild {
-  tasks = ["assemble"]
-  cleanup-tasks = ["clean"] <2>
-}
-nonAbiChange {
-  tasks = ["assemble"]
-  apply-non-abi-change-to = ["src/main/java/MyThing.java", "src/main/java/MyOtherThing.java"] <3>
-}
-compareGradle {
-  tasks = ["assemble"]
-  versions = ["7.0", "7.4.2"] <4>
-}
-----
-<1> Chaque exécution lancera les taches declarées
-<2> Taches exécutées et non mesurées entre exécutions
-<3> Une collection de modifieurs pour changer des fichiers entre exécutions
-<4> Comparaison de versions de Gradle
-
-[.small.top-margin]
-Et bien plus encore ...
-
-
-=== `gradle-profiler`
-image::gradle/bg-2.png[background, size=cover]
-
-Benchmark & comparaison
-
-image::profiler-benchmark-results-html.png[width=80%]
-
-[.small.center.top-margin]
-Résultats en link:performance/profiler/benchmarking/benchmark.html[HTML] et en link:performance/profiler/benchmarking/benchmark.csv[CSV]
-
-
-=== `gradle-profiler`
-image::gradle/bg-2.png[background, size=cover]
-
-Profiling avec `async-profiler`
-
-[cols="^.^1,^.^1",frame=none,grid=none]
-|===
-a|image::profiler-flame-graph.png[]
-
-[.small]
-link:performance/profiler/profiling/incrementalAssembleParallel-7.4.2-cpu-simplified-flames.svg[flame graph]
-a|image::profiler-icicle-graph.png[]
-
-[.small]
-link:performance/profiler/profiling/incrementalAssembleParallel-7.4.2-cpu-simplified-icicles.svg[icicle graph]
-|===
-
-
-=== `gradle-profiler`
-image::gradle/bg-2.png[background, size=cover]
-
 * Scenarios fréquents pour vos developpeurs / CI
 ** Temps de configuration
 ** Build incrémental
@@ -156,112 +80,10 @@ image::gradle/bg-2.png[background, size=cover]
 image::gradle/bg-2.png[background, size=cover]
 
 * Construction parallèle
-* Résolution de dépendances
 * Gestion de la mémoire
 
 
 // =====================================================================================================================
-
-
-=== Construction parallèle
-image::gradle/bg-2.png[background, size=cover]
-
-Nombre de _workers_
-
-[.small]
---
-Définit le maximum de travaux exécutés en parallèle
-
-Par défault == nombre de cores
---
-
-.En ligne de commande
-[source,shell]
---
-./gradlew --max-workers=16
---
-
-.`gradle.properties`
-[source,properties]
---
-org.gradle.workers-max=16
---
-
-[.small]
-`--max-workers=1` pour un build séquentiel
-
-include::../fragments/_diagram_parallel-execution.adoc[]
-
-[.notes]
---
-Tirer le meilleur parti de nos machines
-
-Ne peut pas être défini dynamiquement: `gradle.properties` pour les devs, ligne de commande pour la CI
---
-
-
-=== Construction parallèle
-image::gradle/bg-2.png[background, size=cover]
-
-Deux choses sont exécutés en parallèle par défaut
-
-* Téléchargement des dépendances
-* Tâches utilisant la Worker API
-
-include::../fragments/_diagram_parallel-execution.adoc[]
-
-
-=== Construction parallèle
-image::gradle/bg-2.png[background, size=cover]
-
-Exécution de tâches en parallèle
-
-.En ligne de commande
-[source,shell]
---
-./gradlew --parallel
---
-
-.`gradle.properties`
-[source,properties]
---
-org.gradle.parallel=true
---
-
-Seulement entre tâches de différents projets +
-Les tâches d'un même projet sont exécutés séquentiellement
-
-Pas de contrat d'isolation des unités de travail !
-
-[.small]
---
-Problèmes possibles si
-
-* mauvaise déclaration des _inputs_ et _outputs_ de tâches
-* logique de tâches qui accède à des tâches d'autre projets
-
-En pratique, Core est testé, la vaste majorité des plugins le supportent.
---
-
-
-=== Construction parallèle
-image::gradle/bg-2.png[background, size=cover]
-
-Exécution des tests en parallèle
-
-Si une tâche de test est trop longue elle empêche d'autres _workers_ d'exécuter d'autres tâches.
-
-.`build.gradle.kts`
-[source,kotlin]
---
-tasks.test {
-    maxParallelForks = 16 <1>
-    forkEvery = 100 <2>
-}
---
-<1> Définit le nombre maximum de _workers_ utilisés pour l'exécution des tests
-<2> Nombre maximum de tests exécutés par un processus d'exécution de test
-
 
 === Construction parallèle
 image::gradle/bg-2.png[background, size=cover]
@@ -275,89 +97,6 @@ image::gradle/bg-2.png[background, size=cover]
 
 [.top-margin]
 include::../fragments/_diagram_parallel-execution.adoc[]
-
-
-// =====================================================================================================================
-
-
-=== Résolution de dépendances
-image::gradle/bg-2.png[background, size=cover]
-
-Versions dynamiques - qui changent dans le temps
-
-.`build.gradle.kts`
-[source,kotlin]
-----
-dependencies {
-    implementation("org.springframework:spring-web:5.+") <1>
-    implementation("org.springframework:spring-web:5.0.3.BUILD-SNAPSHOT") <2>
-}
-----
-<1> Nécessite de lister les versions disponibles
-<2> Nécessite de résoudre le dernier `SNAPSHOT`
-
-Vérifier si une nouvelle version est disponible peut avoir un fort impact sur les performances.
-
-[.small.center.top-margin]
-link:https://docs.gradle.org/current/userguide/dynamic_versions.html[doc/dynamic_versions]
-
-
-=== Résolution de dépendances
-image::gradle/bg-2.png[background, size=cover]
-
-Déclarations de _repositories_
-
-Chaque dépendance est cherchée dans les _repositories_ dans leur ordre de déclaration.
-
-.`build.gradle.kts`
-[source,kotlin]
-----
-repositories {
-    mavenLocal() <1>
-    mavenCentral() <2>
-    maven { url = uri("https://repo.mycompany.com") } <3>
-}
-----
-<1> L'accès à `~/.m2/repository` n'est pas coordonné (besoin de "toucher le disque" à chaque build) et les snapshots ne sont pas datés (confiance zero)
-<2> Les dépendances internes vont être cherchées sur Maven Central
-<3> Le _repository_ interne va recevoir des reqûetes pour les dépendances non trouvées
-
-
-=== Résolution de dépendances
-image::gradle/bg-2.png[background, size=cover]
-
-Déclarations de _repositories_
-
-.`build.gradle.kts`
-[source,kotlin]
-----
-repositories {
-    maven {
-        url = uri("https://repo.mycompany.com")
-        content {
-            includeGroup("my.company") <1>
-        }
-    }
-    mavenCentral {
-        content {
-            excludeGroupByRegex("my\\.company.*") <2>
-        }
-    }
-    mavenLocal {
-        content {
-            includeGroup("my.company") <3>
-        }
-    }
-}
-----
-<1> Ce _repository_ ne sera utilisé que pour des dépendances avec le groupe `my.company`
-<2> Ce _repository_ ne sera utilisé pour tout sauf les dépendances avec le groupe `my.company`
-<3> `mavenLocal()` est mis en dernier et filtré pour éviter de "toucher le disque" trop souvent ou des incohérence de dépendances. +
-*Ne pas en avoir besoin c'est mieux !*
-
-[.small.center.top-margin]
-link:https://docs.gradle.org/current/userguide/declaring_repositories.html[userguide/declaring_repositories]
-
 
 // =====================================================================================================================
 
@@ -431,17 +170,6 @@ link:https://docs.gradle.org/current/userguide/build_environment.html#sec:config
 
 // =====================================================================================================================
 
-
-=== Nouvelles fonctionnalités
-image::gradle/bg-2.png[background, size=cover]
-
-*Configuration Cache* [_incubating_] +
-Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
-
-*Project Isolation* [_prototype_] +
-Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
-
-
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
@@ -457,7 +185,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 Bénéfices
 
-* Quand rien n'a changé, la configuration est complétement sautée
+* Quand rien n'a changé, la phase de configuration est complétement sautée
 * Moins de pression mémoire car le modèle de build peut être garbage collecté
 * Exécution de toutes les tâches en parallèle (incl. intra-projets)
 
@@ -466,13 +194,6 @@ Bénéfices
 image::gradle/bg-2.png[background, size=cover]
 
 image::cc-perf-java.png[]
-
-
-=== Configuration Cache
-image::gradle/bg-2.png[background, size=cover]
-
-image::cc-perf-android.png[]
-
 
 [background-color="#02303a"]
 === Démo
@@ -505,18 +226,6 @@ e.g. `Project`, `Task` etc...
 * Pas d'objets _live_ dans les _inputs_ +
 e.g. `InputStream`, `Socket` etc...
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
-
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-2.png[background, size=cover]
-
-[.notes]
---
-Exemple d'une task a fixer, ptet dans un autre build plus simple, celui de la doc +
-Adoption progressive: notCompatibleWithConfigurationCache()
---
-
 
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
@@ -559,60 +268,6 @@ Cache le résultat de la configuration et du calcul du graphe de tâches, et ré
 Le jeu en vaut la chandelle
 
 Vous pouvez démarrer son adoption dès aujourd'hui
-
-
-// =====================================================================================================================
-
-
-=== Project Isolation
-image::gradle/bg-2.png[background, size=cover]
-
-Principes
-
-* Étend le cache de configuration pour accélérer la phase configuration et la synchronisation depuis un IDE.
-* Isole les projets les uns des autres
-
-
-=== Project Isolation
-image::gradle/bg-2.png[background, size=cover]
-
-Bénéfices
-
-* *Synchronization IDE plus rapide*
-** Cache de modèles TAPI pour les IDE
-* *Phase de configuration plus rapide*
-** Cache de configuration par projet
-** Configuration parallèle
-
-
-=== Project Isolation
-image::gradle/bg-2.png[background, size=cover]
-
-Contraintes
-
-* Ne pas référencer un `Project` depuis un autre
-* Configuration avec `subprojects {}` & `allprojects {}`
-** Utiliser des plugins de convention
-* Consommer les _outputs_ d'un projet dans un autre
-** Utiliser les publications et les dépendances
-
-
-=== Project Isolation
-image::gradle/bg-2.png[background, size=cover]
-
-État d'avancement
-
-[.small]
---
-Actuellement au stade de prototype
-
-Activable aujourd'hui
-
-* dégrade les performances si les contraintes sont violées
-* l'accéleration de la synchronization IDE ne fonctionne pas encore
-* l'accéleration de la phase de configuration n'est pas implémentée
---
-
 
 // =====================================================================================================================
 

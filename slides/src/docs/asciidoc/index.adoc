@@ -7,7 +7,9 @@
 
 = Donnez de l'amour à votre build, il vous le rendra ! ❤️
 
-Louis Jacomet & Paul Merlin
+Louis Jacomet
+
+VoxxedDays Luxembourg 2022
 
 include::chapters/_1_agenda.adoc[]
 

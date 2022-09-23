@@ -56,22 +56,6 @@ image::gradle/bg-7.png[background, size=cover]
 ** en ligne de commande
 ** depuis un IDE
 
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-7.png[background, size=cover]
-
-[.notes]
---
-utiliser build init application comme illustration +
-wrapper: dans le système de gestion de versions, pas dans .gitignore +
-cli: options, run tasks, task paths, abbreviations +
-cli: mise à jour du wrapper --gradle-version +
-ide: intellij & vscode - import gradle model => ide model ... sync! +
-ide: source navigation, visibility, assistance +
---
-
-
 === Comment on s'en sert ?
 image::gradle/bg-7.png[background, size=cover]
 
@@ -83,7 +67,6 @@ image::gradle/bg-7.png[background, size=cover]
 
 === Configuration extensible
 image::gradle/bg-7.png[background, size=cover]
-
 
 [cols="<.^7,^.^3",frame=none,grid=none]
 |===
@@ -109,66 +92,6 @@ include::../fragments/_diagram_task-graph.adoc[]
 image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/timeline?details=yznpxgmt5qzfo&expanded=WyIwLjMiLCIwLjMtMS4yIl0&show=Predecessors]
 |===
 
-
-=== Comment ça marche ?
-image::gradle/bg-7.png[background, size=cover]
-
-include::../fragments/_diagram_build-logic-parts.adoc[]
-
-
-=== Comment ça marche ?
-image::gradle/bg-7.png[background, size=cover]
-
-include::../fragments/_diagram_how-it-works.adoc[]
-
-
-=== Résolution de dépendances
-image::gradle/bg-7.png[background, size=cover]
-
-[cols="<.<2,^.<5",frame=none,grid=none]
-|===
-a|
-Commence par la tâche invoquée
-a|
-include::../fragments/_diagram_task-graph-resolve1.adoc[]
-|===
-
-=== Résolution de dépendances
-image::gradle/bg-7.png[background, size=cover]
-
-[cols="<.<2,^.<5",frame=none,grid=none]
-|===
-a|
-Puis connecte les tâches avec dépendance directe
-a|
-include::../fragments/_diagram_task-graph-resolve2.adoc[]
-|===
-
-=== Résolution de dépendances
-image::gradle/bg-7.png[background, size=cover]
-
-[cols="<.<2,^.<5",frame=none,grid=none]
-|===
-a|
-Et aussi celles indirectes, potentiellement dans un autre projet
-a|
-include::../fragments/_diagram_task-graph-resolve3.adoc[]
-|===
-
-=== Exécution de tâches
-image::gradle/bg-7.png[background, size=cover]
-
-[cols="<.^5,^.^2",frame=none,grid=none]
-|===
-a|
-Ne pas refaire ce qui a déjà été fait.
-
-Faire ce qu'il y a à faire le plus vite possible
-a|
-include::../fragments/_diagram_task-graph.adoc[]
-|===
-
-
 === Exécution de tâches
 image::gradle/bg-7.png[background, size=cover]
 
@@ -185,19 +108,6 @@ a|
 a|
 include::../fragments/_diagram_task-execution.adoc[]
 |===
-
-
-=== Exécution de tâches
-image::gradle/bg-7.png[background, size=cover]
-
-Faire ce qu'il y a à faire le plus vite possible
-
-* Exécution parallèle des tâches
-* Exécution parallèle d'unités de travail +
-  Worker API / Test Execution
-
-include::../fragments/_diagram_parallel-execution.adoc[]
-
 
 === Qu'est-ce que Gradle ?
 image::gradle/bg-7.png[background, size=cover]

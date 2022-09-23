@@ -17,25 +17,11 @@ image::gradle/bg-6.png[background, size=cover]
 image::gradle/bg-6.png[background, size=cover]
 
 * Centralisation de la liste des dépendances
-** Coordonnées et version, y compris riche
+** Coordonnées et version
 ** Pas de classifier, exclude ou autres attributs
 * Accesseurs typés
 * Séparation : `group:artifact` et `version`
 * Groupes de dépendances
-
-[background-color="#02303a"]
-=== Démo
-image::gradle/bg-6.png[background, size=cover]
-
-[.notes]
---
-* Montrer un projet simple
-* Contenu du catalogue
-** Dépendances
-** Versions
-* Utilisation du catalogue dans le projet
-* Import d'un catalogue
---
 
 === Format TOML
 image::gradle/bg-6.png[background, size=cover]
@@ -52,7 +38,7 @@ groovy-json = { module = "org.apache.groovy:groovy-json", version.ref = "groovy"
 commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "lang" }
 
 [bundles]
-groovy = ["groovy-core", "groovy-json", "groovy-nio"]
+groovy = ["groovy-core", "groovy-json"]
 
 [plugins]
 logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.10.0" }
@@ -184,71 +170,6 @@ image::gradle/bg-6.png[background, size=cover]
 * Exemple de cette notion de variante dans la gestion de dépendances
 --
 
-=== Gestion de dépendances : les variantes
-image::gradle/bg-6.png[background, size=cover]
-
-* Dimension supplémentaire d'un composant logiciel
-* Peut avoir ses propres artifacts et dépendances
-* Pensez `classifier`, sans les limitations
-* Nécessite Gradle Module Metadata (GMM)
-
-=== Autre exemple : Dépendances optionelles
-image::gradle/bg-6.png[background, size=cover]
-
-* Définition d'une variante qui
-** Dépend du composant principal
-** Ajoute des dépendances
-** Peut aussi ajouter un binaire
-* Dépendances en fait pas optionelles ...
-* Mais obligatoires pour certaines fonctionnalités
-
-=== Exemple
-
-[cols="<.^1",frame=none,grid=none]
-|===
-a|
-.`producer.gradle.kts`
-[source,kotlin]
-----
-java {
-    registerFeature("mysqlSupport") {
-        usingSourceSet(sourceSets["main"])
-    }
-    registerFeature("mongodbSupport") {
-        usingSourceSet(sourceSets["main"])
-    }
-}
-
-dependencies {
-    "mysqlSupportImplementation"("mysql:mysql-connector-java:8.0.14")
-    "mongodbSupportImplementation"("org.mongodb:mongodb-driver-sync:3.9.1")
-}
-----
-.`consumer.gradle.kts`
-[source,kotlin]
-----
-dependencies {
-    implementation(project(":producer"))
-
-    // On ajoute la variant MySQL
-    runtimeOnly(project(":producer")) {
-        capabilities {
-            requireCapability("org.gradle.demo:producer-mysql-support")
-        }
-    }
-}
-----
-|===
-
-
-=== Applications du modèle des variantes
-image::gradle/bg-6.png[background, size=cover]
-
-* Test fixtures
-* Fonctionalités optionelles
-* Aggregation de résultats entre projets
-* (Transformation d'artifacts)
-
 === Publication
 image::gradle/bg-6.png[background, size=cover]
 
@@ -286,7 +207,7 @@ image::gradle/bg-6.png[background, size=cover]
 === Méta données
 image::gradle/bg-6.png[background, size=cover]
 
-* Pas d'API de manipulation des GMM
+* Pas d'API de manipulation des Gradle Module Metadata
 * Mutation de POM avec `withXml` => différences
 * Comme pour les artifacts, modifiez le composant !
 
@@ -297,16 +218,6 @@ image::gradle/bg-6.png[background, size=cover]
 * Dépendances : versions déclarées ou résolues ?
 * Publier sur Maven Central
 ** https://plugins.gradle.org/plugin/io.github.gradle-nexus.publish-plugin[Utilisez `io.github.gradle-nexus.publish-plugin`]
-
-=== Besoins pour les composants JVM
-
-Beaucoup de choses incluses ...
-
-\... Mais tout n'est pas couvert
-
-Qu'est-ce qu'il vous manque en pratique?
-
-Pensez à le demander ici, à la BoF jeudi ou sur https://github.com/gradle/gradle/issues/new?assignees=&labels=a%3Afeature%2C+to-triage&template=contributor_feature_request.md&title=[GitHub]
 
 === Fonctionnalités JVM
 image::gradle/bg-6.png[background, size=cover]
