@@ -1,6 +1,17 @@
 [background-color="#02303a"]
+== Who are we?
+image::gradle/bg-1.png[background, size=cover]
+
+&#x1F9D1;&#x200D;&#x1F4BB; &#x1F9D1;&#x200D;&#x1F4BB;
+
 [%notitle]
-== Louis
+=== Kyle
+image::gradle/bg-1.png[background, size=cover]
+
+TODO
+
+[%notitle]
+=== Louis
 image::gradle/bg-1.png[background, size=cover]
 
 image::louis.png[height=250,width=250]
@@ -36,7 +47,7 @@ a|image::logo-gradle-old.svg[]
 a|image::logo-gradle-elephant-old.png[]
 |===
 
-Depuis 2008, notre mission est d'accélérer la productivité des développeurs.
+Since 2008, our mission is to improve developer productivity.
 
 [cols="^.^1,^.^1,^.^1",frame=none,grid=none,role=who-gradle]
 |===
@@ -52,10 +63,10 @@ image::gradle/bg-1.png[background, size=cover]
 
 image::logo-gradle-build-tool.svg[role=product-logo-as-title]
 
-Outil de construction de logiciels publié sous la license https://github.com/gradle/gradle/blob/master/LICENSE[Apache]
+Software build tool under https://github.com/gradle/gradle/blob/master/LICENSE[Apache] license.
 
-// TODO Idéalement on trouve un truc plus récent qu'un article de 2017 ...
-C'est un des 20 projets open source les plus populaires d'après https://techcrunch.com/2017/04/07/tracking-the-explosive-growth-of-open-source-software/[TechCrunch] avec près de 30 millions de téléchargements mensuels.
+// TODO Ideally we find something more recent than a 5 years old article ...
+Top 20 in popular open source projects according to https://techcrunch.com/2017/04/07/tracking-the-explosive-growth-of-open-source-software/[TechCrunch] with nearly 30 millions monthly downloads.
 
 
 [%notitle]
@@ -64,29 +75,29 @@ image::gradle/bg-1.png[background, size=cover]
 
 image::logo-gradle-enterprise.svg[role=product-logo-as-title]
 
-Gradle Enterprise, produit commercial, est la première solution intégrée de Developer Productivity Engineering (DPE)
+Gradle Enterprise, commercial solution, is the first integrated platform for Developer Productivity Engineering (DPE)
 
 image::gradle/ge-1.png[width=70%]
 
 [.notes]
 --
-metadata de tous les builds +
-outputs de tous les builds +
-observabilite: scans, performance trends, test dashboard etc... +
-accélération: build-cache, test distribution, predictive test selection etc..
+metadata of all builds +
+outputs of all builds +
+observability: scans, performance trends, test dashboard ... +
+acceleration: build-cache, test distribution, predictive test selection ...
 --
 
 
 === Developer Productivity Engineering
 image::gradle/bg-1.png[background, size=cover]
 
-DPE est une pratique logicielle émergente qui repose sur des technologies d'accélération et l'analyse de données  pour améliorer la productivité des développeurs.
+Developer Productivity Engineering (DPE) is a software development practice used by leading software development organizations to maximize developer productivity and happiness.
 
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-* rendre les builds et tests plus rapides
-* rendre la recherche de problèmes plus efficace
+* Make builds and testing faster
+* Make solving issues more efficient
 
 a|image::dpe-showdown.jpeg[]
 
@@ -97,21 +108,21 @@ https://twitter.com/DpeShowdown
 
 [.notes]
 --
-DevProdEng Showdown est une série d'événements de 30 minutes diffusés en direct où un panel des experts débattent de sujets d'actualité liés à l'ingénierie de la productivité.
+DevProdEng Showdown is a series of 30 minutes shows, broadcaster live where an expert panel discusses topics on developer productivity.
 
-Deux formules
-* showdown: jeu télévisé, plusieurs participants
-* lowdown: interview en face à face
+Two formulas
+* showdown: game show, 4 participants
+* lowdown: interview
 
-Comment Netflix, Microsoft, LinkedIn et autres équipes font de la DPE?
+Showcases how Netflix, Microsoft, LinkedIn and others do DPE
 --
 
 
 === Build Scans
 image::gradle/bg-1.png[background, size=cover]
 
-Un enregistrement permanent +
-de ce qui se passe pendant un build.
+Permanent record +
+of everything that happens in a build.
 
 [cols="<.^65,^.^35",frame=none,grid=none]
 |===
@@ -126,20 +137,20 @@ a|
 // https://gradle.com/gradle-and-maven-build-speed-challenge
 image::qrcode-build-speed-challenge.svg[link=images/qrcode-build-speed-challenge.svg]
 
-Recevez des goodies :)
+Win goodies :)
 --
 |===
 
 [.notes]
 --
-Nous utiliserons les build scans pendant cette session pour illustrer certains points.
+We will use build scans in this presentation to illustrate some topics
 --
 
 
-=== On recrute !
+=== We are hiring !
 image::gradle/bg-1.png[background, size=cover]
 
-Si ce dont nous allons parler aujourd'hui vous intéresse, venez travailler avec nous !
+If what we cover today sounds exciting, come work with us!
 
 image::team_map.png[width=65%]
 

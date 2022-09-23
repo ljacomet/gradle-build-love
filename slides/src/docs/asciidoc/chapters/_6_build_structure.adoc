@@ -1,83 +1,83 @@
 [background-color="#02303a"]
-== Structure de build(s)
+== Build(s) structure
 image::gradle/bg-9.png[background, size=cover]
 
 &#x1F5C3;
 
-=== Un ou plusieurs projets
+=== One or more projects
 image::gradle/bg-9.png[background, size=cover]
 
-* Un seul build contient un ou plusieurs projets
-* Les settings servent à
-** déclarer les participants à un build
-** configurer des éléments communs
-* Tâche `projects` pour lister les participants d'un build
+* One build contains one or more projects
+* Build settings are used to
+** declare build participants
+** configure common elements
+* `projects` task to list the projects of a build
 
-=== Structure d'un build
+=== Build structure
 image::gradle/bg-9.png[background, size=cover]
 
-* Approcher celle-ci comme celle de n'import quel code
-** Eviter les répetitions
-** Construire des abstractions
-** En bref, appliquer des bonnes pratiques !
-* Mais pensez à votre futur moi
-** Ouvrir un projet doit vous donner les informations importantes
-** Trop de centralisation peut nuire la relecture
+* Handle it like any piece of code
+** Do not repeat yourself
+** Build abstractions
+** In short, apply good development practices
+* Think about your future self
+** Opening a project should give you the important information
+** Too much centralisation can hurt readability
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-9.png[background, size=cover]
 
 [.notes]
 --
-* Montrer les plugins de convention
+* Show convention plugins
 * Pseudo navigation (select & shift shift)
-* Y déplacer les infos de toolchain
+* Move toolchain info to it
 --
 
-=== Plugins de convention
+=== Convention plugins
 image::gradle/bg-9.png[background, size=cover]
 
-* Orchestration de plugins existants
-* Configuration de défauts pour vous, votre projet, votre compagnie
-* Au sein du projet ou publiés
+* Orchestrate applied plugins
+* Configure defaults for you, your project, your company
+* Inside the project or published
 
-=== La convention `buildSrc`
+=== `buildSrc` convention
 image::gradle/bg-9.png[background, size=cover]
 
-* Contient du code visible pour la configuration du projet
-* Tous les projets voient tout le contenu de `buildSrc`
-* Tout changement invalide tous les projets
+* Content is visible for project configuration
+* All projects see all the content of `buildSrc`
+* Any change invalidates all projects
 
-=== Composition de builds
+=== Composite builds
 image::gradle/bg-9.png[background, size=cover]
 
-* Mélanger plusieurs builds indépendants
-* Un build principal et un ou plusieurs builds inclus
-* Gradle s'occupe de connecter les morceaux
-* Remplace une publication locale
+* Mix independent builds
+* One main build and one or more included builds
+* Gradle connects all the pieces
+* Replaces the use of local publications
 
-=== Composition pour logique de build
+=== Build logic in composites
 image::gradle/bg-9.png[background, size=cover]
 
-* Même principe qu'un composite classique
-* Le build contribue de la logique ... de build
-* Plus ciblé que `buildSrc`
+* Same base as regular composites
+* The included build contributes ... build logic
+* More targeted than `buildSrc`
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-9.png[background, size=cover]
 
 [.notes]
 --
-* Migration hors de buildSrc pour le projet init d'application
-* Illustration des effets de changement de logique
+* Migrate out of buildSrc for the init application project
+* Illustrate impact of logic changes
 --
 
 === Mono vs. Multi repository
 image::gradle/bg-9.png[background, size=cover]
 
-* Décision qui vous appartient
-* Gradle est agnostique à cette notion
-* Dans les deux cas, vous pouvez avoir plusieurs builds
-* Assemblés en tant que composites
+* Decision that you own
+* Gradle is agnostic to that difference
+* In both case, you can have multiple builds
+* That you assemble as composites

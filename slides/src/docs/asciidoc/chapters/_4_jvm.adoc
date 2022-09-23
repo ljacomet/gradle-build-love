@@ -1,29 +1,29 @@
 [background-color="#02303a"]
-== Fonctionnalités JVM
+== JVM features
 image::gradle/bg-6.png[background, size=cover]
 
 &#x2615;
 
-=== Un peu de tout
+=== A bit of everything
 image::gradle/bg-6.png[background, size=cover]
 
-* Catalogues de version
+* Version catalogs
 * Toolchains
-* Suites de tests
-* Tests fixtures
+* Test suites
+* Test fixtures
 * Publication
 
-=== Catalogue de versions
+=== Version catalogs
 image::gradle/bg-6.png[background, size=cover]
 
-* Centralisation de la liste des dépendances
-** Coordonnées et version
-** Pas de classifier, exclude ou autres attributs
-* Accesseurs typés
-* Séparation : `group:artifact` et `version`
-* Groupes de dépendances
+* Centralizes the list of dependencies used in a build
+** Coordinates and version
+** No classifiers, excludes or other attributes
+* Typed accessors
+* Separates: `group:artifact` and `version`
+* Dependency bundles
 
-=== Format TOML
+=== TOML format
 image::gradle/bg-6.png[background, size=cover]
 
 [source,toml]
@@ -44,186 +44,184 @@ groovy = ["groovy-core", "groovy-json"]
 logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.10.0" }
 ----
 
-Il existe aussi une API dans le fichier `settings` de Gradle.
+There is also an API in the Gradle `settings`.
 
-=== Points d'attention
+=== Attention points
 image::gradle/bg-6.png[background, size=cover]
 
-* Contrainte comme une autre
-** N'impose pas une version
-** Supporte les options _riches_
-* Publication et import de catalogue
+* Version information like any other
+** Does not force a version
+** Supports _rich version_ options
+* Publishing and importing catalogs
 * Limitations
-** Pas pour un plugin de settings
-** Ni script d'initialisation
+** Not applicable for settings plugins
+** Not applicable for init scripts dependencies
 
 === Java Toolchains
 image::gradle/bg-6.png[background, size=cover]
 
-* Séparation du Java pour Gradle et de celui pour le projet
-* Application pour la compilation, les tests et l'exécution
-* Critères disponibles :
-** Version du langage Java
-** Vendeur de la JVM
-** (Implémentation : défaut ou J9)
+* Separates Java running Gradle from the one required by the project
+* Applies to compilation, tests and execution
+* Available criteria:
+** Java language version
+** JVM vendor
+** (Implementation: défaut or J9)
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-6.png[background, size=cover]
 
 [.notes]
 --
-* Configuration dans `java`
-* Configuration pour une tâche spécifique
-* Tâche `javaToolchains`
+* Configuration in `java`
+* Configuration for a specific task
+* `javaToolchains` task
 --
 
-=== Quel Java Gradle connait-il?
+=== Which Java does Gradle know about?
 image::gradle/bg-6.png[background, size=cover]
 
-* Défauts autodétectés :
-** Par OS: Linux, macOS, Windows
+* Autodetected defaults :
+** Per OS: Linux, macOS, Windows
 ** Package managers: Asdf-vm, Jabba, SDKMAN!
 ** Maven toolchains
-** Téléchargements précédents
-* Explicite
+** Previous auto provisioning results
+* Explicit configuration
 
-=== Provisioner Java
+=== Java provisioning
 image::gradle/bg-6.png[background, size=cover]
 
-* Possible grâce à AdoptOpenJDK
-* Mais pas idéal, suite à la migration Adoptium
-* Micmac avec le vendeur
+TODO Adapt for Gradle 7.6
 
 === Futur
 image::gradle/bg-6.png[background, size=cover]
 
-* SPI pour créer des plugins de provisionnement
-* Plus d'options pour sélectionner sa JVM
-** GraalVM, version plus précise, early access, ...
-* Support dans plus de tâches
-** Core Gradle : analyse de code par exemple
-** Plugins de la communauté : demandez le support !
+* More options to select your JVM
+** GraalVM, specific version, early access, ...
+* Support in more tasks
+** Core Gradle : code analysis for example
+** Community plugins: request its support
 
 [.notes]
 --
-* Par exemple support toolchain dans Checkstyle pour Gradle 7.5
+* TODO check status
 --
 
-=== Les suites de tests
+=== Test suites
 image::gradle/bg-6.png[background, size=cover]
 
-* Modélise une collection de tests
-* Séparation logique des tests au niveau des sources et dépendances
-* Défaut de Gradle, `test`, est dérivé de ce modèle
+* Model a test collection: unit, integration, performance, ...
+* Separates tests sources and dependencies
+* `test`, the Gradle Java default, is now derived from this model
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-6.png[background, size=cover]
 
 [.notes]
 --
-* Ajout d'une suite de tests
-* Configuration du test type
-* Dépendances
-* Configuration des tâches
-* Lien avec tâche `build`
+* Add a test suite
+* Configure test type
+* Dependencies
+* Task configuration
+* Link with `check`
 --
 
-=== Evolution des suites de tests
+=== Test suites evolution
 image::gradle/bg-6.png[background, size=cover]
 
-* Notions de dimensions
-** Différentes versions de Java pour tourner les tests
-** Produira plusieurs tâches de `Test`
-* Intégration avec la couverture de code
-** Interaction au niveau de la tâche actuellement
+* Dimensions
+** Different Java versions to run the tests
+** Will result in more `Test` tasks
+* Integration with code coverage
+** Has to be wired per task currently
 
 === Test fixtures
 image::gradle/bg-6.png[background, size=cover]
 
-* Séparation des fixtures du code de test
-* Consommation des fixtures d'une librairie
-* Illustration du modèle avancé de gestion de dépendances de Gradle
+* Separate test helpers from test themselves
+* Consume the fixtures from a dependency
+* Showcases the advanced dependency management engine of Gradle
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-8.png[background, size=cover]
 
 [.notes]
 --
-* Ajout de fixtures
-* Code simple et utilisation dans un test
-* Consommation
+* Add test fixtures
+* Simple code and usage in test
+* Consumption
 --
 
-=== Modélisation des tests fixtures
+=== Test fitures modelling
 image::gradle/bg-6.png[background, size=cover]
 
-* Comme les suites de test : sources et dépendances séparées
-* Publication complète
-** Variante dans Gradle Module Metadata
-** `classifier` pour Maven / Ivy
+* As for test suites : sources and dependencies isolated
+* Part of published library
+** Variant in Gradle Module Metadata
+** `classifier` for Maven / Ivy
 
 [.notes]
 --
-* Exemple de cette notion de variante dans la gestion de dépendances
+* Example of the variant feature in dependency management
 --
 
-=== Publication
+=== Publishing
 image::gradle/bg-6.png[background, size=cover]
 
-* Que publie-t-on ?
-** Un composant
-** Ses variantes
-** Ses meta données
-* Où le publie-t-on ?
-** Dans un repository Maven ou Ivy
-* Comment publier ?
+* What is published?
+** A component
+** Its variants
+** Its metadata
+* Where is it published?
+** In a Maven or Ivy repository
+* How to publish?
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-8.png[background, size=cover]
 
 [.notes]
 --
-* Ajout du plugin
-* Configuration, y compris POM
+* Add plugin maven-publish
+* Configuration, including POM
 * Repository
-* Variante?
+* Variants?
 --
 
-=== Que publier ?
+=== What is published?
 image::gradle/bg-6.png[background, size=cover]
 
-* Le composant
-** Modélisation d'un ensemble de _variantes_
-** Variante: configuration _consommable_ et artifacts
-** `java` pour les plugins Java
-* Modifiez le composant plutôt que la publication
-** Un artifact additionnel ?
-** Définissez une variante
+* The component
+** Models a set of _variants_
+** Variant: _consumable_ configuration and artifacts
+** `java` for the Java plugins
+* Customizations?
+** Modify the component itself, not the publication
+* Additional artifact?
+** Add a variant
 
-=== Méta données
+=== Metadata
 image::gradle/bg-6.png[background, size=cover]
 
-* Pas d'API de manipulation des Gradle Module Metadata
-* Mutation de POM avec `withXml` => différences
-* Comme pour les artifacts, modifiez le composant !
+* No API to manipulate Gradle Module Metadata
+* Mutating the POM through `withXml` => discrepancies
+* Like for artifacts, modify the component!
 
-=== Astuces de publication
+=== Publishing tricks
 
-* Valider une publication:
-** publier sur un repository local
-* Dépendances : versions déclarées ou résolues ?
-* Publier sur Maven Central
-** https://plugins.gradle.org/plugin/io.github.gradle-nexus.publish-plugin[Utilisez `io.github.gradle-nexus.publish-plugin`]
+* Publication validation:
+** Publish on a local repository
+* Dependencies : Declared or resolved versions?
+* Publishing to Maven Central
+** https://plugins.gradle.org/plugin/io.github.gradle-nexus.publish-plugin[Use `io.github.gradle-nexus.publish-plugin`]
 
-=== Fonctionnalités JVM
+=== JVM features
 image::gradle/bg-6.png[background, size=cover]
 
-* Catalogues de version
+* Version catalogs
 * Toolchains
-* Suites de tests
-* Tests fixtures
+* Test suites
+* Test fixtures
 * Publication

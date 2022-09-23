@@ -15,8 +15,8 @@ activityDiagram {
   }
 }
 </style>
-:Vérification des //inputs//;
-if(Changés ?) then (oui)
+://Inputs// verification;
+if(Changed?) then (yes)
     label space_1
     label space_2
     label space_3
@@ -32,26 +32,26 @@ if(Changés ?) then (oui)
     label space_13
     label exec
     #1ba8cb :EXECUTION;
-    :Mise en cache\ndes outputs;
+    :Caching outputs;
     detach
-else (non)
+else (no)
     label space_100
-    :Vérification des //outputs// locaux;
+    :Local //outputs// verification;
     label space_101
     label space_102
-    if(Changés ?) then (oui)
+    if(Changed?) then (yes)
         label space_200
-        :Vérification du //build cache//;
+        :Lookup in //build cache//;
         label space_201
-        if(Disponibles ?) then (non)
+        if(Available?) then (no)
             label space_300
             goto exec
-        else(oui)
+        else(yes)
             label space_400
             #1ba8cb :FROM-CACHE;
             detach
         endif
-    else(non)
+    else(no)
         label space_500
         #1ba8cb :UP-TO-DATE;
         detach

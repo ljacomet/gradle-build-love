@@ -1,60 +1,59 @@
 [background-color="#02303a"]
-== Logique de build
+== Build logic
 image::gradle/bg-11.png[background, size=cover]
 
 &#x1F9F0;
 
-=== Composants de base
+=== Building blocks
 image::gradle/bg-9.png[background, size=cover]
 
-* Un fichier de configuration du build: `settings.gradle(.kts)`
-* Un fichier de configuration par projet: `build.gradle(.kts)`
-* Des fichiers annexes:
+* A build configuration file: `settings.gradle(.kts)`
+* Configuration file per project: `build.gradle(.kts)`
+* Additional files:
 ** `gradle.properties`
 ** `gradle/wrapper`
-** Catalogues de version `*.versions.toml`
-** Et plus ...
+** Version catalogs `*.versions.toml`
+** And more ...
 
-=== Langages d'implémentation
+=== Implementation languages
 image::gradle/bg-11.png[background, size=cover]
 
 include::../fragments/_diagram_build-logic-parts.adoc[]
 
 
-=== Scripts du build vs. Plugins
+=== Build scripts vs. Plugins
 image::gradle/bg-11.png[background, size=cover]
 
 *Configuration* +
-Les scripts du build sont déclaratifs
+Build scripts are declarative
 
 *Conventions* +
-Les plugins locaux au build implémentent la logique de configuration du build
+Local build plugins implement the build configuration logic
 
 https://plugins.gradle.org +
-La logique de build utilise des plugins externes
+Build logic can leverage external plugins
 
 
-
-=== Écrire des plugins
+=== Writing plugins
 image::gradle/bg-11.png[background, size=cover]
 
-Un plugin Gradle est construit par un build Gradle
+A Gradle plugin is built by a Gradle build
 
 [cols="<.^7,<.^3",frame=none,grid=none]
 |===
 a|
 [.small]
 --
-Des plugins de développement de plugins pour:
+Plugin development plugins for:
 
-* modéliser la construction de plugins Gradle
-* valider plugins, extensions de DSL et tâches
-* faciliter les tests d'intégration
-* déclarer les métadonnées des plugins
-* publier les plugins sur https://plugins.gradle.org
+* Model Gradle plugin building
+* Validate plugins, DSL extensions and tasks
+* Simplify integration testing
+* Declare plugin metadata
+* Publish plugins to https://plugins.gradle.org
 --
 a|
-.Script d'un projet de plugin Java
+.Build script of a plugin in Java
 [source,kotlin]
 ----
 plugins {
@@ -62,7 +61,7 @@ plugins {
 }
 ----
 
-.Script d'un projet de plugin Groovy
+.Build script of a plugin in Groovy
 [source,kotlin]
 ----
 plugins {
@@ -70,7 +69,7 @@ plugins {
 }
 ----
 
-.Script d'un projet de plugin Kotlin
+.Build script of a plugin in Kotlin
 [source,kotlin]
 ----
 plugins {
@@ -80,7 +79,7 @@ plugins {
 |===
 
 
-=== Modèle de programmation
+=== Programming model
 image::gradle/bg-11.png[background, size=cover]
 
 [cols="<.^7,<.^3",frame=none,grid=none]
@@ -91,10 +90,9 @@ a|
 Don't call us, we'll call you! +
 _Sugarloaf^WHollywood_
 
-Types abstraits, instanciés et décorés +
-par Gradle
+Abstract types, instantiated and decorated by Gradle
 
-Services Gradle injectés +
+Injected Gradle Services +
 [link:https://docs.gradle.org/current/userguide/custom_gradle_types.html#service_injection[doc]]
 --
 a|
@@ -131,14 +129,14 @@ image::gradle/bg-11.png[background, size=cover]
 [cols="<.^3,<.^4",frame=none,grid=none]
 |===
 a|
-Cibles de plugin
+Plugin targets
 
 * `Project`
 * `Settings`
 * `Gradle`
 
 a|
-Equivalences en scripts
+Script equivalents
 
 * _project script_
 * _settings script_
@@ -151,20 +149,18 @@ Equivalences en scripts
 class MyPlugin implements Plugin<Project> {
     @Override
     public void apply(Project project) {
-        /* ... Utilisation de l'API Gradle ... */
+        /* ... Uses the Gradle API ... */
     }
 }
 ----
 
 
-=== Scripts de plugin précompilés
+=== Precompiled script plugins
 image::gradle/bg-11.png[background, size=cover]
 
-aka. Precompiled Script Plugins
+Plugins written using the Gradle DSL
 
-Plugins écrits avec le DSL gradle
-
-Placés dans un `SourceSet`
+Located in a `SourceSet`
 
 [source]
 ----
@@ -175,58 +171,58 @@ src/main/groovy/my-plugin.init.gradle
 
 // =====================================================================================================================
 
-=== Écrire des tâches
+=== Writing tasks
 image::gradle/bg-11.png[background, size=cover]
 
-Les tâches sont des fonctions
+Tasks are functions
 
 [cols="<.^3,>.^2",frame=none,grid=none]
 |===
 a|
 [.small]
 --
-Que sont les _input_ de la tâche ?
+What are the task _inputs_?
 
-Que sont les _outputs_ de la tâche ?
+What are the task _outputs_?
 
-Que se passe-t-il quand l'un d'eux change ?
+What happens when input or output change?
 --
 
 a|
 include::../fragments/_diagram_task-execution.adoc[]
 |===
 
-=== Test d'incrémentalité
+=== Incrementality test
 image::gradle/bg-11.png[background, size=cover]
 
-* Lancer un build
-* Lancer un autre build sans faire de changement
-* Les tâches doivent être `UP-TO-DATE`
+* Launch a build
+* Launch another build without making any change
+* All tasks should be `UP-TO-DATE`
 
 
-=== Test de mise en cache
+=== Caching test
 image::gradle/bg-11.png[background, size=cover]
 
-* Activer le build cache
-* Préparer deux copies du même projet dans des répertoires différents
-* Dans le premier répertoire, lancer un build
-* Dans le deuxième répertoire, lancer un build
-* Les tâches du deuxième build doivent être `FROM-CACHE`
+* Activate build cache
+* Prepare two copies of the same project in different folders
+* In the first location, launch the build
+* In the second location, launch the build
+* Tasks from the second build should be `FROM-CACHE`
 
 [.small.center.top-margin]
 link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache],
-en particulier link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
-et link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
+in particular link:https://docs.gradle.org/current/userguide/build_cache_debugging.html[doc/build_cache_debugging]
+and link:https://docs.gradle.org/current/userguide/common_caching_problems.html[doc/common_caching_problems]
 
 
 
-=== Écrire des tâches
+=== Writing tasks
 image::gradle/bg-11.png[background, size=cover]
 
 [cols="<.^1,<.^1",frame=none,grid=none]
 |===
 a|
-Exécutée à chaque fois
+Executed each time
 
 .`MyTask.kt`
 [source,kotlin]
@@ -251,10 +247,10 @@ a|
 ----
 abstract class MyTask : DefaultTask() {
 
-  @get:InputFiles <1>
+  @get:InputFiles //<1>
   abstract val inputs: ConfigurableFileTree
 
-  @get:OutputDirectory <2>
+  @get:OutputDirectory //<2>
   abstract val output: DirectoryProperty
 
   @TaskAction
@@ -263,22 +259,22 @@ abstract class MyTask : DefaultTask() {
   }
 }
 ----
-<1> Déclare cette propriété comme un _input_
-<2> Déclare cette propriété comme un _output_
+<1> Declare this property as an _input_
+<2> Declare this property as an _output_
 |===
 
 
-=== Tâches mises en cache
+=== Cached tasks
 image::gradle/bg-11.png[background, size=cover]
 
 .`MyTask.kt`
 [source,kotlin]
 ----
-@CacheableTask <1>
+@CacheableTask //<1>
 abstract class MyTask : DefaultTask() {
 
   @get:InputFiles
-  @get:PathSensitive(RELATIVE) <2>
+  @get:PathSensitive(RELATIVE) //<2>
   abstract val inputs: ConfigurableFileCollection
 
   @get:OutputDirectory
@@ -290,8 +286,8 @@ abstract class MyTask : DefaultTask() {
   }
 }
 ----
-<1> Marque la tâche comme _cacheable_
-<2> Définit la sensibilité des chemins pour cet _input_
+<1> Declare task implememation as _cacheable_
+<2> Specifies _input_ path sensitivity
 
 [.small.center.top-margin]
 link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache]
@@ -299,104 +295,102 @@ link:https://docs.gradle.org/current/userguide/build_cache.html[doc/build_cache]
 // =====================================================================================================================
 
 
-=== Écrire des tâches
+=== Writing tasks
 image::gradle/bg-11.png[background, size=cover]
 
-Beaucoup d'opt-ins auxquels penser
+Many opt-ins to consider
 
-Gradle valide les plugins et les tâches
+Gradle can help by validating plugins and tasks
 
-* au runtime -> warnings / failures / deprecations
-* lors de l'écriture de plugins -> `:validatePlugins`
+* At runtime -> warnings / failures / deprecations
+* While developing plugins -> `:validatePlugins`
 
-Évolution balancée vers plus de choses par défaut tout en maintenant la compatibilité
+Validation evolves by checking more and more things while preserving compatibility
 
 
 // =====================================================================================================================
 
 
-=== Tester c'est douter
+=== To test is to doubt
 image::gradle/bg-11.png[background, size=cover]
 
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-*Tests unitaires* +
+*Unit tests* +
 `ProjectBuilder` [link:https://docs.gradle.org/current/javadoc/org/gradle/testfixtures/ProjectBuilder.html[doc]]
 
-*Tests d'intégration* +
+*Integration tests* +
 `Gradle TestKit` [link:https://docs.gradle.org/current/userguide/test_kit.html[doc]]
 
 a|
 image::tester-cest-douter.jpeg[]
 |===
+TODO adapt picture with an English alternative
 
-
-=== Tests unitaires
+=== Unit tests
 image::gradle/bg-11.png[background, size=cover]
 
 `ProjectBuilder`
 
-Pour tester les interactions avec le modèle de configuration
+To test interactions with the configuration model
 
-Seulement sur `Project`
+Only for `Project`
 
-Pas pour tester les tâches
+Does not allow to test tasks
 
 
-=== Tests d'intégration
+=== Integration tests
 image::gradle/bg-11.png[background, size=cover]
 
 `Gradle TestKit`
 
-Pour tester des builds complets
+To test complete builds
 
-Fait tourner un vrai Gradle
+Execute a real Gradle build
 
-Expose la sortie de Gradle et les résultats de tâche pour assertions
+Exposes Gradle output and task results to make assertions
 
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-11.png[background, size=cover]
 
 [.notes]
 --
-Montrer et expliquer les tests du plugin de démo
+Show and explain test for demo plugin
 --
 
 // =====================================================================================================================
 
 
-=== Supporter plusieurs versions de Gradle
+=== Supporting multiple Gradle versions
 image::gradle/bg-11.png[background, size=cover]
 
-Tester plusieurs versions de Gradle
+Test multiple Gradle versions
 
-* Pas de support intégré dans Gradle
-* S'implemente relativement facilement
+* No built-in support in Gradle (yet)
+* Relatively easy to roll out
 
 
-=== Supporter plusieurs versions de Gradle
+=== Supporting multiple Gradle versions in practice
 image::gradle/bg-11.png[background, size=cover]
-
-Tester plusieurs versions de Gradle
 
 .`build.gradle.kts`
 [source,kotlin]
 ----
-listOf("5.0", "6.0", "7.0", "7.4.2").forEach { testedVersion -> <1>
+listOf("5.0", "6.0", "7.0", "7.4.2").forEach { testedVersion -> //<1>
     val taskName = "testGradle${testedVersion.replace(".","_")}"
     val testTask = tasks.register<Test>(taskName) {
         classpath = tasks.test.get().classpath
         /* ... */
-        systemProperty("testedGradleVersion", testedVersion) <2>
+        systemProperty("testedGradleVersion", testedVersion) //<2>
     }
     tasks.check { dependsOn(testTask) }
 }
 ----
-<1> Liste des versions de Gradle testées
-<2> Une _System Property_ que les tests peuvent utiliser
+<1> List tested Gradle versions
+<2> Inject _System Property_ that the tests can leverage
 
 [.top-margin]
 .`AbstractIntegrationTest.kt`
@@ -405,4 +399,4 @@ listOf("5.0", "6.0", "7.0", "7.4.2").forEach { testedVersion -> <1>
 GradleRunner.create().withGradleVersion(System.getProperty("testedGradleVersion"))
 ----
 
-Support officiel futur grâce aux tests matriciels
+Built-in support in the future thanks to test suites and dimensions

@@ -4,8 +4,8 @@ image::gradle/bg-4.png[background, size=cover]
 
 &#x1F4C3;
 
-=== Projet sur GitHub
+=== Now a GitHub project
 
-Donne une idée https://github.com/orgs/gradle/projects/31[haut niveau] des changements à venir dans Gradle
+Illustrates the https://github.com/orgs/gradle/projects/31[high level] changes coming to Gradle
 
-Feedback sur `#roadmap` sur le Gradle Community Slack
+Feedback on the `#roadmap` channel in Gradle Community Slack

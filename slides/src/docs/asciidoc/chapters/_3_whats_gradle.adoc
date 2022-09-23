@@ -1,21 +1,21 @@
 [background-color="#02303a"]
-== Qu'est-ce que Gradle ?
+== What is Gradle?
 image::gradle/bg-7.png[background, size=cover]
 
 &#x1F418;
 
 
-=== Qu'est-ce que Gradle ?
+=== Gradle is ...
 image::gradle/bg-7.png[background, size=cover]
 
-Un outil pour automatiser la construction de logiciels
+A tool to automate building software
 
-* Un modèle de configuration extensible
-* Un moteur de résolution de dépendances
-* Un moteur d'exécution de tâches
+* An extensible configuration model
+* A dependency resolution engine
+* A task execution engine
 
 
-=== Divers écosystèmes
+=== Various ecosystems
 image::gradle/bg-7.png[background, size=cover]
 
 *Core* +
@@ -24,7 +24,7 @@ image:logo-groovy.png[role=inline-logo]
 image:logo-scala.svg[role=inline-logo]
 image:logo-checkstyle.png[role=inline-logo]
 image:logo-jacoco.png[role=inline-logo] +
-etc...
+and more ...
 
 [.top-margin]
 *Community* +
@@ -40,42 +40,42 @@ image:logo-pgsql.svg[role=inline-logo]
 image:logo-sonarqube.svg[role=inline-logo]
 image:logo-flyway.svg[role=inline-logo]
 image:logo-spotbugs.png[role=inline-logo] +
-etc...
+and more ...
 
 [.tiny.top-margin]
-Logos venant de link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia] ou des pages officielles™ respectives.
+Logos from link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia] or from product official™ pages.
 
 
-=== Comment on s'en sert ?
+=== How to you use it?
 image::gradle/bg-7.png[background, size=cover]
 
 * Gradle Wrapper
-** JVM requise, définit la version de gradle à utiliser, scripts pour utilisation sans installation
-** bootstrap: https://gradle-initializr.cleverapps.io ou une version de gradle installée
-* Utilisation
-** en ligne de commande
-** depuis un IDE
+** Requires a JVM, defines the Gradle version to use, scripts take care of installation
+** bootstrap: https://gradle-initializr.cleverapps.io or an installed Gradle version and the `init` task
+* Usage
+** command line
+** with an IDE
 
-=== Comment on s'en sert ?
+=== How to use it ?
 image::gradle/bg-7.png[background, size=cover]
 
 * Gradle Wrapper [link:https://docs.gradle.org/current/userguide/gradle_wrapper.html[doc]]
-* Utilisation en ligne de commande [link:https://docs.gradle.org/current/userguide/command_line_interface.html[doc]]
-* Utilisation depuis un IDE +
+* CLI [link:https://docs.gradle.org/current/userguide/command_line_interface.html[doc]]
+* From an IDE +
 [link:https://www.jetbrains.com/help/idea/gradle.html[doc]] IntelliJ IDEA +
 [link:https://github.com/microsoft/vscode-gradle[doc]] vscode
 
-=== Configuration extensible
+=== Extensible configuration
 image::gradle/bg-7.png[background, size=cover]
 
 [cols="<.^7,^.^3",frame=none,grid=none]
 |===
 a|
 [.small]
-* Modèle de configuration extensible
-* Système de plugins
-* DSL dynamique
-* Modélisation d’un build vs. scripter des tâches
+* Extensible configuration model
+* Plugin system
+* Dynamic DSL
+* Modelling of a build vs. scripting tasks
 a|
 [source,kotlin]
 --
@@ -92,28 +92,29 @@ include::../fragments/_diagram_task-graph.adoc[]
 image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/timeline?details=yznpxgmt5qzfo&expanded=WyIwLjMiLCIwLjMtMS4yIl0&show=Predecessors]
 |===
 
-=== Exécution de tâches
+=== Task execution
 image::gradle/bg-7.png[background, size=cover]
 
-Ne pas refaire ce qui a déjà été fait
+Never do something that was done before
 
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-* Build incrémental +
+* Incremental build +
   `UP-TO-DATE`
 * Build cache +
   `FROM-CACHE`
-* Tâches incrémentales
+* Incremental tasks
 a|
 include::../fragments/_diagram_task-execution.adoc[]
+FIX ME: cache is checked on local inputs change
 |===
 
-=== Qu'est-ce que Gradle ?
+=== Gradle is ...
 image::gradle/bg-7.png[background, size=cover]
 
-Un outil pour automatiser la construction de logiciels
+A tool to automate building software
 
-* Un modèle de configuration extensible
-* Un moteur de résolution de dépendances
-* Un moteur d'exécution de tâches
+* An extensible configuration model
+* A dependency resolution engine
+* A task execution engine

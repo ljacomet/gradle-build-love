@@ -1,8 +1,8 @@
 [background-color="#02303a"]
-== On recrute !
+== We are hiring !
 image::gradle/bg-1.png[background, size=cover]
 
-Si ce dont nous avons parlé aujourd'hui vous intéresse, venez travailler avec nous !
+If what we covered today sounds exciting, come work with us!
 
 image::team_map.png[width=65%]
 

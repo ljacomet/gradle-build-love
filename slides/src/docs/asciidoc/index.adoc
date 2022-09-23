@@ -5,11 +5,11 @@
 :title-slide-background-color: #02303a
 :hide-uri-scheme:
 
-= Donnez de l'amour à votre build, il vous le rendra ! ❤️
+= Gradle: Give your build some love, it will be returned! ❤️
 
-Louis Jacomet
+Kyle Moore & Louis Jacomet
 
-VoxxedDays Luxembourg 2022
+Devoxx Belgium 2022
 
 include::chapters/_1_agenda.adoc[]
 

@@ -23,28 +23,28 @@ image::monkeyuser-focus.png[width=30%]
 https://www.monkeyuser.com/2018/focus
 
 
-=== Un build rapide c'est
+=== A rapid build is
 image::gradle/bg-2.png[background, size=cover]
 
-Moins de temps d'attente
+Less time waiting
 
-Moins de changements de contexte
+Less context changes
 
-Plus de fluidité dans notre travail
+Stay in the zone longer
 
 
 // =====================================================================================================================
 
 
-=== Mesurer c'est douter
+=== To measure is to doubt
 image::gradle/bg-2.png[background, size=cover]
 
 [cols="<1,^1",frame=none,grid=none]
 |===
-a|* Mesurer
-* Changer
-* Mesurer
-* Comparer
+a|* Measure
+* Change
+* Measure
+* Compare
 
 a|image::xkcd-optimizing.png[width=65%]
 
@@ -56,7 +56,7 @@ https://xkcd.com/1691
 === Build Scans
 image::gradle/bg-2.png[background, size=cover]
 
-Un enregistrement permanent de ce qui se passe pendant un build
+Permanent record of what a build did
 
 image::buildscan-example.png[]
 
@@ -68,31 +68,31 @@ image::gradle/bg-2.png[background, size=cover]
 
 https://github.com/gradle/gradle-profiler
 
-* Scenarios fréquents pour vos developpeurs / CI
-** Temps de configuration
-** Build incrémental
-** Synchronisation IDE
-* Benchmarks récurrents pour prévenir les regressions
-* Profiling pour identifier les bottlenecks
+* Scenarios based on what developers / CI is doing
+** Configuration time
+** Incremental build
+** IDE synchronisation
+* Run benchmarks regularly to prevent regressions
+* Profiling to identify bottlenecks
 
 
-=== Elements de la performance Gradle
+=== Performance elements in Gradle
 image::gradle/bg-2.png[background, size=cover]
 
-* Construction parallèle
-* Gestion de la mémoire
+* Parallel building
+* Memory management
 
 
 // =====================================================================================================================
 
-=== Construction parallèle
+=== Parallel building
 image::gradle/bg-2.png[background, size=cover]
 
-* Parallélisme *maximum* `--max-workers=16`
-* Téléchargement des *dépendances*
-* *Tâches* utilisant la Worker API
-* Parallélisme *entre projets* `--parallel`
-* Parallélisme des *tests* +
+* *Maximum* parallelism `--max-workers=16`
+* *Dependencies* downloads
+* *Tasks* leveraging the Worker API
+* Parallelism *between projects* `--parallel`
+* Parallel *test* execution +
 `tasks.test { maxParallelForks = 16 }`
 
 [.top-margin]
@@ -101,44 +101,44 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 // =====================================================================================================================
 
 
-=== Gestion de la mémoire
+=== Memory management
 image::gradle/bg-2.png[background, size=cover]
 
-Un build c'est au minimum deux processus Java +
-avec des paramètres mémoire par défaut
+A build is at least two Java processes +
+with default memory parameters
 
 *Gradle Client* +
-UI (CLI/IDE) et communication avec le _daemon_ +
+UI (CLI/IDE) and communication with the _daemon_ +
 `-Xmx64m`
 
 *Gradle Daemon* +
-Configure et exécute le build +
+Configures et executes the build +
 `-Xmx512m -XX:MaxMetaspaceSize=256m`
 
-Certaines tâches utilisent d'*autres processus* +
+Some tasks use *other processes* +
 `-Xmx512m -XX:MaxMetaspaceSize=256m`
 
 
-=== Gestion de la mémoire
+=== Memory management
 image::gradle/bg-2.png[background, size=cover]
 
-Comprendre qu'on a un problème mémoire
+Understand that there is a memory problem
 
-* Build trop lent
+* Build too slow
 * `Expiring Daemon because JVM heap space is exhausted`
-* Les Build Scans montrent la pression mémoire image:build-scan-link.svg[link=https://ge.gradle.org/s/ojxxc2ucs5zjo/performance/build#garbage-collection]
-* `gradle-profiler` pour capturer les allocations
+* Build Scans show memory pressure image:build-scan-link.svg[link=https://ge.gradle.org/s/ojxxc2ucs5zjo/performance/build#garbage-collection]
+* `gradle-profiler` to capture allocations
 
 
-=== Gestion de la mémoire
+=== Memory management
 image::gradle/bg-2.png[background, size=cover]
 
-Changer les paramètres mémoire
+Change memory parameters
 
 [.small]
-*Gradle CLI* - rarement nécessaire
+*Gradle CLI* - rarely needed
 
-.Variable d'environnement `JAVA_OPTS`
+.Environment variable `JAVA_OPTS`
 [source,shell]
 ----
 JAVA_OPTS="-Xmx64m -XX:MaxPermSize=64m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
@@ -154,7 +154,7 @@ org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryEr
 ----
 
 [.small]
-*Tâches, e.g. `Test`*
+*Tasks, like `Test`*
 
 .`build.gradle.kts`
 [source,kotlin]
@@ -170,24 +170,20 @@ link:https://docs.gradle.org/current/userguide/build_environment.html#sec:config
 
 // =====================================================================================================================
 
-=== Configuration Cache
+=== Configuration Cache Principles
 image::gradle/bg-2.png[background, size=cover]
 
-Principes
-
-* Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
-* Détection des _inputs_ de la logique de build pour invalidation
-* Tâches isolées du modèle de build mutable et entre elles
+* Caches the result of the configuration and computation of the task graph, and reuse it for subsequent builds.
+* Detects build logic _inputs_ for invalidation
+* Task isolated from the mutable model and from each other
 
 
-=== Configuration Cache
+=== Configuration Cache Benefits
 image::gradle/bg-2.png[background, size=cover]
 
-Bénéfices
-
-* Quand rien n'a changé, la phase de configuration est complétement sautée
-* Moins de pression mémoire car le modèle de build peut être garbage collecté
-* Exécution de toutes les tâches en parallèle (incl. intra-projets)
+* When nothing changed, the whole configuration phase is skipped
+* Less memory pressure because the build model can be garbage collected
+* Executes _all_ tasks in parallel (incl. intra-projects)
 
 
 === Configuration Cache
@@ -196,78 +192,78 @@ image::gradle/bg-2.png[background, size=cover]
 image::cc-perf-java.png[]
 
 [background-color="#02303a"]
-=== Démo
+=== Demo
 image::gradle/bg-2.png[background, size=cover]
 
 [.notes]
 --
-Utiliser `gradle/gradle` +
-Execution des tests
+Use `gradle/gradle` +
+Test excution
 --
 
 
-=== Configuration Cache
+=== Configuration Cache Constraints
 image::gradle/bg-2.png[background, size=cover]
 
-Contraintes sur la logique de configuration
+On _configuration_ logic
 
-* Environnement, fichiers de conf, process externes (e.g. `git`) etc...
-* _Build listeners_ enregistrés lors de la configuration, notifiés lors de l'exécution
+* Environnement, configuration files, external processes (like `git`) ...
+* _Build listeners_ registered at configuration, notified during execution
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
 
 
-=== Configuration Cache
+=== Configuration Cache Constraints
 image::gradle/bg-2.png[background, size=cover]
 
-Contraintes sur la logique d'exécution
+On _execution_ logic
 
-* Pas de références au modèle de build dans les tâches +
-e.g. `Project`, `Task` etc...
-* Pas d'objets _live_ dans les _inputs_ +
-e.g. `InputStream`, `Socket` etc...
+* No references to build model during task execution +
+like `Project`, `Task` ...
+* No _live_ objects in _inputs_ +
+like `InputStream`, `Socket` ...
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
 
-=== Configuration Cache
+=== Configuration Cache Strength
 image::gradle/bg-2.png[background, size=cover]
 
-Force les bonnes pratiques
+Forces good practices
 
-* Claire séparation entre configuration et execution
-* Déclaration correcte des _inputs_
-* Pas d'interdépendance entre instances de tâches
-
-
-=== Configuration Cache
-image::gradle/bg-2.png[background, size=cover]
-
-Les plugins Core JVM sont compatibles +
-tous les autres ne le sont pas encore [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
-
-Les plugins Kotlin et Android sont compatibles
-
-De plus en plus de plugins communautaires sont compatibles link:https://github.com/gradle/gradle/issues/13490[gradle/gradle#13490]
+* Clear separation between configuration and execution
+* Correct declaration of _inputs_
+* No cross-dependencies between tasks
 
 
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-Feuille de route, à ce jour
+The Core JVM plugins are compatibles +
+not all others are yet [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
 
-* [.line-through]#incubating# => stable dans Gradle 8.x +
-  (en opt-in)
-* Activé par défaut dans Gradle 9.0 +
-  (avec un opt-out)
-* Seul mode possible dans Gradle x.x +
-  (sans opt-out)
+Kotlin and Android plugins are compatible
+
+More and more community plugins are compatible link:https://github.com/gradle/gradle/issues/13490[gradle/gradle#13490]
+
 
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-Cache le résultat de la configuration et du calcul du graphe de tâches, et réutilise pour les builds suivants.
+Roadmap, at this day
 
-Le jeu en vaut la chandelle
+* [.line-through]#incubating# => stable in Gradle 8.x +
+  (and opt-in)
+* Activated by default in Gradle 9.0 +
+  (with opt-out)
+* Only mode Gradle x.x +
+  (without opt-out)
 
-Vous pouvez démarrer son adoption dès aujourd'hui
+=== Configuration Cache
+image::gradle/bg-2.png[background, size=cover]
+
+Cache the result of configuration and computation of task graph, which is then reused for subsequent builds
+
+The game is worth it
+
+You can start adopting right now
 
 // =====================================================================================================================
 
@@ -277,10 +273,10 @@ image::gradle/bg-2.png[background, size=cover]
 
 [cols="<1,^1",frame=none,grid=none]
 |===
-a|* Mesurer
-* Changer
-* Mesurer
-* Comparer
+a|* Measure
+* Change
+* Measure
+* Compare
 
 a|image::xkcd-optimizing.png[width=65%]
 

@@ -2,9 +2,9 @@
 == Agenda
 image::gradle/bg-8.png[background, size=cover]
 
-* Qu'est-ce que Gradle ?
-* Fonctionnalités JVM
-* Logique de build
-* Structure de build(s)
+* What is Gradle ?
+* JVM features
+* Build logic
+* Build(s) structure
 * Performance
 * Roadmap
