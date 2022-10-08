@@ -87,3 +87,10 @@ publishing {
         }
     }
 }
+
+val badSpotbugsTasks = listOf("spotbugsTest", "spotbugsTestFixtures")
+for (t in badSpotbugsTasks) {
+    tasks.named<com.github.spotbugs.snom.SpotBugsTask>(t).configure {
+        enabled = false
+    }
+}
