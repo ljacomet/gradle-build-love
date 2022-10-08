@@ -77,7 +77,7 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                description.set("Funky library for Devoxx Fr turning 10!")
+                description.set("Funky library for Devoxx BE!")
             }
         }
     }
