@@ -55,7 +55,10 @@ abstract class FileProcessingTask : DefaultTask() {
 
     private
     fun processFile(processing: String, inputFile: File, outputFile: File) {
-        workers.noIsolation().submit(FileProcessingWork::class.java) {
+        workers.processIsolation { //this.forkOptions.debug = true
+//            this.forkOptions.debugOptions { this.port.set(9999) }
+            classpath.from(toolClasspath)
+        }.submit(FileProcessingWork::class.java) {
             this.processing.set(processing)
             this.inputFile.set(inputFile)
             this.outputFile.set(outputFile)
