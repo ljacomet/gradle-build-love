@@ -91,7 +91,23 @@ image::gradle/bg-6.png[background, size=cover]
 === Java provisioning
 image::gradle/bg-6.png[background, size=cover]
 
-TODO Adapt for Gradle 7.6
+The following is introduced in Gradle 7.6:
+
+[source,kotlin]
+----
+toolchainManagement { // <1>
+    jvm {
+        javaRepositories { // <2>
+            repository("gradle-disco") {
+                resolverClass.set(DiscoToolchainResolver::class.java) // <3>
+            }
+        }
+    }
+}
+----
+<1> New top level extension in `settings.gradle(.kts)`
+<2> You configure a list of repositories, which will be tried in declaration order
+<3> Each repository uses a service, registered by a plugin, that can do toolchain resolution and provisioning
 
 === Future
 image::gradle/bg-6.png[background, size=cover]
