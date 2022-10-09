@@ -45,7 +45,7 @@ class IncrementalBuildFunctionalTest {
 
         runner.build().let { result ->
             assertEquals(TaskOutcome.SUCCESS, result.task(":processFiles")?.outcome)
-        };
+        }
 
         projectDir.resolve("input").run {
             mkdirs()
