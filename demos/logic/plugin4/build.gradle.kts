@@ -6,6 +6,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    compileOnly("com.google.guava:guava:31.1-jre")
+}
+
 testing {
     suites {
         val test by getting(JvmTestSuite::class) {
