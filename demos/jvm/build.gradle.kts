@@ -77,7 +77,7 @@ publishing {
         create<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                description.set("Funky library for Devoxx Fr turning 10!")
+                description.set("Funky library for Devoxx BE!")
             }
         }
     }
@@ -85,5 +85,12 @@ publishing {
         maven {
             url = uri("repository")
         }
+    }
+}
+
+val badSpotbugsTasks = listOf("spotbugsTest", "spotbugsTestFixtures")
+for (t in badSpotbugsTasks) {
+    tasks.named<com.github.spotbugs.snom.SpotBugsTask>(t).configure {
+        enabled = false
     }
 }

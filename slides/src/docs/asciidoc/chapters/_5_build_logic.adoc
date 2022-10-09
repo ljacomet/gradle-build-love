@@ -88,7 +88,7 @@ a|
 [.small]
 --
 Don't call us, we'll call you! +
-_Sugarloaf^WHollywood_
+_Sugarloaf_
 
 Abstract types, instantiated and decorated by Gradle
 
@@ -129,7 +129,7 @@ image::gradle/bg-11.png[background, size=cover]
 [cols="<.^3,<.^4",frame=none,grid=none]
 |===
 a|
-Plugin targets
+Plugin types
 
 * `Project`
 * `Settings`
@@ -337,7 +337,10 @@ To test interactions with the configuration model
 
 Only for `Project`
 
-Does not allow to test tasks
+Does not allow:
+
+ - task invocation
+ - resolving configurations
 
 
 === Integration tests
@@ -400,3 +403,8 @@ GradleRunner.create().withGradleVersion(System.getProperty("testedGradleVersion"
 ----
 
 Built-in support in the future thanks to test suites and dimensions
+
+[.notes]
+--
+KM: this example is unnecessarily complex compared to a spock test (it's debateable, of course)
+--

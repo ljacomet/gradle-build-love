@@ -65,7 +65,7 @@ image::gradle/bg-6.png[background, size=cover]
 * Available criteria:
 ** Java language version
 ** JVM vendor
-** (Implementation: défaut or J9)
+** Implementation
 
 [background-color="#02303a"]
 === Demo
@@ -93,7 +93,7 @@ image::gradle/bg-6.png[background, size=cover]
 
 TODO Adapt for Gradle 7.6
 
-=== Futur
+=== Future
 image::gradle/bg-6.png[background, size=cover]
 
 * More options to select your JVM
@@ -154,10 +154,10 @@ image::gradle/bg-8.png[background, size=cover]
 * Consumption
 --
 
-=== Test fitures modelling
+=== Test fixtures modelling
 image::gradle/bg-6.png[background, size=cover]
 
-* As for test suites : sources and dependencies isolated
+* As with test suites: sources and dependencies isolated
 * Part of published library
 ** Variant in Gradle Module Metadata
 ** `classifier` for Maven / Ivy

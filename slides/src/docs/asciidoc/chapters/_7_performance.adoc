@@ -236,7 +236,7 @@ Forces good practices
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-The Core JVM plugins are compatibles +
+The Core JVM plugins are compatible +
 not all others are yet [link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:plugins:core[doc]]
 
 Kotlin and Android plugins are compatible
@@ -247,7 +247,7 @@ More and more community plugins are compatible link:https://github.com/gradle/gr
 === Configuration Cache
 image::gradle/bg-2.png[background, size=cover]
 
-Roadmap, at this day
+Current Roadmap
 
 * [.line-through]#incubating# => stable in Gradle 8.x +
   (and opt-in)
