@@ -1,6 +1,7 @@
 package example
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileType
 import org.gradle.api.provider.Property
@@ -25,6 +26,9 @@ abstract class FileProcessingTask : DefaultTask() {
     @get:PathSensitive(PathSensitivity.RELATIVE)
     @get:Incremental
     abstract val inputDirectory: DirectoryProperty
+
+    @get:Classpath
+    abstract val toolClasspath: ConfigurableFileCollection
 
     @get:OutputDirectory
     abstract val outputDirectory: DirectoryProperty
