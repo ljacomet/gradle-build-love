@@ -5,10 +5,10 @@
 :title-slide-background-color: #02303a
 :hide-uri-scheme:
 
-= Gradle: Give your build some love, it will be returned! ❤️
+= Gradle - Give your build some love, it will be returned! ❤️
 
-Kyle Moore & Louis Jacomet
-
+[.title.right]
+Kyle Moore & Louis Jacomet +
 Devoxx Belgium 2022
 
 include::chapters/_1_agenda.adoc[]
