@@ -8,7 +8,19 @@ image::gradle/bg-1.png[background, size=cover]
 === Kyle
 image::gradle/bg-1.png[background, size=cover]
 
-TODO
+image::kyle.png[height=250,width=250]
+
+[.center]
+*Kyle Moore*
+
+[.center]
+Principal Engineer @ Gradle Inc.
+
+[.center]
+Formerly LinkedIn, Guidewire Software, gosu-lang.org
+
+[.center]
+Twitter, GitHub -> @DPUkyle
 
 [%notitle]
 === Louis
