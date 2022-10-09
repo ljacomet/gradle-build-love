@@ -311,7 +311,7 @@ Validation evolves by checking more and more things while preserving compatibili
 // =====================================================================================================================
 
 
-=== To test is to doubt
+=== Build code _is_ production code
 image::gradle/bg-11.png[background, size=cover]
 
 [cols="<.^1,^.^1",frame=none,grid=none]
@@ -324,9 +324,10 @@ a|
 `Gradle TestKit` [link:https://docs.gradle.org/current/userguide/test_kit.html[doc]]
 
 a|
-image::tester-cest-douter.jpeg[]
+image::testingCatMeme.webp[]
+[.small]
+Image credit link:https://www.brendanconnolly.net/redefining-testing-static-and-otherwise/[Brendan Connolly]
 |===
-TODO adapt picture with an English alternative
 
 === Unit tests
 image::gradle/bg-11.png[background, size=cover]
