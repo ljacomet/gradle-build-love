@@ -66,8 +66,6 @@ image::gradle/bg-6.png[background, size=cover]
 ** Java language version
 ** JVM vendor
 ** Implementation
-*** Legacy AdoptOpenJDK: HotSpot or J9
-*** Modern: by vendor: Temurin, Semeru etc.
 
 [background-color="#02303a"]
 === Demo
