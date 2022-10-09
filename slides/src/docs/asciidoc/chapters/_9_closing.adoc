@@ -1,13 +1,7 @@
 [background-color="#02303a"]
+[%notitle]
 == We are hiring !
-image::gradle/bg-1.png[background, size=cover]
-
-If what we covered today sounds exciting, come work with us!
-
-image::team_map.png[width=65%]
-
-[.center]
-https://gradle.com/careers/
+image::hiring.png[background, size=cover]
 
 
 [background-color="#02303a"]
@@ -18,4 +12,6 @@ image::gradle/bg-10.png[background, size=cover]
 
 image::gradle/folks.png[width=33%]
 
-
+[%notitle]
+== DPE Summit
+image::dpe_summit.png[background, size=cover]

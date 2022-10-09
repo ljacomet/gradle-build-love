@@ -136,35 +136,19 @@ image::gradle/bg-1.png[background, size=cover]
 Permanent record +
 of everything that happens in a build.
 
-[cols="<.^65,^.^35",frame=none,grid=none]
-|===
-a|image::buildscan-example.png[]
+image::buildscan-example.png[]
 
 image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu]
-a|
-[.small]
---
-*Gradle & Maven build speed challenge*
-
-// https://gradle.com/gradle-and-maven-build-speed-challenge
-image::qrcode-build-speed-challenge.svg[link=images/qrcode-build-speed-challenge.svg]
-
-Win goodies :)
---
-|===
 
 [.notes]
 --
 We will use build scans in this presentation to illustrate some topics
 --
 
+[%notitle]
+=== Build speed challenge
+image::build_speed_challenge.png[background, size=cover]
 
+[%notitle]
 === We are hiring !
-image::gradle/bg-1.png[background, size=cover]
-
-If what we cover today sounds exciting, come work with us!
-
-image::team_map.png[width=65%]
-
-[.center]
-https://gradle.com/careers
+image::hiring.png[background, size=cover]
