@@ -92,6 +92,39 @@ include::../fragments/_diagram_task-graph.adoc[]
 image:build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu/timeline?details=yznpxgmt5qzfo&expanded=WyIwLjMiLCIwLjMtMS4yIl0&show=Predecessors]
 |===
 
+=== Task dependency resolution
+image::gradle/bg-7.png[background, size=cover]
+
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Starts with the invoked task
+a|
+include::../fragments/_diagram_task-graph-resolve1.adoc[]
+|===
+
+=== Task dependency resolution
+image::gradle/bg-7.png[background, size=cover]
+
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Then connects that task with its direct task dependencies
+a|
+include::../fragments/_diagram_task-graph-resolve2.adoc[]
+|===
+
+=== Task dependency resolution
+image::gradle/bg-7.png[background, size=cover]
+
+[cols="<.<2,^.<5",frame=none,grid=none]
+|===
+a|
+Includes indirect ones, potentially from a different project
+a|
+include::../fragments/_diagram_task-graph-resolve3.adoc[]
+|===
+
 === Task execution
 image::gradle/bg-7.png[background, size=cover]
 
