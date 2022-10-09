@@ -107,7 +107,6 @@ a|
 * Incremental tasks
 a|
 include::../fragments/_diagram_task-execution.adoc[]
-FIX ME: cache is checked on local inputs change
 |===
 
 === Gradle is ...

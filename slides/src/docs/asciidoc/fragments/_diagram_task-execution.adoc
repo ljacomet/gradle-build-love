@@ -24,16 +24,19 @@ if(Changed?) then (yes)
     label space_5
     label space_6
     label space_7
-    label space_8
-    label space_9
-    label space_10
-    label space_11
-    label space_12
-    label space_13
-    label exec
-    #1ba8cb :EXECUTION;
-    :Caching outputs;
-    detach
+    label lookup
+    :Lookup in //build cache//;
+    label space_201
+    if(Available?) then (no)
+        label space_300
+        #1ba8cb :EXECUTION;
+        :Caching outputs;
+        detach
+    else(yes)
+        label space_400
+        #1ba8cb :FROM-CACHE;
+        detach
+    endif
 else (no)
     label space_100
     :Local //outputs// verification;
@@ -41,16 +44,7 @@ else (no)
     label space_102
     if(Changed?) then (yes)
         label space_200
-        :Lookup in //build cache//;
-        label space_201
-        if(Available?) then (no)
-            label space_300
-            goto exec
-        else(yes)
-            label space_400
-            #1ba8cb :FROM-CACHE;
-            detach
-        endif
+        goto lookup
     else(no)
         label space_500
         #1ba8cb :UP-TO-DATE;
