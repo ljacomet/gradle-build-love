@@ -1,5 +1,6 @@
 package example
 
+import com.google.common.base.Strings
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
@@ -74,7 +75,7 @@ abstract class FileProcessingWork : WorkAction<FileProcessingParam> {
         println("processing file '${parameters.inputFile.get()}'")
         parameters.outputFile.get().run {
             parentFile.mkdirs()
-            writeText(parameters.inputFile.get().readText().reversed())
+            writeText(Strings.repeat(parameters.inputFile.get().readText(), 42).reversed())
         }
     }
 }
