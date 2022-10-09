@@ -33,6 +33,10 @@ class IncrementalTaskFunctionalTest {
                 id('file-processing')
             }
             
+            repositories {
+                mavenCentral()
+            }
+            
             fileProcessing {
                 processing = "some"
             }
