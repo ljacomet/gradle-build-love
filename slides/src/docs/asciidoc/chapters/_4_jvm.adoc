@@ -4,12 +4,6 @@ image::gradle/bg-6.png[background, size=cover]
 
 &#x2615;
 
-
-[.notes]
---
-Turn over to Louis
---
-
 === A bit of everything
 image::gradle/bg-6.png[background, size=cover]
 
@@ -20,16 +14,6 @@ image::gradle/bg-6.png[background, size=cover]
 * Publication
 
 === Version catalogs
-image::gradle/bg-6.png[background, size=cover]
-
-* Centralizes the list of dependencies used in a build
-** Coordinates and version
-** No classifiers, excludes or other attributes
-* Typed accessors
-* Separates: `group:artifact` and `version`
-* Dependency bundles
-
-=== TOML format
 image::gradle/bg-6.png[background, size=cover]
 
 [source,toml]
@@ -50,7 +34,23 @@ groovy = ["groovy-core", "groovy-json"]
 logging-capabilities = { id = "dev.jacomet.logging-capabilities", version = "0.10.0" }
 ----
 
-There is also an API in the Gradle `settings`.
+[source,kotlin]
+----
+dependencies {
+    implementation(libs.commons.lang3)
+}
+----
+
+=== Version catalog features
+image::gradle/bg-6.png[background, size=cover]
+
+* Centralizes the list of dependencies used in a build
+** Coordinates and version
+** No classifiers, excludes or other attributes
+* Typed accessors
+* Separates: `group:artifact` and `version`
+* Dependency bundles
+* TOML or API in the Gradle `settings`.
 
 === Attention points
 image::gradle/bg-6.png[background, size=cover]
@@ -79,10 +79,9 @@ image::gradle/bg-6.png[background, size=cover]
 
 [.notes]
 --
-Open project jvm -> library
-
-* Configuration in `java`
-* Configuration for a specific task
+* Catalogs: usage and additional one in settings
+* Configuration in `java` - 17
+* Configuration for a specific task - test 18
 * `javaToolchains` task
 --
 
@@ -95,6 +94,8 @@ image::gradle/bg-6.png[background, size=cover]
 ** Maven toolchains
 ** Previous auto provisioning results
 * Explicit configuration
+** `org.gradle.java.installations.fromEnv`
+** `org.gradle.java.installations.paths`
 
 === Java provisioning
 image::gradle/bg-6.png[background, size=cover]
@@ -123,7 +124,7 @@ image::gradle/bg-6.png[background, size=cover]
 * More options to select your JVM
 ** GraalVM, specific version, early access, ...
 * Support in more tasks
-** Core Gradle : code analysis for example
+** Core Gradle : code analysis in 7.5 and 7.6
 ** Community plugins: request its support
 
 [.notes]
@@ -211,7 +212,8 @@ image::gradle/bg-8.png[background, size=cover]
 * Add plugin maven-publish
 * Configuration, including POM
 * Repository
-* Variants?
+* Show result with test fixtures variants
+* Disable test fixtures publication
 --
 
 === What is published?
