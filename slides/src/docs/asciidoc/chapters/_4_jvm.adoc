@@ -79,6 +79,8 @@ image::gradle/bg-6.png[background, size=cover]
 
 [.notes]
 --
+Open project jvm -> library
+
 * Configuration in `java`
 * Configuration for a specific task
 * `javaToolchains` task
