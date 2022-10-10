@@ -28,7 +28,7 @@ image::gradle/bg-2.png[background, size=cover]
 
 Less time waiting
 
-Less context changes
+Reduce context switching
 
 Stay in the zone longer
 
@@ -71,6 +71,11 @@ image::buildscan-example.png[]
 image::build-scan-link.svg[link=https://scans.gradle.com/s/rcqiowuogd2xu]
 
 
+[.notes]
+--
+- Click around the timeline and dependencies
+--
+
 === `gradle-profiler`
 image::gradle/bg-2.png[background, size=cover]
 
@@ -83,6 +88,11 @@ https://github.com/gradle/gradle-profiler
 * Run benchmarks regularly to prevent regressions
 * Profiling to identify bottlenecks
 
+
+[.notes]
+--
+- Scenario aspect - run real-world use-cases; with multiple warm-ups/iterations
+--
 
 === Performance elements in Gradle
 image::gradle/bg-2.png[background, size=cover]
@@ -109,6 +119,14 @@ include::../fragments/_diagram_parallel-execution.adoc[]
 // =====================================================================================================================
 
 
+[.notes]
+--
+- Recommendation for local dev: Target 80% of cores utilized
+- Daemon priority == low
+- A very well-tuned, efficient build can max-out your machine
+- Project parallelism off by default; Worker API on by default
+--
+
 === Memory management
 image::gradle/bg-2.png[background, size=cover]
 
@@ -126,6 +144,11 @@ Configures et executes the build +
 Some tasks use *other processes* +
 `-Xmx512m -XX:MaxMetaspaceSize=256m`
 
+[.notes]
+--
+- checkstyle task - example of separate memory configuration
+--
+
 
 === Memory management
 image::gradle/bg-2.png[background, size=cover]
@@ -137,6 +160,11 @@ Understand that there is a memory problem
 * Build Scans show memory pressure image:build-scan-link.svg[link=https://ge.gradle.org/s/ojxxc2ucs5zjo/performance/build#garbage-collection]
 * `gradle-profiler` to capture allocations
 
+
+[.notes]
+--
+- checkstyle task - example of separate memory configuration
+--
 
 === Memory management
 image::gradle/bg-2.png[background, size=cover]
@@ -206,7 +234,7 @@ image::gradle/bg-2.png[background, size=cover]
 [.notes]
 --
 Use `gradle/gradle` +
-Test excution
+Test VersionParsetTest execution
 --
 
 
@@ -218,6 +246,12 @@ On _configuration_ logic
 * Environnement, configuration files, external processes (like `git`) ...
 * _Build listeners_ registered at configuration, notified during execution
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
+
+[.notes]
+--
+- Specific APIs to gather environmental factors and teach Gradle
+- Reacting to configuration events no longer exists, use execution events
+--
 
 
 === Configuration Cache Constraints
@@ -231,6 +265,13 @@ like `Project`, `Task` ...
 like `InputStream`, `Socket` ...
 * link:https://docs.gradle.org/nightly/userguide/configuration_cache.html#config_cache:requirements[configuration_cache#requirements]
 
+[.notes]
+--
+- Avoids mutable Project state and global project lock
+- Has to be serializable in order to be cacheable
+--
+
+
 === Configuration Cache Strength
 image::gradle/bg-2.png[background, size=cover]
 
@@ -239,6 +280,12 @@ Forces good practices
 * Clear separation between configuration and execution
 * Correct declaration of _inputs_
 * No cross-dependencies between tasks
+
+[.notes]
+--
+- Ensure your task doesn't rely on a side-effect of another
+- More parallelism
+--
 
 
 === Configuration Cache
@@ -259,7 +306,7 @@ Current Roadmap
 
 * [.line-through]#incubating# => stable in Gradle 8.x +
   (and opt-in)
-* Activated by default in Gradle 9.0 +
+* Activated by default in Gradle 9.0? +
   (with opt-out)
 * Only mode Gradle x.x +
   (without opt-out)
@@ -269,11 +316,17 @@ image::gradle/bg-2.png[background, size=cover]
 
 Cache the result of configuration and computation of task graph, which is then reused for subsequent builds
 
-The game is worth it
+Worth the effort
 
 You can start adopting right now
 
 // =====================================================================================================================
+
+[.notes]
+--
+- "Call to action"
+- Short-term pain, long-term gain and instant pay-off especially for larger projects
+--
 
 
 === Performance
