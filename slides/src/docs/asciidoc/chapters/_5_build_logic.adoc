@@ -349,6 +349,20 @@ image::testingCatMeme.webp[]
 Image credit link:https://www.brendanconnolly.net/redefining-testing-static-and-otherwise/[Brendan Connolly]
 |===
 
+[background-color="#02303a"]
+=== Demo
+image::gradle/bg-11.png[background, size=cover]
+
+[.notes]
+--
+- Show and explain test for demo plugin -> `logic` -> `plugin` subproject
+- Don't elaborate on Property API, but show wiring a property instead of a value makes us lazy
+- IOW we don't need to know the value at configuration time; resolved ad-hoc @ execution time
+--
+
+// =====================================================================================================================
+
+
 === Unit tests
 image::gradle/bg-11.png[background, size=cover]
 
@@ -378,18 +392,6 @@ To test complete builds
 Execute a real Gradle build
 
 Exposes Gradle output and task results to make assertions
-
-
-[background-color="#02303a"]
-=== Demo
-image::gradle/bg-11.png[background, size=cover]
-
-[.notes]
---
-Show and explain test for demo plugin
---
-
-// =====================================================================================================================
 
 
 === Supporting multiple Gradle versions
