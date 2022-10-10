@@ -123,6 +123,13 @@ def some = objects.newInstance(Something)
 ----
 |===
 
+[.notes]
+--
+ - Create abstract tasks, we instantiate and decorate
+ - Gradle is a platform, leveraging DI just like an app. fwk. spring, micronaut, quarkus
+--
+
+
 === Plugins
 image::gradle/bg-11.png[background, size=cover]
 
@@ -164,12 +171,16 @@ Located in a `SourceSet`
 
 [source]
 ----
-src/main/kotlin/my-plugin.gradle.kts
-src/main/kotlin/my-plugin.settings.gradle.kts
-src/main/groovy/my-plugin.init.gradle
+src/main/kotlin/com.example.my-plugin.gradle.kts
+src/main/kotlin/com.example.my-plugin.settings.gradle.kts
+src/main/groovy/com.example.my-plugin.init.gradle
 ----
 
-// =====================================================================================================================
+[.notes]
+--
+ - namespace your plugins
+ - (setting|init).gradle(.kts)
+--
 
 === Writing tasks
 image::gradle/bg-11.png[background, size=cover]
@@ -191,6 +202,15 @@ What happens when input or output change?
 a|
 include::../fragments/_diagram_task-execution.adoc[]
 |===
+
+[.notes]
+--
+ - Plugins need to do work, so they should create tasks
+ - Tasks must have inputs/outputs
+ - All *outputs* of tasks must be file-based
+ - Think of tasks as functions with arguments (inputs) and return type (output)
+--
+
 
 === Incrementality test
 image::gradle/bg-11.png[background, size=cover]
@@ -343,6 +363,10 @@ Does not allow:
  - task invocation
  - resolving configurations
 
+[.notes]
+--
+- Interaction with the configuration model
+--
 
 === Integration tests
 image::gradle/bg-11.png[background, size=cover]
