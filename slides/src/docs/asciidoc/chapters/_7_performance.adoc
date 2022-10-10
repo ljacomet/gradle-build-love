@@ -36,7 +36,7 @@ Stay in the zone longer
 // =====================================================================================================================
 
 
-=== To measure is to doubt
+=== Science, not sentiment
 image::gradle/bg-2.png[background, size=cover]
 
 [cols="<1,^1",frame=none,grid=none]
@@ -52,6 +52,14 @@ a|image::xkcd-optimizing.png[width=65%]
 https://xkcd.com/1691
 |===
 
+[.notes]
+--
+Engineers can very sentimental about build performance changes
+
+ - Help yourself avoid "What have you done for me lately?"
+ - Kyle suggests using CI to measure; tends to be more consistent
+ - Local machines have many browser tabs, IDEs open, other things competing for CPU
+--
 
 === Build Scans
 image::gradle/bg-2.png[background, size=cover]
