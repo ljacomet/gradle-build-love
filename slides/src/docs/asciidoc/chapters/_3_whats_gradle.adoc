@@ -45,6 +45,12 @@ and more ...
 [.tiny.top-margin]
 Logos from link:https://commons.wikimedia.org/wiki/Category:Logos[Wikimedia] or from product official™ pages.
 
+[.notes]
+--
+ - Breadth of ecosystem
+ - Bundles plugins and strong community (6k+ community plugins)
+ - extensibility
+--
 
 === How to you use it?
 image::gradle/bg-7.png[background, size=cover]
@@ -114,6 +120,11 @@ a|
 include::../fragments/_diagram_task-graph-resolve2.adoc[]
 |===
 
+[.notes]
+--
+- Resolve task inputs/outputs to determine state
+--
+
 === Task dependency resolution
 image::gradle/bg-7.png[background, size=cover]
 
@@ -125,6 +136,11 @@ a|
 include::../fragments/_diagram_task-graph-resolve3.adoc[]
 |===
 
+[.notes]
+--
+ - Use dep. mgmt. to reach across project boundaries
+--
+
 === Task execution
 image::gradle/bg-7.png[background, size=cover]
 
@@ -133,14 +149,23 @@ Never do something that was done before
 [cols="<.^1,^.^1",frame=none,grid=none]
 |===
 a|
-* Incremental build +
+* Avoid rework +
   `UP-TO-DATE`
 * Build cache +
   `FROM-CACHE`
+* Do the work +
+  `EXECUTION`
 * Incremental tasks
 a|
 include::../fragments/_diagram_task-execution.adoc[]
 |===
+
+
+[.notes]
+--
+- Smart model; try to never redo work
+- Incremental -> only build once, locally
+--
 
 === Gradle is ...
 image::gradle/bg-7.png[background, size=cover]

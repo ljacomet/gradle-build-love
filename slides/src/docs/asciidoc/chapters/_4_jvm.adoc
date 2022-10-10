@@ -4,6 +4,12 @@ image::gradle/bg-6.png[background, size=cover]
 
 &#x2615;
 
+
+[.notes]
+--
+Turn over to Louis
+--
+
 === A bit of everything
 image::gradle/bg-6.png[background, size=cover]
 
