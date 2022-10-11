@@ -145,7 +145,7 @@ tasks {
 }
 
 gitPublish {
-  repoUri.set("git@github.com:eskatos/gradle-build-love.git")
+  repoUri.set("git@github.com:ljacomet/gradle-build-love.git")
   branch.set("gh-pages")
   contents {
     from(tasks.asciidoctorRevealJs)
