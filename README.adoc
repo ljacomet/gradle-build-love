@@ -9,3 +9,4 @@ Slides for our https://devoxx.be/talk/?id=19409[Devoxx Belgium 2022] presentatio
 == Slides and recording
 
 HTML:: link:https://ljacomet.github.io/gradle-build-love/[ljacomet.github.io/gradle-build-love]
+PDF:: link:https://github.com/ljacomet/gradle-build-love/suites/8712180577/artifacts/393620477[slides.pdf]
