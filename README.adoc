@@ -8,4 +8,4 @@ Slides for our https://devoxx.be/talk/?id=19409[Devoxx Belgium 2022] presentatio
 
 == Slides and recording
 
-Let's wait until the session happens
+HTML:: link:https://ljacomet.github.io/gradle-build-love/[ljacomet.github.io/gradle-build-love]
