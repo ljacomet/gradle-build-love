@@ -10,3 +10,4 @@ Slides for our https://devoxx.be/talk/?id=19409[Devoxx Belgium 2022] presentatio
 
 HTML:: link:https://ljacomet.github.io/gradle-build-love/[ljacomet.github.io/gradle-build-love]
 PDF:: link:https://github.com/ljacomet/gradle-build-love/releases/download/SLIDES/20221010_DevoxxBE_Gradle-Give-your-build-some-love.pdf[20221010_DevoxxBE_Gradle-Give-your-build-some-love.pdf]
+Recording:: link:https://www.youtube.com/watch?v=_L0piM92np4[Talk on YouTube]
