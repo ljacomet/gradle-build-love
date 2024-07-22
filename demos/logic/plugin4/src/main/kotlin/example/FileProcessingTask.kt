@@ -1,6 +1,8 @@
 package example
 
+import com.google.common.base.Strings
 import org.gradle.api.DefaultTask
+import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileType
 import org.gradle.api.provider.Property
@@ -26,6 +28,9 @@ abstract class FileProcessingTask : DefaultTask() {
     @get:Incremental
     abstract val inputDirectory: DirectoryProperty
 
+    @get:Classpath
+    abstract val toolClasspath: ConfigurableFileCollection
+
     @get:OutputDirectory
     abstract val outputDirectory: DirectoryProperty
 
@@ -33,7 +38,7 @@ abstract class FileProcessingTask : DefaultTask() {
     fun action(inputChanges: InputChanges) {
 
         inputChanges.getFileChanges(inputDirectory).forEach { change ->
-            if (change.fileType == FileType.DIRECTORY) return@forEach
+            if (setOf(FileType.DIRECTORY, FileType.MISSING).contains(change.fileType)) return@forEach
 
             val targetFile = outputDirectory.file(change.normalizedPath).get().asFile
             if (change.changeType == ChangeType.REMOVED) {
@@ -50,7 +55,10 @@ abstract class FileProcessingTask : DefaultTask() {
 
     private
     fun processFile(processing: String, inputFile: File, outputFile: File) {
-        workers.noIsolation().submit(FileProcessingWork::class.java) {
+        workers.processIsolation { //this.forkOptions.debug = true
+//            this.forkOptions.debugOptions { this.port.set(9999) }
+            classpath.from(toolClasspath)
+        }.submit(FileProcessingWork::class.java) {
             this.processing.set(processing)
             this.inputFile.set(inputFile)
             this.outputFile.set(outputFile)
@@ -70,7 +78,7 @@ abstract class FileProcessingWork : WorkAction<FileProcessingParam> {
         println("processing file '${parameters.inputFile.get()}'")
         parameters.outputFile.get().run {
             parentFile.mkdirs()
-            writeText(parameters.inputFile.get().readText().reversed())
+            writeText(Strings.repeat(parameters.inputFile.get().readText(), 42).reversed())
         }
     }
 }

@@ -41,11 +41,12 @@ class IncrementalBuildFunctionalTest {
             .forwardOutput()
             .withPluginClasspath()
             .withProjectDir(projectDir)
-            .withArguments("processFiles")
+            .withArguments("processFiles", "-is")
+            .withDebug(true)
 
         runner.build().let { result ->
             assertEquals(TaskOutcome.SUCCESS, result.task(":processFiles")?.outcome)
-        };
+        }
 
         projectDir.resolve("input").run {
             mkdirs()

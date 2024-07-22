@@ -33,6 +33,10 @@ class IncrementalTaskFunctionalTest {
                 id('file-processing')
             }
             
+            repositories {
+                mavenCentral()
+            }
+            
             fileProcessing {
                 processing = "some"
             }
@@ -53,8 +57,13 @@ class IncrementalTaskFunctionalTest {
 
         runner.build().let { result ->
             assertEquals(TaskOutcome.SUCCESS, result.task(":processFiles")?.outcome)
-            assertTrue(result.output.contains("/file1.txt"))
-            assertTrue(result.output.contains("/file2.txt"))
+            val buildFolder = projectDir.resolve("build")
+            val file1 = buildFolder.resolve("output/file1.txt")
+            val file2 = buildFolder.resolve("output/file2.txt")
+            assertTrue(file1.isFile)
+            assertEquals("1", file1.readText())
+            assertTrue(file2.isFile)
+            assertEquals("2", file2.readText())
         }
 
         runner.build().let { result ->
@@ -67,9 +76,16 @@ class IncrementalTaskFunctionalTest {
 
         runner.build().let { result ->
             assertEquals(TaskOutcome.SUCCESS, result.task(":processFiles")?.outcome)
-            assertFalse(result.output.contains("/file1.txt"))
-            assertFalse(result.output.contains("/file2.txt"))
-            assertTrue(result.output.contains("/file3.txt"))
+            val buildFolder = projectDir.resolve("build")
+            val file1 = buildFolder.resolve("output/file1.txt")
+            val file2 = buildFolder.resolve("output/file2.txt")
+            val file3 = buildFolder.resolve("output/file3.txt")
+            assertTrue(file1.isFile)
+            assertEquals("1", file1.readText())
+            assertTrue(file2.isFile)
+            assertEquals("2", file2.readText())
+            assertTrue(file3.isFile)
+            assertEquals("3", file3.readText())
         }
     }
 }

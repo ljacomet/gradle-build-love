@@ -29,7 +29,7 @@ abstract class FileProcessingTask : DefaultTask() {
     fun action(inputChanges: InputChanges) {
 
         inputChanges.getFileChanges(inputDirectory).forEach { change ->
-            if (change.fileType == FileType.DIRECTORY) return@forEach
+            if (setOf(FileType.DIRECTORY, FileType.MISSING).contains(change.fileType)) return@forEach
 
             val targetFile = outputDirectory.file(change.normalizedPath).get().asFile
             if (change.changeType == ChangeType.REMOVED) {
